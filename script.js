@@ -126,7 +126,7 @@ function startGame() {
     }
     setTimeout(() => {
         bulletLoop();
-    },100)
+    },200)
 }
     enemyAttackLoop();
     bulletLoop();
