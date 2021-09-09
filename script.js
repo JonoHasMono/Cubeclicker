@@ -1,4 +1,5 @@
 let versionNum = "0.0.1";
+let score = 0
 
 function startGame() {
     const bodyVar = document.createElement("div");
@@ -21,7 +22,17 @@ function startGame() {
 
     let clickHim = document.createElement("div");
     clickHim.classList.add("clickHim");
-    clickHim.innerHTML = "Click the Jerma --->";
+    clickHim.innerHTML = "Click the Jerma >>>";
+    bodyVar.appendChild(clickHim);
+
+    let scoreTop = document.createElement("div");
+    scoreTop.classList.add("scoreTop");
+    scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+    bodyVar.appendChild(scoreTop);
+    let scoreBottom = document.createElement("div");
+    scoreBottom.classList.add("scoreBottom");
+    scoreBottom.innerHTML = "(Click the Jerma cube to get more)";
+    bodyVar.appendChild(scoreBottom);
 
     document.addEventListener('keydown', logKey);
 
