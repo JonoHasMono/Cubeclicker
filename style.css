@@ -1,37 +1,22 @@
 body {
-    background-image: linear-gradient(to right, #050011 , #320015);
+    background-image: linear-gradient(#050011 , #003215);
 }
 
-.character {
-    width: 2em;
-    height: 2em;
+.mainCube {
+    width: 150px;
+    height: 150px;
     position: absolute;
-    left: 3em;
+    left: 45%;
+    top: 40%;
     text-align: center;
     border: 5px solid rgb(0, 255, 100);
     background-color: black;
-    border-radius: 35px;
     box-shadow: 0 0 25px rgb(0, 255, 100);
     transform: translate(-50%, -50%);
+    animation: spin 8s linear infinite;
 }
 
-.attack {
-    width: 5em;
-    height: 5em;
-    position: absolute;
-    text-align: center;
-    border: 5px solid red;
-    background-color: rgb(255, 200,200);
-    transform: translate(-50%, -50%);
-}
-
-.bullet {
-    width: 3em;
-    height: 1em;
-    position: absolute;
-    text-align: center;
-    border: 5px solid rgb(0, 255, 100);
-    box-shadow: 0 0 25px rgb(0, 255, 100);
-    background-color: white;
-    transform: translate(-50%, -50%);
+@keyframes spin {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}
 }
