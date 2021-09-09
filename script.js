@@ -1,4 +1,4 @@
-let versionNum = "0.0.1";
+let versionNum = "0.0.3";
 let score = 0
 
 function startGame() {
@@ -13,6 +13,7 @@ function startGame() {
     let cubeVis = document.createElement("img");
     cubeVis.classList.add("cubeVis");
     cubeVis.setAttribute("src", "images/jerma.png");
+    cubeVis.addEventListener("click", jermaClicked);
     cube.appendChild(cubeVis);
 
     let version = document.createElement("div");
@@ -33,6 +34,11 @@ function startGame() {
     scoreBottom.classList.add("scoreBottom");
     scoreBottom.innerHTML = "(Click the Jerma cube to get more)";
     bodyVar.appendChild(scoreBottom);
+
+    function jermaClicked() {
+        score = score + 1;
+        scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+    }
 
     document.addEventListener('keydown', logKey);
 
