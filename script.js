@@ -5,6 +5,7 @@ let upTwoOpen = false;
 let upThreeOpen = false;
 let upFourOpen = false;
 let upFiveOpen = false;
+let upSixOpen = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 21;
@@ -12,6 +13,7 @@ let upTwoPower = 1;
 let upThreePower = 1;
 let upFourPower = 1;
 let upFivePower = 1;
+let upSixPower = 1
 let bigClick = 0;
 
 function startGame() {
@@ -94,6 +96,15 @@ function startGame() {
     upFiveDesc.classList.add("up5D");
     upFiveDesc.innerHTML = "Every 10th manual click is stronger, upgrading further increases it's strength"
 
+    let upSixCostNum = 5000
+    let upSixCost = document.createElement("div");
+    upSixCost.classList.add("up6C");
+    upSixCost.innerHTML = "$" + upSixCostNum.toString();
+    bodyVar.appendChild(upSixCost);
+    let upSixDesc = document.createElement("div");
+    upSixDesc.classList.add("up6D");
+    upSixDesc.innerHTML = "An Obamahedron manifests itself into our reality, gathering Jerma bucks from other dimensions"
+
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
         let particleTop = 47;
@@ -122,7 +133,7 @@ function startGame() {
         if(upFivePower > 1) {
             if (bigClick == 10) {
                 bigClick = 0;
-                score = score + ((jermaPower * upFourPower) * 10)
+                score = score + (jermaPower * (upFourPower * 10))
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             } else {
             bigClick += 1;
@@ -165,6 +176,12 @@ function startGame() {
             upgradeFive.addEventListener("click", buyUpFive)
             bodyVar.appendChild(upgradeFive);
 
+            let upgradeSix = document.createElement("div");
+            upgradeSix.classList.add("up6");
+            upgradeSix.addEventListener("mouseover", openUpSix)
+            upgradeSix.addEventListener("click", buyUpSix)
+            bodyVar.appendChild(upgradeSix);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -197,6 +214,13 @@ function startGame() {
         if (upFiveOpen == false) {
             upFiveOpen = true;
             bodyVar.appendChild(upFiveDesc);
+        }
+    }
+
+    function openUpSix() {
+        if (upSixOpen == false) {
+            upSixOpen = true;
+            bodyVar.appendChild(upSixDesc);
         }
     }
 
@@ -297,6 +321,27 @@ function startGame() {
     }
     }
 
+    function buyUpSix() {
+        if(upSixPower < 10) {
+        if (score >= upSixCostNum) {
+            if(upSixPower == 1) {
+                let ohed = document.createElement("img")
+                ohed.classList.add("ohed");
+                ohed.setAttribute("src", "images/Obamahedron.gif");
+                bodyVar.appendChild(ohed);
+            }
+            score = score - upSixCostNum
+            upSixCostNum = upSixCostNum + (500 * (upSixPower ** 2));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            upSixPower = upSixPower + 1;
+            upSixCost.innerHTML = "$" + upSixCostNum.toString();
+        }
+    } else {
+        upgradeSix.style.animation = "spin 5s linear infinite";
+        upSixCost.innerHTML = "Maxed Out";
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -322,6 +367,10 @@ function startGame() {
         if(upFiveOpen == true) {
             upFiveOpen = false;
             bodyVar.removeChild(upFiveDesc);
+        }
+        if(upSixOpen == true) {
+            upSixOpen = false;
+            bodyVar.removeChild(upSixDesc);
         }
     }
 
@@ -406,8 +455,41 @@ function startGame() {
             scottishClicker();
         }, (500 / upThreePower))
     }
+    function ohedClicker() {
+        setTimeout(() => {
+            if(upSixPower >= 2) {
+                score = score + (jermaPower * upFourPower);
+                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                spawnOhedParticle();
+                function spawnOhedParticle() {
+                    let ohedParticle = document.createElement("div");
+                    let oparticleTop = 42;
+                    let oparticleSpeed = 0
+                    ohedParticle.classList.add("ohedParticle");
+                    ohedParticle.style.left = (83 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    ohedParticle.style.top = oparticleTop + "%"
+                    bodyVar.appendChild(ohedParticle);
+                    moveParticle();
+                    function moveParticle() {
+                        setTimeout(() => {
+                            if (oparticleTop < 100) {
+                            oparticleTop = oparticleTop + oparticleSpeed;
+                            oparticleSpeed = oparticleSpeed + 0.01;
+                            ohedParticle.style.top = oparticleTop + "%";
+                            moveParticle()
+                            } else {
+                                bodyVar.removeChild(ohedParticle);
+                            }
+                        }, 10)
+                    }
+                }
+            }
+            ohedClicker();
+        }, (500 / upSixPower))
+    }
     jahClicker();
-    scottishClicker();
+    scottishClicker(); 
+    ohedClicker();
 
 }
 
