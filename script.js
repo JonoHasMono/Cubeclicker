@@ -1,6 +1,9 @@
 let versionNum = "0.0.4";
 let score = 0
 let upOneOpen = false
+let jermaPower = 1;
+let upOnePower = 1;
+let jermaSpeed = 22;
 
 function startGame() {
     const bodyVar = document.createElement("div");
@@ -9,6 +12,7 @@ function startGame() {
 
     let cube = document.createElement("div");
     cube.classList.add("mainCube");
+    cube.style.animation = "spin " + jermaSpeed + "s linear infinite";
     bodyVar.appendChild(cube);
 
     let cubeVis = document.createElement("img");
@@ -36,16 +40,22 @@ function startGame() {
     scoreBottom.innerHTML = "(Click the Jerma cube to get more)";
     bodyVar.appendChild(scoreBottom);
 
+    let upOneCostNum = 50
+    let upOneCost = document.createElement("div");
+    upOneCost.classList.add("up1C");
+    upOneCost.innerHTML = "$" + upOneCostNum.toString();
+    bodyVar.appendChild(upOneCost);
+
     let upOneDesc = document.createElement("div");
-            upOneDesc.classList.add("up1D");
-            upOneDesc.innerHTML = "Increases Jerma's size, granting more Jerma bucks per click"
+    upOneDesc.classList.add("up1D");
+    upOneDesc.innerHTML = "Jerma spins faster, granting more Jerma bucks per click"
 
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
         let particleTop = 47;
         let particleSpeed = 0
         cubeParticle.classList.add("cubeParticle");
-        cubeParticle.style.left = (45 + (Math.floor(Math.random() * 11))).toString() + "%"
+        cubeParticle.style.left = (48 + (Math.floor(Math.random() * 5))).toString() + "%"
         cubeParticle.style.top = particleTop + "%"
         bodyVar.appendChild(cubeParticle);
         moveParticle();
@@ -65,7 +75,7 @@ function startGame() {
 
     function jermaClicked() {
         spawnCubeParticle();
-        score = score + 1;
+        score = score + jermaPower;
         scoreTop.innerHTML = "You have " + score + " Jerma bucks";
     }
 
@@ -74,6 +84,7 @@ function startGame() {
             let upgradeOne = document.createElement("div");
             upgradeOne.classList.add("up1");
             upgradeOne.addEventListener("mouseover", openUpOne)
+            upgradeOne.addEventListener("click", buyUpOne)
             bodyVar.appendChild(upgradeOne);
         }
         showUpgradeOne();
@@ -85,6 +96,24 @@ function startGame() {
             bodyVar.appendChild(upOneDesc);
         }
     }
+
+    function buyUpOne() {
+        if(upOnePower < 10) {
+        if (score >= upOneCostNum) {
+            score = score - upOneCostNum
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            upOneCostNum = upOneCostNum + (50 * (upOnePower ** 2));
+            upOnePower = upOnePower + 1;
+            jermaPower = jermaPower + 1;
+            jermaSpeed = jermaSpeed - 2;
+            cube.style.animation = "spin " + jermaSpeed + "s linear infinite";
+            upOneCost.innerHTML = "$" + upOneCostNum.toString();
+        }
+    } else {
+        upOneCost.innerHTML = "Maxed Out";
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);

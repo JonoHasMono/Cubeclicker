@@ -4,6 +4,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow: hidden;
+    user-select: none;
 }
 
 .mainCube {
@@ -17,7 +18,7 @@ body {
     background-color: black;
     box-shadow: 0 0 25px rgb(0, 255, 100);
     transform: translate(-50%, -50%);
-    animation: spin 6s linear infinite;
+    user-select: none;
 }
 
 .cubeParticle {
@@ -30,6 +31,7 @@ body {
     box-shadow: 0 0 5px rgb(0, 255, 100);
     transform: translate(-50%, -50%);
     animation: spin 2s linear infinite;
+    user-select: none;
     z-index: -1;
 }
 
@@ -143,7 +145,7 @@ body {
     border-radius: 25px;
     position: absolute;
     left: 5%;
-    bottom: 5%;
+    bottom: 10%;
     text-align: center;
     border: 5px solid rgb(255, 0, 0);
     background-color: rgb(50, 0, 0);
@@ -157,6 +159,20 @@ body {
     width: 100%;
     left: 50%;
     bottom: 20%;
+    font-size: 170%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 5px white;
+    transform: translate(-50%, -50%);
+}
+
+.up1C {
+    position: absolute;
+    width: 100%;
+    left: 7.5%;
+    bottom: 1%;
     font-size: 170%;
     color: white;
     text-align: center;
