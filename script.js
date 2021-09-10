@@ -1,4 +1,4 @@
-let versionNum = "0.1.1";
+let versionNum = "0.1.2";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -182,7 +182,7 @@ function startGame() {
     }
 
     function buyUpTwo() {
-        if(upTwoPower < 10) {
+        if(upTwoPower < 20) {
         if (score >= upTwoCostNum) {
             if(upTwoPower == 1) {
                 let jah = document.createElement("img")
@@ -191,7 +191,7 @@ function startGame() {
                 bodyVar.appendChild(jah);
             }
             score = score - upTwoCostNum
-            upTwoCostNum = upTwoCostNum + (250 * (upTwoPower ** 2));
+            upTwoCostNum = upTwoCostNum + (200 * (upTwoPower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upTwoPower = upTwoPower + 1;
             upTwoCost.innerHTML = "$" + upTwoCostNum.toString();
@@ -203,7 +203,7 @@ function startGame() {
     }
 
     function buyUpThree() {
-        if(upThreePower < 10) {
+        if(upThreePower < 20) {
         if (score >= upThreeCostNum) {
             if(upThreePower == 1) {
                 let scottish = document.createElement("img")
@@ -212,7 +212,7 @@ function startGame() {
                 bodyVar.appendChild(scottish);
             }
             score = score - upThreeCostNum
-            upThreeCostNum = upThreeCostNum + (250 * (upThreePower ** 2));
+            upThreeCostNum = upThreeCostNum + (300 * (upThreePower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upThreePower = upThreePower + 1;
             upThreeCost.innerHTML = "$" + upThreeCostNum.toString();
@@ -348,7 +348,7 @@ function startGame() {
             }
         }
             scottishClicker();
-        }, (1000 / upThreePower))
+        }, (500 / upThreePower))
     }
     jahClicker();
     scottishClicker();
