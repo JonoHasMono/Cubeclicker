@@ -1,4 +1,4 @@
-let versionNum = "0.0.4";
+let versionNum = "0.0.5";
 let score = 0
 let upOneOpen = false
 let jermaPower = 1;
