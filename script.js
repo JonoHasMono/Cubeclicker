@@ -111,40 +111,29 @@ function startGame() {
         scoreTop.innerHTML = "You have " + score + " Jerma bucks";
     }
 
-    function showUpgrades() {
-        function showUpgradeOne() {
             let upgradeOne = document.createElement("div");
             upgradeOne.classList.add("up1");
             upgradeOne.addEventListener("mouseover", openUpOne)
             upgradeOne.addEventListener("click", buyUpOne)
             bodyVar.appendChild(upgradeOne);
-        }
-        function showUpgradeTwo() {
+
             let upgradeTwo = document.createElement("div");
             upgradeTwo.classList.add("up2");
             upgradeTwo.addEventListener("mouseover", openUpTwo)
             upgradeTwo.addEventListener("click", buyUpTwo)
             bodyVar.appendChild(upgradeTwo);
-        }
-        function showUpgradeThree() {
+
             let upgradeThree = document.createElement("div");
             upgradeThree.classList.add("up3");
             upgradeThree.addEventListener("mouseover", openUpThree)
             upgradeThree.addEventListener("click", buyUpThree)
             bodyVar.appendChild(upgradeThree);
-        }
-        function showUpgradeFour() {
+
             let upgradeFour = document.createElement("div");
             upgradeFour.classList.add("up4");
             upgradeFour.addEventListener("mouseover", openUpFour)
             upgradeFour.addEventListener("click", buyUpFour)
             bodyVar.appendChild(upgradeFour);
-        }
-        showUpgradeOne();
-        showUpgradeTwo();
-        showUpgradeThree();
-        showUpgradeFour();
-    }
 
     function openUpOne() {
         if (upOneOpen == false) {
@@ -187,6 +176,7 @@ function startGame() {
             upOneCost.innerHTML = "$" + upOneCostNum.toString();
         }
     } else {
+        upgradeOne.style.animation = "spin 5s linear infinite";
         upOneCost.innerHTML = "Maxed Out";
     }
     }
@@ -207,6 +197,7 @@ function startGame() {
             upTwoCost.innerHTML = "$" + upTwoCostNum.toString();
         }
     } else {
+        upgradeTwo.style.animation = "spin 5s linear infinite";
         upTwoCost.innerHTML = "Maxed Out";
     }
     }
@@ -227,6 +218,7 @@ function startGame() {
             upThreeCost.innerHTML = "$" + upThreeCostNum.toString();
         }
     } else {
+        upgradeThree.style.animation = "spin 5s linear infinite";
         upThreeCost.innerHTML = "Maxed Out";
     }
     }
@@ -247,6 +239,7 @@ function startGame() {
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upFourPower = upFourPower + 1;
             upFourCost.innerHTML = "$" + upFourCostNum.toString();
+            upgradeFour.style.animation = "spin 5s linear infinite";
             upFourCost.innerHTML = "Maxed Out";
         }
     }
@@ -359,7 +352,7 @@ function startGame() {
     }
     jahClicker();
     scottishClicker();
-    showUpgrades();
+
 }
 
 
