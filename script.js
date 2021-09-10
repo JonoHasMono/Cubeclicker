@@ -1,4 +1,4 @@
-let versionNum = "0.0.8";
+let versionNum = "0.0.9";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -80,7 +80,7 @@ function startGame() {
     bodyVar.appendChild(upFourCost);
     let upFourDesc = document.createElement("div");
     upFourDesc.classList.add("up4D");
-    upFourDesc.innerHTML = "Another Jerma appears, permantantly doubling all Jerma bucks collected"
+    upFourDesc.innerHTML = "Jerma gets bigger, doubling all Jerma bucks collected"
 
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
@@ -234,6 +234,14 @@ function startGame() {
     function buyUpFour() {
         if(upFourPower == 1) {
         if (score >= upFourCostNum) {
+            cube.style.width = "175px"
+            cube.style.height = "175px"
+            cube.style.left = "44%"
+            cube.style.top = "39%"
+            cubeVis.style.width = "160px"
+            cubeVis.style.height = "160px"
+            cubeVis.style.left = "44.5%"
+            cubeVis.style.top = "39%"
             score = score - upFourCostNum
             upFourCostNum = upFourCostNum + (250 * (upThreePower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
