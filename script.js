@@ -1,15 +1,17 @@
-let versionNum = "0.1.2";
+let versionNum = "0.1.3";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
 let upThreeOpen = false;
 let upFourOpen = false;
+let upFiveOpen = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 21;
 let upTwoPower = 1;
 let upThreePower = 1;
 let upFourPower = 1;
+let upFivePower = 1;
 
 function startGame() {
     const bodyVar = document.createElement("div");
@@ -82,6 +84,15 @@ function startGame() {
     upFourDesc.classList.add("up4D");
     upFourDesc.innerHTML = "Jerma gets bigger, doubling all Jerma bucks collected"
 
+    let upFiveCostNum = 2000
+    let upFiveCost = document.createElement("div");
+    upFiveCost.classList.add("up5C");
+    upFiveCost.innerHTML = "$" + upFiveCostNum.toString();
+    bodyVar.appendChild(upFiveCost);
+    let upFiveDesc = document.createElement("div");
+    upFiveDesc.classList.add("up5D");
+    upFiveDesc.innerHTML = "Every 10th manual click is stronger, upgrading further increases it's strength"
+
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
         let particleTop = 47;
@@ -135,6 +146,12 @@ function startGame() {
             upgradeFour.addEventListener("click", buyUpFour)
             bodyVar.appendChild(upgradeFour);
 
+            let upgradeFive = document.createElement("div");
+            upgradeFive.classList.add("up5");
+            upgradeFive.addEventListener("mouseover", openUpFive)
+            upgradeFive.addEventListener("click", buyUpFive)
+            bodyVar.appendChild(upgradeFive);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -160,6 +177,13 @@ function startGame() {
         if (upFourOpen == false) {
             upFourOpen = true;
             bodyVar.appendChild(upFourDesc);
+        }
+    }
+
+    function openUpFive() {
+        if (upFiveOpen == false) {
+            upFiveOpen = true;
+            bodyVar.appendChild(upFiveDesc);
         }
     }
 
@@ -245,6 +269,21 @@ function startGame() {
     }
     }
 
+    function buyUpFive() {
+        if(upFivePower < 5) {
+        if (score >= upFiveCostNum) {
+            score = score - upFiveCostNum
+            upFiveCostNum = upFiveCostNum + (500 * (upFivePower ** 2));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            upFivePower = upFivePower + 1;
+            upFiveCost.innerHTML = "$" + upFiveCostNum.toString();
+        }
+    } else {
+        upgradeFive.style.animation = "spin 5s linear infinite";
+        upFiveCost.innerHTML = "Maxed Out";
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -266,6 +305,10 @@ function startGame() {
         if(upFourOpen == true) {
             upFourOpen = false;
             bodyVar.removeChild(upFourDesc);
+        }
+        if(upFiveOpen == true) {
+            upFiveOpen = false;
+            bodyVar.removeChild(upFiveDesc);
         }
     }
 
