@@ -1,11 +1,13 @@
-let versionNum = "0.0.6";
+let versionNum = "0.0.7";
 let score = 0
-let upOneOpen = false
-let upTwoOpen = false
+let upOneOpen = false;
+let upTwoOpen = false;
+let upThreeOpen = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 22;
 let upTwoPower = 1;
+let upThreePower = 1;
 
 function startGame() {
     const bodyVar = document.createElement("div");
@@ -59,6 +61,15 @@ function startGame() {
     let upTwoDesc = document.createElement("div");
     upTwoDesc.classList.add("up2D");
     upTwoDesc.innerHTML = "Jerma's friend Jah appears, clicking Jerma for you"
+    
+    let upThreeCostNum = 400
+    let upThreeCost = document.createElement("div");
+    upThreeCost.classList.add("up3C");
+    upThreeCost.innerHTML = "$" + upThreeCostNum.toString();
+    bodyVar.appendChild(upThreeCost);
+    let upThreeDesc = document.createElement("div");
+    upThreeDesc.classList.add("up3D");
+    upThreeDesc.innerHTML = "A very drunk scottish man appears, clicking Jerma in random intervals"
 
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
@@ -104,8 +115,16 @@ function startGame() {
             upgradeTwo.addEventListener("click", buyUpTwo)
             bodyVar.appendChild(upgradeTwo);
         }
+        function showUpgradeThree() {
+            let upgradeThree = document.createElement("div");
+            upgradeThree.classList.add("up3");
+            upgradeThree.addEventListener("mouseover", openUpThree)
+            upgradeThree.addEventListener("click", buyUpThree)
+            bodyVar.appendChild(upgradeThree);
+        }
         showUpgradeOne();
         showUpgradeTwo();
+        showUpgradeThree();
     }
 
     function openUpOne() {
@@ -122,6 +141,13 @@ function startGame() {
         }
     }
 
+    function openUpThree() {
+        if (upThreeOpen == false) {
+            upThreeOpen = true;
+            bodyVar.appendChild(upThreeDesc);
+        }
+    }
+
     function buyUpOne() {
         if(upOnePower < 10) {
         if (score >= upOneCostNum) {
@@ -129,7 +155,7 @@ function startGame() {
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upOneCostNum = upOneCostNum + (50 * (upOnePower ** 3));
             upOnePower = upOnePower + 1;
-            jermaPower = jermaPower * 2;
+            jermaPower = jermaPower + 1;
             jermaSpeed = jermaSpeed - 2;
             cube.style.animation = "spin " + jermaSpeed + "s linear infinite";
             upOneCost.innerHTML = "$" + upOneCostNum.toString();
@@ -140,14 +166,14 @@ function startGame() {
     }
 
     function buyUpTwo() {
-        if(upTwoPower == 1) {
-            let jah = document.createElement("img")
-            jah.classList.add("jah");
-            jah.setAttribute("src", "images/jah.gif");
-            bodyVar.appendChild(jah);
-        }
         if(upTwoPower < 10) {
         if (score >= upTwoCostNum) {
+            if(upTwoPower == 1) {
+                let jah = document.createElement("img")
+                jah.classList.add("jah");
+                jah.setAttribute("src", "images/jah.gif");
+                bodyVar.appendChild(jah);
+            }
             score = score - upTwoCostNum
             upTwoCostNum = upTwoCostNum + (250 * (upTwoPower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
@@ -156,6 +182,26 @@ function startGame() {
         }
     } else {
         upTwoCost.innerHTML = "Maxed Out";
+    }
+    }
+
+    function buyUpThree() {
+        if(upThreePower < 10) {
+        if (score >= upThreeCostNum) {
+            if(upThreePower == 1) {
+                let scottish = document.createElement("img")
+                scottish.classList.add("scottish");
+                scottish.setAttribute("src", "images/scottish.gif");
+                bodyVar.appendChild(scottish);
+            }
+            score = score - upThreeCostNum
+            upThreeCostNum = upThreeCostNum + (250 * (upThreePower ** 2));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            upThreePower = upThreePower + 1;
+            upThreeCost.innerHTML = "$" + upThreeCostNum.toString();
+        }
+    } else {
+        upThreeCost.innerHTML = "Maxed Out";
     }
     }
 
@@ -172,6 +218,10 @@ function startGame() {
         if(upTwoOpen == true) {
             upTwoOpen = false;
             bodyVar.removeChild(upTwoDesc);
+        }
+        if(upThreeOpen == true) {
+            upThreeOpen = false;
+            bodyVar.removeChild(upThreeDesc);
         }
     }
 
@@ -219,7 +269,45 @@ function startGame() {
             jahClicker();
         }, (2000 / upTwoPower))
     }
+
+    function scottishClicker() {
+        setTimeout(() => {
+            let scottishChance = Math.random();
+            if (scottishChance > 0.5) {
+
+            if(upThreePower >= 2) {
+                score = score + jermaPower;
+                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                spawnScottishParticle();
+                function spawnScottishParticle() {
+                    let scottishParticle = document.createElement("div");
+                    let sparticleTop = 42;
+                    let sparticleSpeed = 0
+                    scottishParticle.classList.add("scottishParticle");
+                    scottishParticle.style.left = (73 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    scottishParticle.style.top = sparticleTop + "%"
+                    bodyVar.appendChild(scottishParticle);
+                    moveParticle();
+                    function moveParticle() {
+                        setTimeout(() => {
+                            if (sparticleTop < 100) {
+                            sparticleTop = sparticleTop + sparticleSpeed;
+                            sparticleSpeed = sparticleSpeed + 0.01;
+                            scottishParticle.style.top = sparticleTop + "%";
+                            moveParticle()
+                            } else {
+                                bodyVar.removeChild(scottishParticle);
+                            }
+                        }, 10)
+                    }
+                }
+            }
+        }
+            scottishClicker();
+        }, (500 / upThreePower))
+    }
     jahClicker();
+    scottishClicker();
     showUpgrades();
 }
 
