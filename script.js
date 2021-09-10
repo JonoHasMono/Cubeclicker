@@ -1,4 +1,4 @@
-let versionNum = "0.1.6";
+let versionNum = "0.1.8";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -6,6 +6,7 @@ let upThreeOpen = false;
 let upFourOpen = false;
 let upFiveOpen = false;
 let upSixOpen = false;
+let upSevenOpen = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 21;
@@ -14,6 +15,7 @@ let upThreePower = 1;
 let upFourPower = 1;
 let upFivePower = 1;
 let upSixPower = 1
+let upSevenPower = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -105,6 +107,15 @@ function startGame() {
     upSixDesc.classList.add("up6D");
     upSixDesc.innerHTML = "An Obamahedron manifests itself into our reality, gathering Jerma bucks from other dimensions"
 
+    let upSevenCostNum = 9000
+    let upSevenCost = document.createElement("div");
+    upSevenCost.classList.add("up7C");
+    upSevenCost.innerHTML = "$" + upSevenCostNum.toString();
+    bodyVar.appendChild(upSevenCost);
+    let upSevenDesc = document.createElement("div");
+    upSevenDesc.classList.add("up7D");
+    upSevenDesc.innerHTML = "A horrifying creature appears, colleting Jerma bucks using [REDACTED]"
+
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
         let particleTop = 47;
@@ -181,6 +192,12 @@ function startGame() {
             upgradeSix.addEventListener("mouseover", openUpSix)
             upgradeSix.addEventListener("click", buyUpSix)
             bodyVar.appendChild(upgradeSix);
+            
+            let upgradeSeven = document.createElement("div");
+            upgradeSeven.classList.add("up7");
+            upgradeSeven.addEventListener("mouseover", openUpSeven)
+            upgradeSeven.addEventListener("click", buyUpSeven)
+            bodyVar.appendChild(upgradeSeven);
 
     function openUpOne() {
         if (upOneOpen == false) {
@@ -221,6 +238,13 @@ function startGame() {
         if (upSixOpen == false) {
             upSixOpen = true;
             bodyVar.appendChild(upSixDesc);
+        }
+    }
+
+    function openUpSeven() {
+        if (upSevenOpen == false) {
+            upSevenOpen = true;
+            bodyVar.appendChild(upSevenDesc);
         }
     }
 
@@ -342,6 +366,27 @@ function startGame() {
     }
     }
 
+    function buyUpSeven() {
+        if(upSevenPower < 10) {
+        if (score >= upSevenCostNum) {
+            if(upSevenPower == 1) {
+                let creepy = document.createElement("img")
+                creepy.classList.add("creepy");
+                creepy.setAttribute("src", "images/creepy.gif");
+                bodyVar.appendChild(creepy);
+            }
+            score = score - upSevenCostNum
+            upSevenCostNum = upSevenCostNum + (2500 * (upSevenPower ** 2));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            upSevenPower = upSevenPower + 1;
+            upSevenCost.innerHTML = "$" + upSevenCostNum.toString();
+        }
+    } else {
+        upgradeSeven.style.animation = "spin 5s linear infinite";
+        upSevenCost.innerHTML = "Maxed Out";
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -372,6 +417,10 @@ function startGame() {
             upSixOpen = false;
             bodyVar.removeChild(upSixDesc);
         }
+        if(upSevenOpen == true) {
+            upSevenOpen = false;
+            bodyVar.removeChild(upSevenDesc);
+        }
     }
 
     document.addEventListener('keydown', logKey);
@@ -380,6 +429,13 @@ function startGame() {
         let key = ` ${e.code}`
         key = key.toString();
         if (key == ' KeyW') {
+            jermaClicked();
+            } else if (key == ' KeyQ') {
+                jermaClicked();
+        } else if (key == ' KeyE') {
+            jermaClicked();
+    } else if (key == ' KeyR') {
+        jermaClicked();
           } else if (key == ' KeyP') {
             score = 420420420;
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
@@ -487,9 +543,46 @@ function startGame() {
             ohedClicker();
         }, (500 / upSixPower))
     }
+
+    function creepyClicker() {
+        setTimeout(() => {
+            let creepyChance = Math.random();
+            if (creepyChance > 0.35) {
+            if(upSevenPower >= 2) {
+                score = score + (jermaPower * upFourPower);
+                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                spawnCreepyParticle();
+                function spawnCreepyParticle() {
+                    let creepyParticle = document.createElement("div");
+                    let cparticleTop = 62;
+                    let cparticleSpeed = 0
+                    creepyParticle.classList.add("ohedParticle");
+                    creepyParticle.style.left = (63 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    creepyParticle.style.top = cparticleTop + "%"
+                    bodyVar.appendChild(creepyParticle);
+                    moveParticle();
+                    function moveParticle() {
+                        setTimeout(() => {
+                            if (cparticleTop < 100) {
+                            cparticleTop = cparticleTop + cparticleSpeed;
+                            cparticleSpeed = cparticleSpeed + 0.01;
+                            creepyParticle.style.top = cparticleTop + "%";
+                            moveParticle()
+                            } else {
+                                bodyVar.removeChild(creepyParticle);
+                            }
+                        }, 10)
+                    }
+                }
+            }
+        }
+            creepyClicker();
+        }, (250 / upSevenPower))
+    }
     jahClicker();
     scottishClicker(); 
     ohedClicker();
+    creepyClicker();
 
 }
 
