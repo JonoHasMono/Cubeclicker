@@ -1,4 +1,4 @@
-let versionNum = "0.0.9";
+let versionNum = "0.1.0";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -107,7 +107,7 @@ function startGame() {
 
     function jermaClicked() {
         spawnCubeParticle();
-        score = score + jermaPower;
+        score = score + (jermaPower * upFourPower)
         scoreTop.innerHTML = "You have " + score + " Jerma bucks";
     }
 
@@ -247,9 +247,8 @@ function startGame() {
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upFourPower = upFourPower + 1;
             upFourCost.innerHTML = "$" + upFourCostNum.toString();
+            upFourCost.innerHTML = "Maxed Out";
         }
-    } else {
-        upFourCost.innerHTML = "Maxed Out";
     }
     }
 
@@ -292,7 +291,7 @@ function startGame() {
     function jahClicker() {
         setTimeout(() => {
             if(upTwoPower >= 2) {
-                score = score + jermaPower;
+                score = score + (jermaPower * upFourPower);
                 scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                 spawnJahParticle();
                 function spawnJahParticle() {
@@ -328,7 +327,7 @@ function startGame() {
             if (scottishChance > 0.5) {
 
             if(upThreePower >= 2) {
-                score = score + jermaPower;
+                score = score + (jermaPower * upFourPower);
                 scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                 spawnScottishParticle();
                 function spawnScottishParticle() {
