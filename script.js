@@ -1,4 +1,4 @@
-let versionNum = "0.1.0";
+let versionNum = "0.1.1";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -73,7 +73,7 @@ function startGame() {
     upThreeDesc.classList.add("up3D");
     upThreeDesc.innerHTML = "A very drunk scottish man appears, clicking Jerma in random intervals"
 
-    let upFourCostNum = 690
+    let upFourCostNum = 1250
     let upFourCost = document.createElement("div");
     upFourCost.classList.add("up4C");
     upFourCost.innerHTML = "$" + upFourCostNum.toString();
@@ -348,7 +348,7 @@ function startGame() {
             }
         }
             scottishClicker();
-        }, (500 / upThreePower))
+        }, (1000 / upThreePower))
     }
     jahClicker();
     scottishClicker();
