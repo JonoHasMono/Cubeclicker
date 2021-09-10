@@ -1,9 +1,11 @@
-let versionNum = "0.0.5";
+let versionNum = "0.0.6";
 let score = 0
 let upOneOpen = false
+let upTwoOpen = false
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 22;
+let upTwoPower = 1;
 
 function startGame() {
     const bodyVar = document.createElement("div");
@@ -45,10 +47,18 @@ function startGame() {
     upOneCost.classList.add("up1C");
     upOneCost.innerHTML = "$" + upOneCostNum.toString();
     bodyVar.appendChild(upOneCost);
-
     let upOneDesc = document.createElement("div");
     upOneDesc.classList.add("up1D");
     upOneDesc.innerHTML = "Jerma spins faster, granting more Jerma bucks per click"
+
+    let upTwoCostNum = 250
+    let upTwoCost = document.createElement("div");
+    upTwoCost.classList.add("up2C");
+    upTwoCost.innerHTML = "$" + upTwoCostNum.toString();
+    bodyVar.appendChild(upTwoCost);
+    let upTwoDesc = document.createElement("div");
+    upTwoDesc.classList.add("up2D");
+    upTwoDesc.innerHTML = "Jerma's friend Jah appears, clicking Jerma for you"
 
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
@@ -87,7 +97,15 @@ function startGame() {
             upgradeOne.addEventListener("click", buyUpOne)
             bodyVar.appendChild(upgradeOne);
         }
+        function showUpgradeTwo() {
+            let upgradeTwo = document.createElement("div");
+            upgradeTwo.classList.add("up2");
+            upgradeTwo.addEventListener("mouseover", openUpTwo)
+            upgradeTwo.addEventListener("click", buyUpTwo)
+            bodyVar.appendChild(upgradeTwo);
+        }
         showUpgradeOne();
+        showUpgradeTwo();
     }
 
     function openUpOne() {
@@ -97,20 +115,47 @@ function startGame() {
         }
     }
 
+    function openUpTwo() {
+        if (upTwoOpen == false) {
+            upTwoOpen = true;
+            bodyVar.appendChild(upTwoDesc);
+        }
+    }
+
     function buyUpOne() {
         if(upOnePower < 10) {
         if (score >= upOneCostNum) {
             score = score - upOneCostNum
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
-            upOneCostNum = upOneCostNum + (50 * (upOnePower ** 2));
+            upOneCostNum = upOneCostNum + (50 * (upOnePower ** 3));
             upOnePower = upOnePower + 1;
-            jermaPower = jermaPower + 1;
+            jermaPower = jermaPower * 2;
             jermaSpeed = jermaSpeed - 2;
             cube.style.animation = "spin " + jermaSpeed + "s linear infinite";
             upOneCost.innerHTML = "$" + upOneCostNum.toString();
         }
     } else {
         upOneCost.innerHTML = "Maxed Out";
+    }
+    }
+
+    function buyUpTwo() {
+        if(upTwoPower == 1) {
+            let jah = document.createElement("img")
+            jah.classList.add("jah");
+            jah.setAttribute("src", "images/jah.gif");
+            bodyVar.appendChild(jah);
+        }
+        if(upTwoPower < 10) {
+        if (score >= upTwoCostNum) {
+            score = score - upTwoCostNum
+            upTwoCostNum = upTwoCostNum + (250 * (upTwoPower ** 2));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            upTwoPower = upTwoPower + 1;
+            upTwoCost.innerHTML = "$" + upTwoCostNum.toString();
+        }
+    } else {
+        upTwoCost.innerHTML = "Maxed Out";
     }
     }
 
@@ -124,6 +169,10 @@ function startGame() {
             upOneOpen = false;
             bodyVar.removeChild(upOneDesc);
         }
+        if(upTwoOpen == true) {
+            upTwoOpen = false;
+            bodyVar.removeChild(upTwoDesc);
+        }
     }
 
     document.addEventListener('keydown', logKey);
@@ -132,12 +181,45 @@ function startGame() {
         let key = ` ${e.code}`
         key = key.toString();
         if (key == ' KeyW') {
-            jumping = true;
           } else if (key == ' KeyP') {
-            shooting = true;
+            score = 420420420;
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
           }
     }
 
+    function jahClicker() {
+        setTimeout(() => {
+            if(upTwoPower >= 2) {
+                score = score + jermaPower;
+                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                spawnJahParticle();
+                function spawnJahParticle() {
+                    let jahParticle = document.createElement("div");
+                    let jparticleTop = 42;
+                    let jparticleSpeed = 0
+                    jahParticle.classList.add("jahParticle");
+                    jahParticle.style.left = (63 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    jahParticle.style.top = jparticleTop + "%"
+                    bodyVar.appendChild(jahParticle);
+                    moveParticle();
+                    function moveParticle() {
+                        setTimeout(() => {
+                            if (jparticleTop < 100) {
+                            jparticleTop = jparticleTop + jparticleSpeed;
+                            jparticleSpeed = jparticleSpeed + 0.01;
+                            jahParticle.style.top = jparticleTop + "%";
+                            moveParticle()
+                            } else {
+                                bodyVar.removeChild(jahParticle);
+                            }
+                        }, 10)
+                    }
+                }
+            }
+            jahClicker();
+        }, (2000 / upTwoPower))
+    }
+    jahClicker();
     showUpgrades();
 }
 

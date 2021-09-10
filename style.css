@@ -30,7 +30,7 @@ body {
     background-color: black;
     box-shadow: 0 0 5px rgb(0, 255, 100);
     transform: translate(-50%, -50%);
-    animation: spin 2s linear infinite;
+    animation: spin 1s linear infinite;
     user-select: none;
     z-index: -1;
 }
@@ -128,10 +128,10 @@ body {
 
 .upDel {
     width: 100%;
-    height: 85%;
+    height: 100%;
     position: absolute;
     left: 50%;
-    top: 40%;
+    top: 50%;
     text-align: center;
     opacity: 0;
     z-index: -1;
@@ -180,4 +180,74 @@ body {
     -webkit-text-stroke: 1px white;
     text-shadow: 0 0 5px white;
     transform: translate(-50%, -50%);
+}
+
+.up2 {
+    width: 70px;
+    height: 70px;
+    border-radius: 25px;
+    position: absolute;
+    left: 15%;
+    bottom: 10%;
+    text-align: center;
+    border: 5px solid rgb(255, 150, 0);
+    background-color: rgb(50, 0, 0);
+    box-shadow: 0 0 15px rgb(255, 150, 0);
+    transform: translate(-50%, -50%);
+    animation: spin 10s linear infinite;
+}
+
+.up2D {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    bottom: 20%;
+    font-size: 170%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 5px white;
+    transform: translate(-50%, -50%);
+}
+
+.up2C {
+    position: absolute;
+    width: 100%;
+    left: 17.5%;
+    bottom: 1%;
+    font-size: 170%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 5px white;
+    transform: translate(-50%, -50%);
+}
+
+.jah {
+    width: 125px;
+    height: 125x;
+    position: absolute;
+    left: 65%;
+    top: 40%;
+    text-align: center;
+    transform: translate(-45%, -35%);
+    box-shadow: 0 0 50px rgb(255, 150, 0);
+    border: 2px solid rgb(255, 150, 0);
+    border-radius: 50%;
+}
+
+.jahParticle {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    text-align: center;
+    border: .5px solid rgb(255, 150, 0);
+    background-color: black;
+    box-shadow: 0 0 3px rgb(255, 150, 0);
+    transform: translate(-50%, -50%);
+    animation: spin 1s linear infinite;
+    user-select: none;
+    z-index: -1;
 }
