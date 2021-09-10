@@ -1,13 +1,15 @@
-let versionNum = "0.0.7";
+let versionNum = "0.0.8";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
 let upThreeOpen = false;
+let upFourOpen = false;
 let jermaPower = 1;
 let upOnePower = 1;
-let jermaSpeed = 22;
+let jermaSpeed = 21;
 let upTwoPower = 1;
 let upThreePower = 1;
+let upFourPower = 1;
 
 function startGame() {
     const bodyVar = document.createElement("div");
@@ -71,6 +73,15 @@ function startGame() {
     upThreeDesc.classList.add("up3D");
     upThreeDesc.innerHTML = "A very drunk scottish man appears, clicking Jerma in random intervals"
 
+    let upFourCostNum = 690
+    let upFourCost = document.createElement("div");
+    upFourCost.classList.add("up4C");
+    upFourCost.innerHTML = "$" + upFourCostNum.toString();
+    bodyVar.appendChild(upFourCost);
+    let upFourDesc = document.createElement("div");
+    upFourDesc.classList.add("up4D");
+    upFourDesc.innerHTML = "Another Jerma appears, permantantly doubling all Jerma bucks collected"
+
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
         let particleTop = 47;
@@ -122,9 +133,17 @@ function startGame() {
             upgradeThree.addEventListener("click", buyUpThree)
             bodyVar.appendChild(upgradeThree);
         }
+        function showUpgradeFour() {
+            let upgradeFour = document.createElement("div");
+            upgradeFour.classList.add("up4");
+            upgradeFour.addEventListener("mouseover", openUpFour)
+            upgradeFour.addEventListener("click", buyUpFour)
+            bodyVar.appendChild(upgradeFour);
+        }
         showUpgradeOne();
         showUpgradeTwo();
         showUpgradeThree();
+        showUpgradeFour();
     }
 
     function openUpOne() {
@@ -148,15 +167,22 @@ function startGame() {
         }
     }
 
+    function openUpFour() {
+        if (upFourOpen == false) {
+            upFourOpen = true;
+            bodyVar.appendChild(upFourDesc);
+        }
+    }
+
     function buyUpOne() {
-        if(upOnePower < 10) {
+        if(upOnePower < 20) {
         if (score >= upOneCostNum) {
             score = score - upOneCostNum
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
-            upOneCostNum = upOneCostNum + (50 * (upOnePower ** 3));
+            upOneCostNum = upOneCostNum + (50 * (upOnePower ** 2));
             upOnePower = upOnePower + 1;
             jermaPower = jermaPower + 1;
-            jermaSpeed = jermaSpeed - 2;
+            jermaSpeed = jermaSpeed - 1;
             cube.style.animation = "spin " + jermaSpeed + "s linear infinite";
             upOneCost.innerHTML = "$" + upOneCostNum.toString();
         }
@@ -205,6 +231,20 @@ function startGame() {
     }
     }
 
+    function buyUpFour() {
+        if(upFourPower == 1) {
+        if (score >= upFourCostNum) {
+            score = score - upFourCostNum
+            upFourCostNum = upFourCostNum + (250 * (upThreePower ** 2));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            upFourPower = upFourPower + 1;
+            upFourCost.innerHTML = "$" + upFourCostNum.toString();
+        }
+    } else {
+        upFourCost.innerHTML = "Maxed Out";
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -222,6 +262,10 @@ function startGame() {
         if(upThreeOpen == true) {
             upThreeOpen = false;
             bodyVar.removeChild(upThreeDesc);
+        }
+        if(upFourOpen == true) {
+            upFourOpen = false;
+            bodyVar.removeChild(upFourDesc);
         }
     }
 
