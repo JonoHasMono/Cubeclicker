@@ -534,8 +534,8 @@ body {
     height: 110x;
     padding: 5px;
     position: absolute;
-    left: 65%;
-    top: 60%;
+    left: 95%;
+    top: 40%;
     text-align: center;
     transform: translate(-45%, -35%);
     box-shadow: 0 0 50px rgb(0, 0, 255);

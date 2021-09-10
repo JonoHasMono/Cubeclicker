@@ -1,4 +1,4 @@
-let versionNum = "0.1.8";
+let versionNum = "0.2.0";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -547,17 +547,17 @@ function startGame() {
     function creepyClicker() {
         setTimeout(() => {
             let creepyChance = Math.random();
-            if (creepyChance > 0.35) {
+            if (creepyChance > 0.80) {
             if(upSevenPower >= 2) {
                 score = score + (jermaPower * upFourPower);
                 scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                 spawnCreepyParticle();
                 function spawnCreepyParticle() {
                     let creepyParticle = document.createElement("div");
-                    let cparticleTop = 62;
+                    let cparticleTop = 42;
                     let cparticleSpeed = 0
                     creepyParticle.classList.add("ohedParticle");
-                    creepyParticle.style.left = (63 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    creepyParticle.style.left = (93 + (Math.floor(Math.random() * 5))).toString() + "%"
                     creepyParticle.style.top = cparticleTop + "%"
                     bodyVar.appendChild(creepyParticle);
                     moveParticle();
@@ -577,7 +577,7 @@ function startGame() {
             }
         }
             creepyClicker();
-        }, (250 / upSevenPower))
+        }, (50 / upSevenPower))
     }
     jahClicker();
     scottishClicker(); 
