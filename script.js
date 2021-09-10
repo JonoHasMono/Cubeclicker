@@ -1,4 +1,4 @@
-let versionNum = "0.1.3";
+let versionNum = "0.1.4";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -12,6 +12,7 @@ let upTwoPower = 1;
 let upThreePower = 1;
 let upFourPower = 1;
 let upFivePower = 1;
+let bigClick = 0;
 
 function startGame() {
     const bodyVar = document.createElement("div");
@@ -118,8 +119,20 @@ function startGame() {
 
     function jermaClicked() {
         spawnCubeParticle();
+        if(upFivePower > 1) {
+            if (bigClick == 10) {
+                bigClick = 0;
+                score = score + ((jermaPower * upFourPower) * 10)
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            } else {
+            bigClick += 1;
+            score = score + (jermaPower * upFourPower)
+        scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            }
+        } else {
         score = score + (jermaPower * upFourPower)
         scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+        }
     }
 
             let upgradeOne = document.createElement("div");
