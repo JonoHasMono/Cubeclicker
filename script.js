@@ -1,4 +1,4 @@
-let versionNum = "0.2.0";
+let versionNum = "0.2.1";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -577,7 +577,7 @@ function startGame() {
             }
         }
             creepyClicker();
-        }, (50 / upSevenPower))
+        }, (25 / upSevenPower))
     }
     jahClicker();
     scottishClicker(); 
