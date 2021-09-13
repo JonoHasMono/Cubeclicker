@@ -529,7 +529,6 @@ body {
     text-shadow: 0 0 5px white;
     transform: translate(-50%, -50%);
 }
-
 .creepy {
     width: 110px;
     height: 110x;
@@ -543,7 +542,6 @@ body {
     border: 2px solid rgb(0, 0, 255);
     border-radius: 50%;
 }
-
 .creepyParticle {
     width: 15px;
     height: 15px;
@@ -552,6 +550,75 @@ body {
     border: .5px solid rgb(0, 0, 255);
     background-color: black;
     box-shadow: 0 0 3px rgb(0, 0, 255);
+    transform: translate(-50%, -50%);
+    animation: spin 1s linear infinite;
+    user-select: none;
+    z-index: -3;
+}
+
+.up8 {
+    width: 70px;
+    height: 70px;
+    border-radius: 25px;
+    position: absolute;
+    left: 75%;
+    bottom: 10%;
+    text-align: center;
+    border: 5px solid rgb(150, 0, 255);
+    background-color: rgb(25, 0, 50);
+    box-shadow: 0 0 15px rgb(150, 0, 255);
+    transform: translate(-50%, -50%);
+    animation: spin 10s linear infinite;
+}
+.up8D {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    bottom: 25%;
+    font-size: 170%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 5px white;
+    transform: translate(-50%, -50%);
+}
+.up8C {
+    position: absolute;
+    width: 100%;
+    left: 77.5%;
+    bottom: 1%;
+    font-size: 170%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 5px white;
+    transform: translate(-50%, -50%);
+}
+
+.garf {
+    width: 110px;
+    height: 110x;
+    padding: 5px;
+    position: absolute;
+    left: 65%;
+    top: 60%;
+    text-align: center;
+    transform: translate(-45%, -35%);
+    box-shadow: 0 0 50px rgb(150, 0, 255);
+    border: 2px solid rgb(150, 0, 255);
+    border-radius: 50%;
+}
+
+.garfParticle {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    text-align: center;
+    border: .5px solid rgb(150, 0, 255);
+    background-color: black;
+    box-shadow: 0 0 3px rgb(150, 0, 255);
     transform: translate(-50%, -50%);
     animation: spin 1s linear infinite;
     user-select: none;

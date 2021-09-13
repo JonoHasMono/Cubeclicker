@@ -7,6 +7,7 @@ let upFourOpen = false;
 let upFiveOpen = false;
 let upSixOpen = false;
 let upSevenOpen = false;
+let upEightOpen = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 21;
@@ -16,6 +17,7 @@ let upFourPower = 1;
 let upFivePower = 1;
 let upSixPower = 1
 let upSevenPower = 1;
+let upEightPower = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -116,6 +118,15 @@ function startGame() {
     upSevenDesc.classList.add("up7D");
     upSevenDesc.innerHTML = "A horrifying creature appears, colleting Jerma bucks using [REDACTED]"
 
+    let upEightCostNum = 14000
+    let upEightCost = document.createElement("div");
+    upEightCost.classList.add("up8C");
+    upEightCost.innerHTML = "$" + upEightCostNum.toString();
+    bodyVar.appendChild(upEightCost);
+    let upEightDesc = document.createElement("div");
+    upEightDesc.classList.add("up8D");
+    upEightDesc.innerHTML = "An incredibly fat cat appears and freakin' boogies, earning Jerma bucks for his sick moves"
+
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
         let particleTop = 47;
@@ -144,7 +155,7 @@ function startGame() {
         if(upFivePower > 1) {
             if (bigClick == 10) {
                 bigClick = 0;
-                score = score + (jermaPower * (upFourPower * 10))
+                score = score + (jermaPower * upFivePower * (upFourPower * 10))
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             } else {
             bigClick += 1;
@@ -199,6 +210,12 @@ function startGame() {
             upgradeSeven.addEventListener("click", buyUpSeven)
             bodyVar.appendChild(upgradeSeven);
 
+            let upgradeEight = document.createElement("div");
+            upgradeEight.classList.add("up8");
+            upgradeEight.addEventListener("mouseover", openUpEight)
+            upgradeEight.addEventListener("click", buyUpEight)
+            bodyVar.appendChild(upgradeEight);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -248,15 +265,22 @@ function startGame() {
         }
     }
 
+    function openUpEight() {
+        if (upEightOpen == false) {
+            upEightOpen = true;
+            bodyVar.appendChild(upEightDesc);
+        }
+    }
+
     function buyUpOne() {
-        if(upOnePower < 20) {
+        if(upOnePower < 40) {
         if (score >= upOneCostNum) {
             score = score - upOneCostNum
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
-            upOneCostNum = upOneCostNum + (50 * (upOnePower ** 2));
+            upOneCostNum = upOneCostNum + (30 * (upOnePower ** 3));
             upOnePower = upOnePower + 1;
             jermaPower = jermaPower + 1;
-            jermaSpeed = jermaSpeed - 1;
+            jermaSpeed = jermaSpeed - 0.5;
             cube.style.animation = "spin " + jermaSpeed + "s linear infinite";
             upOneCost.innerHTML = "$" + upOneCostNum.toString();
         }
@@ -267,7 +291,7 @@ function startGame() {
     }
 
     function buyUpTwo() {
-        if(upTwoPower < 20) {
+        if(upTwoPower < 25) {
         if (score >= upTwoCostNum) {
             if(upTwoPower == 1) {
                 let jah = document.createElement("img")
@@ -331,10 +355,10 @@ function startGame() {
     }
 
     function buyUpFive() {
-        if(upFivePower < 5) {
+        if(upFivePower < 10) {
         if (score >= upFiveCostNum) {
             score = score - upFiveCostNum
-            upFiveCostNum = upFiveCostNum + (500 * (upFivePower ** 2));
+            upFiveCostNum = upFiveCostNum + (500 * (upFivePower ** 3));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upFivePower = upFivePower + 1;
             upFiveCost.innerHTML = "$" + upFiveCostNum.toString();
@@ -387,6 +411,27 @@ function startGame() {
     }
     }
 
+    function buyUpEight() {
+        if(upEightPower < 10) {
+        if (score >= upEightCostNum) {
+            if(upEightPower == 1) {
+                let garf = document.createElement("img")
+                garf.classList.add("garf");
+                garf.setAttribute("src", "images/garfield.gif");
+                bodyVar.appendChild(garf);
+            }
+            score = score - upEightCostNum
+            upEightCostNum = upEightCostNum + (6500 * (upEightPower ** 2));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            upEightPower = upEightPower + 1;
+            upEightCost.innerHTML = "$" + upEightCostNum.toString();
+        }
+    } else {
+        upgradeEight.style.animation = "spin 5s linear infinite";
+        upEightCost.innerHTML = "Maxed Out";
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -420,6 +465,10 @@ function startGame() {
         if(upSevenOpen == true) {
             upSevenOpen = false;
             bodyVar.removeChild(upSevenDesc);
+        }
+        if(upEightOpen == true) {
+            upEightOpen = false;
+            bodyVar.removeChild(upEightDesc);
         }
     }
 
@@ -579,11 +628,44 @@ function startGame() {
             creepyClicker();
         }, (25 / upSevenPower))
     }
+    function garfClicker() {
+        setTimeout(() => {
+            if(upEightPower >= 2) {
+                score = score + (jermaPower * upFourPower);
+                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                spawnGarfParticle();
+                function spawnGarfParticle() {
+                    let garfParticle = document.createElement("div");
+                    let gparticleTop = 62;
+                    let gparticleSpeed = 0
+                    garfParticle.classList.add("garfParticle");
+                    garfParticle.style.left = (63 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    garfParticle.style.top = gparticleTop + "%"
+                    bodyVar.appendChild(garfParticle);
+                    moveParticle();
+                    function moveParticle() {
+                        setTimeout(() => {
+                            if (gparticleTop < 100) {
+                            gparticleTop = gparticleTop + gparticleSpeed;
+                            gparticleSpeed = gparticleSpeed + 0.01;
+                            garfParticle.style.top = gparticleTop + "%";
+                            moveParticle()
+                            } else {
+                                bodyVar.removeChild(garfParticle);
+                            }
+                        }, 10)
+                    }
+                }
+            }
+            garfClicker();
+        }, (500 / upEightPower))
+    }
+
     jahClicker();
     scottishClicker(); 
     ohedClicker();
     creepyClicker();
-
+    garfClicker();garfClicker();
 }
 
 
