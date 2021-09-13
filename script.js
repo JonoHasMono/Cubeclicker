@@ -1,4 +1,4 @@
-let versionNum = "0.2.8";
+let versionNum = "0.2.9";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -356,8 +356,8 @@ function startGame() {
         if (score >= upFourCostNum) {
             cube.style.width = "175px"
             cube.style.height = "175px"
-            cube.style.left = "43.5%"
-            cube.style.top = "38%"
+            cube.style.left = "9%"
+            cube.style.top = "34%"
             cubeVis.style.width = "160px"
             cubeVis.style.height = "160px"
             cubeVis.style.left = "44.5%"
