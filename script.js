@@ -1,4 +1,4 @@
-let versionNum = "0.2.4";
+let versionNum = "0.2.5";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -166,15 +166,15 @@ function startGame() {
         if(upFivePower > 1) {
             if (bigClick == 10) {
                 bigClick = 0;
-                score = score + (jermaPower * upFivePower * (upFourPower * 10))
+                score = score + (jermaPower * upFivePower * upNinePower * (upFourPower * 10))
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             } else {
             bigClick += 1;
-            score = score + (jermaPower * upFourPower)
+            score = score + (jermaPower * upFourPower * upNinePower)
         scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             }
         } else {
-        score = score + (jermaPower * upFourPower)
+        score = score + (jermaPower * upFourPower * upNinePower)
         scoreTop.innerHTML = "You have " + score + " Jerma bucks";
         }
     }
@@ -290,9 +290,9 @@ function startGame() {
     }
 
     function openUpNine() {
-        if (upEightOpen == false) {
-            upEightOpen = true;
-            bodyVar.appendChild(upEightDesc);
+        if (upNineOpen == false) {
+            upNineOpen = true;
+            bodyVar.appendChild(upNineDesc);
         }
     }
 
@@ -361,8 +361,8 @@ function startGame() {
         if (score >= upFourCostNum) {
             cube.style.width = "175px"
             cube.style.height = "175px"
-            cube.style.left = "44%"
-            cube.style.top = "39%"
+            cube.style.left = "43.5%"
+            cube.style.top = "38%"
             cubeVis.style.width = "160px"
             cubeVis.style.height = "160px"
             cubeVis.style.left = "44.5%"
@@ -459,14 +459,17 @@ function startGame() {
     function buyUpNine() {
         if(upNinePower == 1) {
             score = score - upNineCostNum
-            upNineCostNum = upNinecostNum + (200 * (upNinePower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
-            upNinePower = upNinePower + 1;
-            upNineCost.innerHTML = "$" + upNineCostNum.toString();
+            upNinePower = 4;
         upgradeNine.style.animation = "spin 5s linear infinite";
         upNineCost.innerHTML = "Maxed Out";
         let glow = document.createElement("div")
                 glow.classList.add("glow");
+                bodyVar.appendChild(glow);
+                bodyVar.appendChild(glow);
+                bodyVar.appendChild(glow);
+                bodyVar.appendChild(glow);
+                bodyVar.appendChild(glow);
                 bodyVar.appendChild(glow);
     }
     }
@@ -508,6 +511,10 @@ function startGame() {
         if(upEightOpen == true) {
             upEightOpen = false;
             bodyVar.removeChild(upEightDesc);
+        }
+        if(upNineOpen == true) {
+            upNineOpen = false;
+            bodyVar.removeChild(upNineDesc);
         }
     }
 

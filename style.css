@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(to top,#050011 , #003215);
+    background-image: linear-gradient(to top,#000005 , #002010);
     height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -24,7 +24,7 @@ body {
     width: 150px;
     height: 150px;
     position: absolute;
-    left: 45%;
+    left: 44.5%;
     top: 40%;
     text-align: center;
     border: 5px solid rgb(0, 255, 100);
@@ -664,16 +664,32 @@ body {
     transform: translate(-50%, -50%);
 }
 .glow {
-    width: 50px;
-    height: 50px;
+    width: 140px;
+    height: 140px;
     position: absolute;
-    left: 45%;
-    top: 40%;
+    left: 50%;
+    top: 50%;
     text-align: center;
     border: 5px solid rgb(0, 255, 100);
     background-color: black;
-    box-shadow: 0 0 250px rgb(0, 255, 100);
     transform: translate(-50%, -50%);
     user-select: none;
-    z-index: 1;
+    border-radius: 50%;
+    z-index: 0;
+    animation: glowanim 3s linear infinite;
+}
+
+@keyframes glowanim {
+    0% {
+        box-shadow: 0 0 1000px rgb(255,0,0);
+    }
+    33% {
+        box-shadow: 0 0 1000px rgb(0,255,0);
+    }
+    66% {
+        box-shadow: 0 0 1000px rgb(0,0,255);
+    }
+    100% {
+        box-shadow: 0 0 1000px rgb(255,0,0);
+    }
 }
