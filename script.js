@@ -1,4 +1,4 @@
-let versionNum = "0.2.1";
+let versionNum = "0.2.4";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -8,6 +8,7 @@ let upFiveOpen = false;
 let upSixOpen = false;
 let upSevenOpen = false;
 let upEightOpen = false;
+let upNineOpen = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 21;
@@ -18,6 +19,7 @@ let upFivePower = 1;
 let upSixPower = 1
 let upSevenPower = 1;
 let upEightPower = 1;
+let upNinePower = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -127,6 +129,15 @@ function startGame() {
     upEightDesc.classList.add("up8D");
     upEightDesc.innerHTML = "An incredibly fat cat appears and freakin' boogies, earning Jerma bucks for his sick moves"
 
+    let upNineCostNum = 50000
+    let upNineCost = document.createElement("div");
+    upNineCost.classList.add("up9C");
+    upNineCost.innerHTML = "$" + upNineCostNum.toString();
+    bodyVar.appendChild(upNineCost);
+    let upNineDesc = document.createElement("div");
+    upNineDesc.classList.add("up9D");
+    upNineDesc.innerHTML = "Jerma grows in power from overwhelming popularity, manual clicks become x4 stronger"
+
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
         let particleTop = 47;
@@ -216,6 +227,12 @@ function startGame() {
             upgradeEight.addEventListener("click", buyUpEight)
             bodyVar.appendChild(upgradeEight);
 
+            let upgradeNine = document.createElement("div");
+            upgradeNine.classList.add("up9");
+            upgradeNine.addEventListener("mouseover", openUpNine)
+            upgradeNine.addEventListener("click", buyUpNine)
+            bodyVar.appendChild(upgradeNine);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -266,6 +283,13 @@ function startGame() {
     }
 
     function openUpEight() {
+        if (upEightOpen == false) {
+            upEightOpen = true;
+            bodyVar.appendChild(upEightDesc);
+        }
+    }
+
+    function openUpNine() {
         if (upEightOpen == false) {
             upEightOpen = true;
             bodyVar.appendChild(upEightDesc);
@@ -429,6 +453,21 @@ function startGame() {
     } else {
         upgradeEight.style.animation = "spin 5s linear infinite";
         upEightCost.innerHTML = "Maxed Out";
+    }
+    }
+
+    function buyUpNine() {
+        if(upNinePower == 1) {
+            score = score - upNineCostNum
+            upNineCostNum = upNinecostNum + (200 * (upNinePower ** 2));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            upNinePower = upNinePower + 1;
+            upNineCost.innerHTML = "$" + upNineCostNum.toString();
+        upgradeNine.style.animation = "spin 5s linear infinite";
+        upNineCost.innerHTML = "Maxed Out";
+        let glow = document.createElement("div")
+                glow.classList.add("glow");
+                bodyVar.appendChild(glow);
     }
     }
 
