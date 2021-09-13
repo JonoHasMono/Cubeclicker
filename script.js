@@ -1,4 +1,4 @@
-let versionNum = "0.2.6";
+let versionNum = "0.2.7";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -42,11 +42,6 @@ function startGame() {
     version.classList.add("version");
     version.innerHTML = "Jerma Clicker - Version " + versionNum;
     bodyVar.appendChild(version);
-
-    let clickHim = document.createElement("div");
-    clickHim.classList.add("clickHim");
-    clickHim.innerHTML = "Click the Jerma >>>";
-    bodyVar.appendChild(clickHim);
 
     let scoreTop = document.createElement("div");
     scoreTop.classList.add("scoreTop");
@@ -143,7 +138,7 @@ function startGame() {
         let particleTop = 47;
         let particleSpeed = 0
         cubeParticle.classList.add("cubeParticle");
-        cubeParticle.style.left = (48 + (Math.floor(Math.random() * 5))).toString() + "%"
+        cubeParticle.style.left = (12.5 + (Math.floor(Math.random() * 5))).toString() + "%"
         cubeParticle.style.top = particleTop + "%"
         bodyVar.appendChild(cubeParticle);
         moveParticle();
