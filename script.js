@@ -1,4 +1,4 @@
-let versionNum = "0.2.5";
+let versionNum = "0.2.6";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -672,7 +672,7 @@ function startGame() {
             }
         }
             creepyClicker();
-        }, (25 / upSevenPower))
+        }, (50 / upSevenPower))
     }
     function garfClicker() {
         setTimeout(() => {
@@ -704,7 +704,7 @@ function startGame() {
                 }
             }
             garfClicker();
-        }, (500 / upEightPower))
+        }, (400 / upEightPower))
     }
 
     jahClicker();
