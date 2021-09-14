@@ -392,7 +392,7 @@ function startGame() {
         if (score >= upOneCostNum) {
             score = score - upOneCostNum
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
-            upOneCostNum = upOneCostNum + (30 * (upOnePower ** 3));
+            upOneCostNum = upOneCostNum + (30 * (upOnePower ** 2));
             upOnePower = upOnePower + 1;
             jermaPower = jermaPower + 1;
             jermaSpeed = jermaSpeed - 0.5;
@@ -415,7 +415,7 @@ function startGame() {
                 bodyVar.appendChild(jah);
             }
             score = score - upTwoCostNum
-            upTwoCostNum = upTwoCostNum + (200 * (upTwoPower ** 2));
+            upTwoCostNum = upTwoCostNum + (200 * (upTwoPower ** 1.5));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upTwoPower = upTwoPower + 1;
             upTwoCost.innerHTML = "$" + upTwoCostNum.toString();
@@ -436,7 +436,7 @@ function startGame() {
                 bodyVar.appendChild(scottish);
             }
             score = score - upThreeCostNum
-            upThreeCostNum = upThreeCostNum + (300 * (upThreePower ** 2));
+            upThreeCostNum = upThreeCostNum + (300 * (upThreePower ** 1.5));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upThreePower = upThreePower + 1;
             upThreeCost.innerHTML = "$" + upThreeCostNum.toString();
@@ -459,7 +459,7 @@ function startGame() {
             cubeVis.style.left = "44.5%"
             cubeVis.style.top = "39%"
             score = score - upFourCostNum
-            upFourCostNum = upFourCostNum + (250 * (upThreePower ** 2));
+            upFourCostNum = upFourCostNum + (250 * (upThreePower ** 1.5));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upFourPower = upFourPower + 1;
             upFourCost.innerHTML = "$" + upFourCostNum.toString();
@@ -473,7 +473,7 @@ function startGame() {
         if(upFivePower < 10) {
         if (score >= upFiveCostNum) {
             score = score - upFiveCostNum
-            upFiveCostNum = upFiveCostNum + (1000 * (upFivePower ** 3));
+            upFiveCostNum = upFiveCostNum + (1000 * (upFivePower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upFivePower = upFivePower + 1;
             upFiveCost.innerHTML = "$" + upFiveCostNum.toString();
@@ -494,7 +494,7 @@ function startGame() {
                 bodyVar.appendChild(ohed);
             }
             score = score - upSixCostNum
-            upSixCostNum = upSixCostNum + (500 * (upSixPower ** 2));
+            upSixCostNum = upSixCostNum + (500 * (upSixPower ** 1.5));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upSixPower = upSixPower + 1;
             upSixCost.innerHTML = "$" + upSixCostNum.toString();
@@ -515,7 +515,7 @@ function startGame() {
                 bodyVar.appendChild(creepy);
             }
             score = score - upSevenCostNum
-            upSevenCostNum = upSevenCostNum + (2500 * (upSevenPower ** 2));
+            upSevenCostNum = upSevenCostNum + (2500 * (upSevenPower ** 1.5));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upSevenPower = upSevenPower + 1;
             upSevenCost.innerHTML = "$" + upSevenCostNum.toString();
@@ -536,7 +536,7 @@ function startGame() {
                 bodyVar.appendChild(garf);
             }
             score = score - upEightCostNum
-            upEightCostNum = upEightCostNum + (6500 * (upEightPower ** 2));
+            upEightCostNum = upEightCostNum + (6500 * (upEightPower ** 1.5));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upEightPower = upEightPower + 1;
             upEightCost.innerHTML = "$" + upEightCostNum.toString();
@@ -575,7 +575,7 @@ function startGame() {
                 bodyVar.appendChild(hmm);
             }
             score = score - up10CostNum
-            up10CostNum = up10CostNum + (6500 * (up10Power ** 2));
+            up10CostNum = up10CostNum + (6500 * (up10Power ** 1.5));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                up10Power = up10Power + 1;
             up10Cost.innerHTML = "$" + up10CostNum.toString();
@@ -607,7 +607,7 @@ function startGame() {
                 bodyVar.appendChild(birby);
             }
             score = score - up12CostNum
-            up12CostNum = up12CostNum + (20000 * (up12Power ** 2));
+            up12CostNum = up12CostNum + (20000 * (up12Power ** 1.5));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                up12Power = up12Power + 1;
             up12Cost.innerHTML = "$" + up12CostNum.toString();
@@ -628,7 +628,7 @@ function startGame() {
                 bodyVar.appendChild(diamond);
             }
             score = score - up13CostNum
-            up13CostNum = up13CostNum + (15000 * (up13Power ** 3));
+            up13CostNum = up13CostNum + (85000 * (up13Power ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                up13Power = up13Power + 1;
             up13Cost.innerHTML = "$" + up13CostNum.toString();
