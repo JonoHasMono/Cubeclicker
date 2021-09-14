@@ -1,4 +1,4 @@
-let versionNum = "0.3.3";
+let versionNum = "0.3.4";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -691,13 +691,13 @@ function startGame() {
                 }
             }
             ohedClicker();
-        }, (500 / upSixPower))
+        }, (650 / upSixPower))
     }
 
     function creepyClicker() {
         setTimeout(() => {
             let creepyChance = Math.random();
-            if (creepyChance > 0.80) {
+            if (creepyChance > 0.85) {
             if(upSevenPower >= 2) {
                 score = score + (jermaPower * upFourPower);
                 scoreTop.innerHTML = "You have " + score + " Jerma bucks";
@@ -759,7 +759,7 @@ function startGame() {
                 }
             }
             garfClicker();
-        }, (400 / upEightPower))
+        }, (300 / upEightPower))
     }
 
     function hmmClicker() {
@@ -795,7 +795,7 @@ function startGame() {
             }
         }
             hmmClicker();
-        }, (1000 / up10Power))
+        }, (900 / up10Power))
     }
 
     jahClicker();
