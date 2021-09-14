@@ -702,9 +702,9 @@ body {
     left: 10%;
     bottom: 8.5%;
     text-align: center;
-    border: 5px solid rgb(255, 150, 150);
-    background-color: rgb(50, 25, 25);
-    box-shadow: 0 0 15px rgb(255, 150, 150);
+    border: 5px solid rgb(255, 100, 100);
+    background-color: rgb(50, 20, 20);
+    box-shadow: 0 0 15px rgb(255, 100, 100);
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
 }
@@ -743,8 +743,8 @@ body {
     top: 30%;
     text-align: center;
     transform: translate(-45%, -35%);
-    box-shadow: 0 0 50px rgb(255, 150, 150);
-    border: 2px solid rgb(255, 150, 150);
+    box-shadow: 0 0 50px rgb(255, 100, 100);
+    border: 2px solid rgb(255, 100, 100);
     border-radius: 50%;
 }
 .hmmParticle {
@@ -752,11 +752,52 @@ body {
     height: 15px;
     position: absolute;
     text-align: center;
-    border: .5px solid rgb(255, 150, 150);
+    border: .5px solid rgb(255, 100, 100);
     background-color: black;
-    box-shadow: 0 0 3px rgb(255, 150, 150);
+    box-shadow: 0 0 3px rgb(255, 100, 100);
     transform: translate(-50%, -50%);
     animation: spin 1s linear infinite;
     user-select: none;
     z-index: -3;
+}
+
+.up11 {
+    width: 70px;
+    height: 70px;
+    border-radius: 25px;
+    position: absolute;
+    left: 20%;
+    bottom: 8.5%;
+    text-align: center;
+    border: 5px solid rgb(255, 175, 100);
+    background-color: rgb(50, 40, 25);
+    box-shadow: 0 0 15px rgb(255, 175, 100);
+    transform: translate(-50%, -50%);
+    animation: spin 10s linear infinite;
+}
+.up11D {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 20%;
+    font-size: 170%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 5px white;
+    transform: translate(-50%, -50%);
+}
+.up11C {
+    position: absolute;
+    width: 100%;
+    left: 22.5%;
+    bottom: 1%;
+    font-size: 150%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 5px white;
+    transform: translate(-50%, -50%);
 }

@@ -1,4 +1,4 @@
-let versionNum = "0.3.4";
+let versionNum = "0.3.5";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -146,14 +146,14 @@ function startGame() {
     up10Desc.classList.add("up10D");
     up10Desc.innerHTML = "Summons a curious god who contemplates whether or not it should give you Jerma bucks"
 
-    let up11CostNum = 1500000
+    let up11CostNum = 200000
     let up11Cost = document.createElement("div");
     up11Cost.classList.add("up11C");
     up11Cost.innerHTML = "$" + up11CostNum.toString();
     bodyVar.appendChild(up11Cost);
     let up11Desc = document.createElement("div");
     up11Desc.classList.add("up11D");
-    up11Desc.innerHTML = "bruh"
+    up11Desc.innerHTML = "Jah goes sicko mode, gaining extreme power and making even more Jerma bucks"
 
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
@@ -256,6 +256,12 @@ function startGame() {
             upgrade10.addEventListener("click", buyUp10)
             bodyVar.appendChild(upgrade10);
 
+            let upgrade11 = document.createElement("div");
+            upgrade11.classList.add("up11");
+            upgrade11.addEventListener("mouseover", openUp11)
+            upgrade11.addEventListener("click", buyUp11)
+            bodyVar.appendChild(upgrade11);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -323,6 +329,13 @@ function startGame() {
         if (up10Open == false) {
             up10Open = true;
             bodyVar.appendChild(up10Desc);
+        }
+    }
+
+    function openUp11() {
+        if (up11Open == false) {
+            up11Open = true;
+            bodyVar.appendChild(up11Desc);
         }
     }
 
@@ -525,6 +538,17 @@ function startGame() {
     }
     }
 
+    function buyUp11() {
+        if(up11Power == 1) {
+            score = score - up11CostNum
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            up11Power = 2;
+        upgrade11.style.animation = "spin 5s linear infinite";
+        up11Cost.innerHTML = "Maxed Out";
+        jah.style.boxShadow = "0 0 150px rgb(255, 150, 0)"
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -571,6 +595,10 @@ function startGame() {
             up10Open = false;
             bodyVar.removeChild(up10Desc);
         }
+        if(up11Open == true) {
+            up11Open = false;
+            bodyVar.removeChild(up11Desc);
+        }
     }
 
     document.addEventListener('keydown', logKey);
@@ -595,7 +623,7 @@ function startGame() {
     function jahClicker() {
         setTimeout(() => {
             if(upTwoPower >= 2) {
-                score = score + (jermaPower * upFourPower);
+                score = score + (jermaPower * upFourPower * (up11Power * up11Power));
                 scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                 spawnJahParticle();
                 function spawnJahParticle() {
@@ -622,7 +650,7 @@ function startGame() {
                 }
             }
             jahClicker();
-        }, (2000 / upTwoPower))
+        }, (2000 / (upTwoPower * up11Power)))
     }
 
     function scottishClicker() {
