@@ -1,4 +1,4 @@
-let versionNum = "0.3.6";
+let versionNum = "0.3.7";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -666,6 +666,9 @@ function startGame() {
           } else if (key == ' KeyP') {
             score = 420420420;
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+        } else if (key == ' KeyO') {
+            score = 0;
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
           }
     }
 
@@ -741,7 +744,7 @@ function startGame() {
     function ohedClicker() {
         setTimeout(() => {
             if(upSixPower >= 2) {
-                score = score + (jermaPower * upFourPower);
+                score = score + ((jermaPower * upFourPower) * 2);
                 scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                 spawnOhedParticle();
                 function spawnOhedParticle() {
@@ -774,9 +777,9 @@ function startGame() {
     function creepyClicker() {
         setTimeout(() => {
             let creepyChance = Math.random();
-            if (creepyChance > 0.85) {
+            if (creepyChance > 0.95) {
             if(upSevenPower >= 2) {
-                score = score + (jermaPower * upFourPower);
+                score = score + ((jermaPower * upFourPower) * 4);
                 scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                 spawnCreepyParticle();
                 function spawnCreepyParticle() {
@@ -804,12 +807,12 @@ function startGame() {
             }
         }
             creepyClicker();
-        }, (50 / upSevenPower))
+        }, (60 / upSevenPower))
     }
     function garfClicker() {
         setTimeout(() => {
             if(upEightPower >= 2) {
-                score = score + (jermaPower * upFourPower);
+                score = score + ((jermaPower * upFourPower) * 4);
                 scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                 spawnGarfParticle();
                 function spawnGarfParticle() {
@@ -836,13 +839,13 @@ function startGame() {
                 }
             }
             garfClicker();
-        }, (300 / upEightPower))
+        }, (1000 / upEightPower))
     }
 
     function hmmClicker() {
         setTimeout(() => {
             let hmmChance = Math.random();
-            if (hmmChance > 0.85) {
+            if (hmmChance > 0.90) {
             if(up10Power >= 2) {
                 score = score + ((jermaPower * upFourPower) * 25);
                 scoreTop.innerHTML = "You have " + score + " Jerma bucks";
@@ -913,7 +916,7 @@ function startGame() {
     ohedClicker();
     creepyClicker();
     garfClicker();garfClicker();
-    hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();
+    hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();
     birbyClicker();
 }
 
