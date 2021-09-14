@@ -1,4 +1,4 @@
-let versionNum = "0.2.9";
+let versionNum = "0.3.1";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -540,10 +540,10 @@ function startGame() {
                 spawnJahParticle();
                 function spawnJahParticle() {
                     let jahParticle = document.createElement("div");
-                    let jparticleTop = 42;
+                    let jparticleTop = 28;
                     let jparticleSpeed = 0
                     jahParticle.classList.add("jahParticle");
-                    jahParticle.style.left = (63 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    jahParticle.style.left = (29 + (Math.random() * 2 )).toString() + "%"
                     jahParticle.style.top = jparticleTop + "%"
                     bodyVar.appendChild(jahParticle);
                     moveParticle();
@@ -576,10 +576,10 @@ function startGame() {
                 spawnScottishParticle();
                 function spawnScottishParticle() {
                     let scottishParticle = document.createElement("div");
-                    let sparticleTop = 42;
+                    let sparticleTop = 28;
                     let sparticleSpeed = 0
                     scottishParticle.classList.add("scottishParticle");
-                    scottishParticle.style.left = (73 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    scottishParticle.style.left = (39 + (Math.random() * 2)).toString() + "%"
                     scottishParticle.style.top = sparticleTop + "%"
                     bodyVar.appendChild(scottishParticle);
                     moveParticle();
@@ -609,10 +609,10 @@ function startGame() {
                 spawnOhedParticle();
                 function spawnOhedParticle() {
                     let ohedParticle = document.createElement("div");
-                    let oparticleTop = 42;
+                    let oparticleTop = 28;
                     let oparticleSpeed = 0
                     ohedParticle.classList.add("ohedParticle");
-                    ohedParticle.style.left = (83 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    ohedParticle.style.left = (49 + (Math.random() * 2)).toString() + "%"
                     ohedParticle.style.top = oparticleTop + "%"
                     bodyVar.appendChild(ohedParticle);
                     moveParticle();
@@ -644,10 +644,10 @@ function startGame() {
                 spawnCreepyParticle();
                 function spawnCreepyParticle() {
                     let creepyParticle = document.createElement("div");
-                    let cparticleTop = 42;
+                    let cparticleTop = 28;
                     let cparticleSpeed = 0
                     creepyParticle.classList.add("ohedParticle");
-                    creepyParticle.style.left = (93 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    creepyParticle.style.left = (59 + (Math.random() * 2)).toString() + "%"
                     creepyParticle.style.top = cparticleTop + "%"
                     bodyVar.appendChild(creepyParticle);
                     moveParticle();
@@ -677,10 +677,10 @@ function startGame() {
                 spawnGarfParticle();
                 function spawnGarfParticle() {
                     let garfParticle = document.createElement("div");
-                    let gparticleTop = 62;
+                    let gparticleTop = 28;
                     let gparticleSpeed = 0
                     garfParticle.classList.add("garfParticle");
-                    garfParticle.style.left = (63 + (Math.floor(Math.random() * 5))).toString() + "%"
+                    garfParticle.style.left = (69 + (Math.random() * 2)).toString() + "%"
                     garfParticle.style.top = gparticleTop + "%"
                     bodyVar.appendChild(garfParticle);
                     moveParticle();
