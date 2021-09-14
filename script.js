@@ -10,6 +10,7 @@ let upSevenOpen = false;
 let upEightOpen = false;
 let upNineOpen = false;
 let up10Open = false;
+let up11Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 21;
@@ -22,6 +23,7 @@ let upSevenPower = 1;
 let upEightPower = 1;
 let upNinePower = 1;
 let up10Power = 1;
+let up11Power = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -135,7 +137,7 @@ function startGame() {
     upNineDesc.classList.add("up9D");
     upNineDesc.innerHTML = "Jerma grows in power from overwhelming popularity, manual clicks become x4 stronger"
 
-    let up10CostNum = 50000
+    let up10CostNum = 80000
     let up10Cost = document.createElement("div");
     up10Cost.classList.add("up10C");
     up10Cost.innerHTML = "$" + up10CostNum.toString();
@@ -143,6 +145,15 @@ function startGame() {
     let up10Desc = document.createElement("div");
     up10Desc.classList.add("up10D");
     up10Desc.innerHTML = "Summons a curious god who contemplates whether or not it should give you Jerma bucks"
+
+    let up11CostNum = 1500000
+    let up11Cost = document.createElement("div");
+    up11Cost.classList.add("up11C");
+    up11Cost.innerHTML = "$" + up11CostNum.toString();
+    bodyVar.appendChild(up11Cost);
+    let up11Desc = document.createElement("div");
+    up11Desc.classList.add("up11D");
+    up11Desc.innerHTML = "bruh"
 
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
