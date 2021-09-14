@@ -1,4 +1,4 @@
-let versionNum = "0.3.7";
+let versionNum = "0.3.8";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -169,7 +169,7 @@ function startGame() {
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
         let particleTop = 47;
-        let particleSpeed = 0
+        let particleSpeed = 0;
         cubeParticle.classList.add("cubeParticle");
         cubeParticle.style.left = (12.5 + (Math.floor(Math.random() * 5))).toString() + "%"
         cubeParticle.style.top = particleTop + "%"
@@ -179,7 +179,7 @@ function startGame() {
             setTimeout(() => {
                 if (particleTop < 100) {
                 particleTop = particleTop + particleSpeed;
-                particleSpeed = particleSpeed + 0.01;
+                particleSpeed = particleSpeed + 0.05;
                 cubeParticle.style.top = particleTop + "%";
                 moveParticle()
                 } else {
@@ -691,7 +691,7 @@ function startGame() {
                         setTimeout(() => {
                             if (jparticleTop < 100) {
                             jparticleTop = jparticleTop + jparticleSpeed;
-                            jparticleSpeed = jparticleSpeed + 0.01;
+                            jparticleSpeed = jparticleSpeed + 0.05;
                             jahParticle.style.top = jparticleTop + "%";
                             moveParticle()
                             } else {
@@ -727,7 +727,7 @@ function startGame() {
                         setTimeout(() => {
                             if (sparticleTop < 100) {
                             sparticleTop = sparticleTop + sparticleSpeed;
-                            sparticleSpeed = sparticleSpeed + 0.01;
+                            sparticleSpeed = sparticleSpeed + 0.05;
                             scottishParticle.style.top = sparticleTop + "%";
                             moveParticle()
                             } else {
@@ -760,7 +760,7 @@ function startGame() {
                         setTimeout(() => {
                             if (oparticleTop < 100) {
                             oparticleTop = oparticleTop + oparticleSpeed;
-                            oparticleSpeed = oparticleSpeed + 0.01;
+                            oparticleSpeed = oparticleSpeed + 0.05;
                             ohedParticle.style.top = oparticleTop + "%";
                             moveParticle()
                             } else {
@@ -795,7 +795,7 @@ function startGame() {
                         setTimeout(() => {
                             if (cparticleTop < 100) {
                             cparticleTop = cparticleTop + cparticleSpeed;
-                            cparticleSpeed = cparticleSpeed + 0.01;
+                            cparticleSpeed = cparticleSpeed + 0.05;
                             creepyParticle.style.top = cparticleTop + "%";
                             moveParticle()
                             } else {
@@ -828,7 +828,7 @@ function startGame() {
                         setTimeout(() => {
                             if (gparticleTop < 100) {
                             gparticleTop = gparticleTop + gparticleSpeed;
-                            gparticleSpeed = gparticleSpeed + 0.01;
+                            gparticleSpeed = gparticleSpeed + 0.05;
                             garfParticle.style.top = gparticleTop + "%";
                             moveParticle()
                             } else {
@@ -863,7 +863,7 @@ function startGame() {
                         setTimeout(() => {
                             if (hparticleTop < 100) {
                             hparticleTop = hparticleTop + hparticleSpeed;
-                            hparticleSpeed = hparticleSpeed + 0.01;
+                            hparticleSpeed = hparticleSpeed + 0.05;
                             hmmParticle.style.top = hparticleTop + "%";
                             moveParticle()
                             } else {
@@ -897,7 +897,7 @@ function startGame() {
                         setTimeout(() => {
                             if (birbyparticleTop < 100) {
                             birbyparticleTop = birbyparticleTop + birbyparticleSpeed;
-                            birbyparticleSpeed = birbyparticleSpeed + 0.01;
+                            birbyparticleSpeed = birbyparticleSpeed + 0.05;
                             birbyParticle.style.top = birbyparticleTop + "%";
                             moveParticle()
                             } else {
