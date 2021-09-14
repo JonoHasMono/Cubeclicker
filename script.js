@@ -1,4 +1,4 @@
-let versionNum = "0.3.8";
+let versionNum = "0.3.9";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -449,7 +449,7 @@ function startGame() {
         if(upFivePower < 10) {
         if (score >= upFiveCostNum) {
             score = score - upFiveCostNum
-            upFiveCostNum = upFiveCostNum + (500 * (upFivePower ** 3));
+            upFiveCostNum = upFiveCostNum + (1000 * (upFivePower ** 3));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upFivePower = upFivePower + 1;
             upFiveCost.innerHTML = "$" + upFiveCostNum.toString();
