@@ -1,4 +1,4 @@
-let versionNum = "0.3.9";
+let versionNum = "0.4.1";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -12,6 +12,7 @@ let upNineOpen = false;
 let up10Open = false;
 let up11Open = false;
 let up12Open = false;
+let up13Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 21;
@@ -26,6 +27,7 @@ let upNinePower = 1;
 let up10Power = 1;
 let up11Power = 1;
 let up12Power = 1;
+let up13Power = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -165,7 +167,16 @@ function startGame() {
     let up12Desc = document.createElement("div");
     up12Desc.classList.add("up12D");
     up12Desc.innerHTML = "Birby joins your cause, sucking up Jerma bucks gathered from across the Milky Way Galaxy"
-
+    
+    let up13CostNum = 1200000
+    let up13Cost = document.createElement("div");
+    up13Cost.classList.add("up13C");
+    up13Cost.innerHTML = "$" + up13CostNum.toString();
+    bodyVar.appendChild(up13Cost);
+    let up13Desc = document.createElement("div");
+    up13Desc.classList.add("up13D");
+    up13Desc.innerHTML = "A cool diamond appears, rewarding you with random amounts of Jerma bucks"
+    
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
         let particleTop = 47;
@@ -279,6 +290,12 @@ function startGame() {
             upgrade12.addEventListener("click", buyUp12)
             bodyVar.appendChild(upgrade12);
 
+            let upgrade13 = document.createElement("div");
+            upgrade13.classList.add("up13");
+            upgrade13.addEventListener("mouseover", openUp13)
+            upgrade13.addEventListener("click", buyUp13)
+            bodyVar.appendChild(upgrade13);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -360,6 +377,13 @@ function startGame() {
         if (up12Open == false) {
             up12Open = true;
             bodyVar.appendChild(up12Desc);
+        }
+    }
+
+    function openUp13() {
+        if (up13Open == false) {
+            up13Open = true;
+            bodyVar.appendChild(up13Desc);
         }
     }
 
@@ -594,6 +618,27 @@ function startGame() {
     }
     }
 
+    function buyUp13() {
+        if(up13Power < 10) {
+        if (score >= up13CostNum) {
+            if(up13Power == 1) {
+                let diamond = document.createElement("img")
+                diamond.classList.add("diamond");
+                diamond.setAttribute("src", "images/diamond.gif");
+                bodyVar.appendChild(diamond);
+            }
+            score = score - up13CostNum
+            up13CostNum = up13CostNum + (15000 * (up13Power ** 3));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+               up13Power = up13Power + 1;
+            up13Cost.innerHTML = "$" + up13CostNum.toString();
+        }
+    } else {
+        upgrade13.style.animation = "spin 5s linear infinite";
+        up13Cost.innerHTML = "Maxed Out";
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -647,6 +692,10 @@ function startGame() {
         if(up12Open == true) {
             up12Open = false;
             bodyVar.removeChild(up12Desc);
+        }
+        if(up13Open == true) {
+            up13Open = false;
+            bodyVar.removeChild(up13Desc);
         }
     }
 
@@ -911,6 +960,39 @@ function startGame() {
         }, (1500 / up12Power))
     }
 
+    function diamondClicker() {
+        setTimeout(() => {
+            if(up13Power >= 2) {
+                score = score + ((jermaPower * upFourPower) * (Math.floor(Math.random() * 100) * 10));
+                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                spawnDiamondParticle();
+                function spawnDiamondParticle() {
+                    let diamondParticle = document.createElement("div");
+                    let diamondparticleTop = 49;
+                    let diamondparticleSpeed = 0
+                    diamondParticle.classList.add("diamondParticle");
+                    diamondParticle.style.left = (29 + (Math.random() * 2)).toString() + "%"
+                    diamondParticle.style.top = diamondparticleTop + "%"
+                    bodyVar.appendChild(diamondParticle);
+                    moveParticle();
+                    function moveParticle() {
+                        setTimeout(() => {
+                            if (diamondparticleTop < 100) {
+                            diamondparticleTop = diamondparticleTop + diamondparticleSpeed;
+                            diamondparticleSpeed = diamondparticleSpeed + 0.05;
+                            diamondParticle.style.top = diamondparticleTop + "%";
+                            moveParticle()
+                            } else {
+                                bodyVar.removeChild(diamondParticle);
+                            }
+                        }, 10)
+                    }
+                }
+            }
+            diamondClicker();
+        }, (2200 - (up13Power * 200)))
+    }
+
     jahClicker();
     scottishClicker(); 
     ohedClicker();
@@ -918,6 +1000,7 @@ function startGame() {
     garfClicker();garfClicker();
     hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();
     birbyClicker();
+    diamondClicker();
 }
 
 
