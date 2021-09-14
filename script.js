@@ -1,4 +1,4 @@
-let versionNum = "0.3.5";
+let versionNum = "0.3.6";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -11,6 +11,7 @@ let upEightOpen = false;
 let upNineOpen = false;
 let up10Open = false;
 let up11Open = false;
+let up12Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 21;
@@ -24,6 +25,7 @@ let upEightPower = 1;
 let upNinePower = 1;
 let up10Power = 1;
 let up11Power = 1;
+let up12Power = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -108,7 +110,7 @@ function startGame() {
     bodyVar.appendChild(upSixCost);
     let upSixDesc = document.createElement("div");
     upSixDesc.classList.add("up6D");
-    upSixDesc.innerHTML = "An Obamahedron manifests itself into our reality, gathering Jerma bucks from other dimensions"
+    upSixDesc.innerHTML = "An Obamahedron manifests itself into our reality, gathering Jerma bucks from other obamensions"
 
     let upSevenCostNum = 9000
     let upSevenCost = document.createElement("div");
@@ -154,6 +156,15 @@ function startGame() {
     let up11Desc = document.createElement("div");
     up11Desc.classList.add("up11D");
     up11Desc.innerHTML = "Jah goes sicko mode, gaining extreme power and making even more Jerma bucks"
+
+    let up12CostNum = 500000
+    let up12Cost = document.createElement("div");
+    up12Cost.classList.add("up12C");
+    up12Cost.innerHTML = "$" + up12CostNum.toString();
+    bodyVar.appendChild(up12Cost);
+    let up12Desc = document.createElement("div");
+    up12Desc.classList.add("up12D");
+    up12Desc.innerHTML = "Birby joins your cause, sucking up Jerma bucks gathered from across the Milky Way Galaxy"
 
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
@@ -262,6 +273,12 @@ function startGame() {
             upgrade11.addEventListener("click", buyUp11)
             bodyVar.appendChild(upgrade11);
 
+            let upgrade12 = document.createElement("div");
+            upgrade12.classList.add("up12");
+            upgrade12.addEventListener("mouseover", openUp12)
+            upgrade12.addEventListener("click", buyUp12)
+            bodyVar.appendChild(upgrade12);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -336,6 +353,13 @@ function startGame() {
         if (up11Open == false) {
             up11Open = true;
             bodyVar.appendChild(up11Desc);
+        }
+    }
+
+    function openUp12() {
+        if (up12Open == false) {
+            up12Open = true;
+            bodyVar.appendChild(up12Desc);
         }
     }
 
@@ -549,6 +573,27 @@ function startGame() {
     }
     }
 
+    function buyUp12() {
+        if(up12Power < 20) {
+        if (score >= up12CostNum) {
+            if(up12Power == 1) {
+                let birby = document.createElement("img")
+                birby.classList.add("birby");
+                birby.setAttribute("src", "images/birby.gif");
+                bodyVar.appendChild(birby);
+            }
+            score = score - up12CostNum
+            up12CostNum = up12CostNum + (20000 * (up12Power ** 2));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+               up12Power = up12Power + 1;
+            up12Cost.innerHTML = "$" + up12CostNum.toString();
+        }
+    } else {
+        upgrade12.style.animation = "spin 5s linear infinite";
+        up12Cost.innerHTML = "Maxed Out";
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -598,6 +643,10 @@ function startGame() {
         if(up11Open == true) {
             up11Open = false;
             bodyVar.removeChild(up11Desc);
+        }
+        if(up12Open == true) {
+            up12Open = false;
+            bodyVar.removeChild(up12Desc);
         }
     }
 
@@ -826,12 +875,46 @@ function startGame() {
         }, (900 / up10Power))
     }
 
+    function birbyClicker() {
+        setTimeout(() => {
+            if(up12Power >= 2) {
+                score = score + ((jermaPower * upFourPower) * 50);
+                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                spawnBirbyParticle();
+                function spawnBirbyParticle() {
+                    let birbyParticle = document.createElement("div");
+                    let birbyparticleTop = 28;
+                    let birbyparticleSpeed = 0
+                    birbyParticle.classList.add("birbyParticle");
+                    birbyParticle.style.left = (89 + (Math.random() * 2)).toString() + "%"
+                    birbyParticle.style.top = birbyparticleTop + "%"
+                    bodyVar.appendChild(birbyParticle);
+                    moveParticle();
+                    function moveParticle() {
+                        setTimeout(() => {
+                            if (birbyparticleTop < 100) {
+                            birbyparticleTop = birbyparticleTop + birbyparticleSpeed;
+                            birbyparticleSpeed = birbyparticleSpeed + 0.01;
+                            birbyParticle.style.top = birbyparticleTop + "%";
+                            moveParticle()
+                            } else {
+                                bodyVar.removeChild(birbyParticle);
+                            }
+                        }, 10)
+                    }
+                }
+            }
+            birbyClicker();
+        }, (1500 / up12Power))
+    }
+
     jahClicker();
     scottishClicker(); 
     ohedClicker();
     creepyClicker();
     garfClicker();garfClicker();
     hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();
+    birbyClicker();
 }
 
 
