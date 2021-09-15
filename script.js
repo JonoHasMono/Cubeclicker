@@ -1,4 +1,4 @@
-let versionNum = "0.5.6";
+let versionNum = "0.5.8";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -65,6 +65,9 @@ function startGame() {
     scoreBottom.classList.add("scoreBottom");
     scoreBottom.innerHTML = "(Click the Jerma cube to get more)";
     bodyVar.appendChild(scoreBottom);
+    setTimeout(() => {
+        scoreBottom.style.animation = "scoreMove 6s ease infinite";
+    }, 150)
 
     let upOneCostNum = 50
     let upOneCost = document.createElement("div");
@@ -885,9 +888,9 @@ function startGame() {
     function creepyClicker() {
         setTimeout(() => {
             let creepyChance = Math.random();
-            if (creepyChance > 0.95) {
+            if (creepyChance > 0.925) {
             if(upSevenPower >= 2) {
-                score = score + ((jermaPower * upFourPower) * 4);
+                score = score + ((jermaPower * upFourPower) * 6);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnCreepyParticle();
                 function spawnCreepyParticle() {
