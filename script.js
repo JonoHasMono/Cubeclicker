@@ -1,4 +1,4 @@
-let versionNum = "0.5.8";
+let versionNum = "0.5.9";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
