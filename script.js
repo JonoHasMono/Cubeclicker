@@ -1,4 +1,4 @@
-let versionNum = "0.6.3";
+let versionNum = "0.6.4";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -15,6 +15,7 @@ let up12Open = false;
 let up13Open = false;
 let up14Open = false;
 let up15Open = false;
+let upS1Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 11;
@@ -32,6 +33,7 @@ let up12Power = 1;
 let up13Power = 1;
 let up14Power = 1;
 let up15Power = 1;
+let upS1Power = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -70,6 +72,13 @@ function startGame() {
     setTimeout(() => {
         scoreBottom.style.animation = "scoreMove 6s ease infinite";
     }, 150)
+
+    let harry = document.createElement("img");
+    harry.classList.add("harry");
+    harry.setAttribute("src", "images/Harry.jpg");
+    let winston = document.createElement("img");
+    winston.classList.add("winston");
+    winston.setAttribute("src", "images/Winston.jpg");
 
     let upOneCostNum = 50
     let upOneCost = document.createElement("div");
@@ -205,6 +214,14 @@ function startGame() {
     let up15Desc = document.createElement("div");
     up15Desc.classList.add("up15D");
     up15Desc.innerHTML = "Obamahedron rules The Obamaverse, allowing him to gather even more Jerma bucks for you"
+
+    let upS1CostNum = 69420000
+    let upS1Cost = document.createElement("div");
+    upS1Cost.classList.add("upS1C");
+    upS1Cost.innerHTML = "$" + numberCommas(upS1CostNum);
+    let upS1Desc = document.createElement("div");
+    upS1Desc.classList.add("upS1D");
+    upS1Desc.innerHTML = "Balls"
     
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
@@ -337,6 +354,12 @@ function startGame() {
             upgrade15.addEventListener("click", buyUp15)
             bodyVar.appendChild(upgrade15);
 
+            let upgradeS1 = document.createElement("div");
+            upgradeS1.classList.add("upS1");
+            upgradeS1.addEventListener("mouseover", openUpS1)
+            upgradeS1.addEventListener("click", buyUpS1)
+            bodyVar.appendChild(upgradeS1);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -439,6 +462,14 @@ function startGame() {
         if (up15Open == false) {
             up15Open = true;
             bodyVar.appendChild(up15Desc);
+        }
+    }
+
+    function openUpS1() {
+        if (upS1Open == false) {
+            upS1Open = true;
+            bodyVar.appendChild(upS1Desc);
+            bodyVar.appendChild(upS1Cost);
         }
     }
 
@@ -730,6 +761,16 @@ function startGame() {
     }
     }
 
+    function buyUpS1() {
+        if(up15Power == 1) {
+            score = score - up15CostNum
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
+            up15Power = 15;
+        upgrade15.style.animation = "spin 5s linear infinite";
+        up15Cost.innerHTML = "Maxed Out";
+    }
+    }
+
 
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
@@ -796,6 +837,11 @@ function startGame() {
         if(up15Open == true) {
             up15Open = false;
             bodyVar.removeChild(up15Desc);
+        }
+        if(upS1Open == true) {
+            upS1Open = false;
+            bodyVar.removeChild(upS1Desc);
+            bodyVar.removeChild(upS1Cost);
         }
     }
 
