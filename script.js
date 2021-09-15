@@ -13,6 +13,7 @@ let up10Open = false;
 let up11Open = false;
 let up12Open = false;
 let up13Open = false;
+let up14Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 21;
@@ -28,6 +29,7 @@ let up10Power = 1;
 let up11Power = 1;
 let up12Power = 1;
 let up13Power = 1;
+let up14Power = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -180,6 +182,15 @@ function startGame() {
     let up13Desc = document.createElement("div");
     up13Desc.classList.add("up13D");
     up13Desc.innerHTML = "A cool diamond appears, rewarding you with random amounts of Jerma bucks"
+
+    let up14CostNum = 2500000
+    let up14Cost = document.createElement("div");
+    up14Cost.classList.add("up14C");
+    up14Cost.innerHTML = "$" + numberCommas(up14CostNum);
+    bodyVar.appendChild(up14Cost);
+    let up14Desc = document.createElement("div");
+    up14Desc.classList.add("up14D");
+    up14Desc.innerHTML = "The almighty Driprism collects Jerma bucks with the power of its sigma male grindset"
     
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
@@ -300,6 +311,12 @@ function startGame() {
             upgrade13.addEventListener("click", buyUp13)
             bodyVar.appendChild(upgrade13);
 
+            let upgrade14 = document.createElement("div");
+            upgrade14.classList.add("up14");
+            upgrade14.addEventListener("mouseover", openUp14)
+            upgrade14.addEventListener("click", buyUp14)
+            bodyVar.appendChild(upgrade14);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -388,6 +405,13 @@ function startGame() {
         if (up13Open == false) {
             up13Open = true;
             bodyVar.appendChild(up13Desc);
+        }
+    }
+
+    function openUp14() {
+        if (up14Open == false) {
+            up14Open = true;
+            bodyVar.appendChild(up14Desc);
         }
     }
 
@@ -643,6 +667,27 @@ function startGame() {
     }
     }
 
+    function buyUp14() {
+        if(up14Power < 10) {
+        if (score >= up14CostNum) {
+            if(up14Power == 1) {
+                let drip = document.createElement("img")
+                drip.classList.add("drip");
+                drip.setAttribute("src", "images/earth.gif");
+                bodyVar.appendChild(drip);
+            }
+            score = score - up14CostNum
+            up14CostNum = up14CostNum + (120000 * (up14Power ** 2));
+            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+               up14Power = up14Power + 1;
+            up14Cost.innerHTML = "$" + numberCommas(up14CostNum);
+        }
+    } else {
+        upgrade14.style.animation = "spin 5s linear infinite";
+        up14Cost.innerHTML = "Maxed Out";
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -700,6 +745,10 @@ function startGame() {
         if(up13Open == true) {
             up13Open = false;
             bodyVar.removeChild(up13Desc);
+        }
+        if(up14Open == true) {
+            up14Open = false;
+            bodyVar.removeChild(up14Desc);
         }
     }
 
@@ -997,6 +1046,39 @@ function startGame() {
         }, (2200 - (up13Power * 200)))
     }
 
+    function dripClicker() {
+        setTimeout(() => {
+            if(up14Power >= 2) {
+                score = score + ((jermaPower * upFourPower) * 150);
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
+                spawnDripParticle();
+                function spawnDripParticle() {
+                    let dripParticle = document.createElement("div");
+                    let dripParticleTop = 51;
+                    let dripParticleSpeed = 0
+                    dripParticle.classList.add("dripParticle");
+                    dripParticle.style.left = (39 + (Math.random() * 2)).toString() + "%"
+                    dripParticle.style.top = dripParticleTop + "%"
+                    bodyVar.appendChild(dripParticle);
+                    moveParticle();
+                    function moveParticle() {
+                        setTimeout(() => {
+                            if (dripParticleTop < 100) {
+                            dripParticleTop = dripParticleTop + dripParticleSpeed;
+                            dripParticleSpeed = dripParticleSpeed + 0.05;
+                            dripParticle.style.top = dripParticleTop + "%";
+                            moveParticle()
+                            } else {
+                                bodyVar.removeChild(dripParticle);
+                            }
+                        }, 10)
+                    }
+                }
+            }
+            dripClicker();
+        }, (550 - (up14Power * 50)))
+    }
+
     jahClicker();
     scottishClicker(); 
     ohedClicker();
@@ -1005,6 +1087,7 @@ function startGame() {
     hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();hmmClicker();
     birbyClicker();
     diamondClicker();
+    dripClicker();
 }
 
 
