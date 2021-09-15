@@ -188,9 +188,8 @@ body {
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
 }
-
 .up1:hover {
-    background-color: rgb(150, 75, 75);
+    background-color: rgb(150, 50, 50);
     box-shadow: 0 0 15px rgb(255, 0, 0), 0 0 25px rgb(255, 0, 0);
     cursor: pointer;
 }
@@ -236,6 +235,11 @@ body {
     box-shadow: 0 0 15px rgb(255, 150, 0);
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
+}
+.up2:hover {
+    background-color: rgb(150, 100, 50);
+    box-shadow: 0 0 15px rgb(255, 150, 0), 0 0 25px rgb(255, 150, 0);
+    cursor: pointer;
 }
 
 .up2D {
@@ -310,6 +314,11 @@ body {
     box-shadow: 0 0 15px rgb(255, 255, 0);
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
+}
+.up3:hover {  
+    background-color: rgb(150, 150, 50);
+    box-shadow: 0 0 15px rgb(255, 255, 0), 0 0 25px rgb(255, 255, 0);
+    cursor: pointer;
 }
 
 .up3D {
@@ -386,6 +395,11 @@ body {
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
 }
+.up4:hover {
+    background-color: rgb(75, 150, 50);
+    box-shadow: 0 0 15px rgb(50, 255, 0), 0 0 25px rgb(50, 255, 0);
+    cursor: pointer;
+}
 
 .up4D {
     position: absolute;
@@ -429,6 +443,11 @@ body {
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
 }
+.up5:hover {
+    background-color: rgb(50, 150, 150);
+    box-shadow: 0 0 15px rgb(0, 255, 255), 0 0 25px rgb(0, 255, 255);
+    cursor: pointer;
+}
 .up5D {
     position: absolute;
     width: 100%;
@@ -469,6 +488,11 @@ body {
     box-shadow: 0 0 15px rgb(0, 120, 255);
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
+}
+.up6:hover {
+    background-color: rgb(50, 100, 150);
+    box-shadow: 0 0 15px rgb(0, 120, 255), 0 0 25px rgb(0, 120, 255);
+    cursor: pointer;
 }
 .up6D {
     position: absolute;
@@ -544,6 +568,11 @@ body {
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
 }
+.up7:hover {
+    background-color: rgb(50, 50, 150);
+    box-shadow: 0 0 15px rgb(0, 0, 255), 0 0 25px rgb(0, 0, 255);
+    cursor: pointer;
+}
 .up7D {
     position: absolute;
     width: 100%;
@@ -616,6 +645,11 @@ body {
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
 }
+.up8:hover {
+    background-color: rgb(100, 50, 150);
+    box-shadow: 0 0 15px rgb(150, 0, 255), 0 0 25px rgb(150, 0, 255);
+    cursor: pointer;
+}
 .up8D {
     position: absolute;
     width: 100%;
@@ -683,10 +717,15 @@ body {
     bottom: 25%;
     text-align: center;
     border: 5px solid rgb(255, 0, 255);
-    background-color: rgb(25, 0, 50);
+    background-color: rgb(50, 0, 50);
     box-shadow: 0 0 15px rgb(255, 0, 255);
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
+}
+.up9:hover {
+    background-color: rgb(150, 50, 150);
+    box-shadow: 0 0 15px rgb(255, 0, 255), 0 0 25px rgb(255, 0, 255);
+    cursor: pointer;
 }
 .up9D {
     position: absolute;
@@ -758,6 +797,11 @@ body {
     box-shadow: 0 0 15px rgb(255, 100, 100);
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
+}
+.up10:hover {
+    background-color: rgb(150, 75, 75);
+    box-shadow: 0 0 15px rgb(255, 100, 100), 0 0 25px rgb(255, 100, 100);
+    cursor: pointer;
 }
 .up10D {
     position: absolute;
@@ -831,6 +875,11 @@ body {
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
 }
+.up11:hover {
+    background-color: rgb(150, 110, 75);
+    box-shadow: 0 0 15px rgb(255, 175, 100), 0 0 25px rgb(255, 175, 100);
+    cursor: pointer;
+}
 .up11D {
     position: absolute;
     width: 100%;
@@ -871,6 +920,11 @@ body {
     box-shadow: 0 0 15px rgb(255, 255, 100);
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
+}
+.up12:hover {
+    background-color: rgb(150, 150, 75);
+    box-shadow: 0 0 15px rgb(255, 255, 100), 0 0 25px rgb(255, 255, 100);
+    cursor: pointer;
 }
 .up12D {
     position: absolute;
@@ -944,6 +998,11 @@ body {
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
 }
+.up13:hover {
+    background-color: rgb(75, 150, 75);
+    box-shadow: 0 0 15px rgb(100, 255, 100), 0 0 25px rgb(100, 255, 100);
+    cursor: pointer;
+}
 .up13D {
     position: absolute;
     width: 100%;
@@ -1015,6 +1074,11 @@ body {
     box-shadow: 0 0 15px rgb(100, 255, 255);
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
+}
+.up14:hover {
+    background-color: rgb(75, 150, 150);
+    box-shadow: 0 0 15px rgb(100, 255, 255), 0 0 25px rgb(100, 255, 255);
+    cursor: pointer;
 }
 .up14D {
     position: absolute;
