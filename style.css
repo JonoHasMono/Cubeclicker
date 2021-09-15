@@ -6,6 +6,10 @@ body {
     overflow: hidden;
     user-select: none;
     animation: bg 6 ease infinite;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 
 @keyframes bg {
@@ -63,6 +67,10 @@ body {
     text-align: center;
     transform: translate(-45%, -35%);
     user-select: none;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 
 @keyframes spin {
@@ -250,6 +258,10 @@ body {
     box-shadow: 0 0 50px rgb(255, 150, 0);
     border: 2px solid rgb(255, 150, 0);
     border-radius: 50%;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 
 .jahParticle {
@@ -320,6 +332,10 @@ body {
     box-shadow: 0 0 50px rgb(255, 255, 0);
     border: 2px solid rgb(255, 255, 0);
     border-radius: 50%;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 
 .scottishParticle {
@@ -473,6 +489,10 @@ body {
     box-shadow: 0 0 50px rgb(0, 120, 255);
     border: 2px solid rgb(0, 120, 255);
     border-radius: 50%;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 
 .ohedParticle {
@@ -541,6 +561,10 @@ body {
     box-shadow: 0 0 50px rgb(0, 0, 255);
     border: 2px solid rgb(0, 0, 255);
     border-radius: 50%;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 .creepyParticle {
     width: 15px;
@@ -608,6 +632,10 @@ body {
     box-shadow: 0 0 50px rgb(150, 0, 255);
     border: 2px solid rgb(150, 0, 255);
     border-radius: 50%;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 .garfParticle {
     width: 15px;
@@ -746,6 +774,10 @@ body {
     box-shadow: 0 0 50px rgb(255, 100, 100);
     border: 2px solid rgb(255, 100, 100);
     border-radius: 50%;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 .hmmParticle {
     width: 15px;
@@ -854,6 +886,10 @@ body {
     box-shadow: 0 0 50px rgb(255, 255, 100);
     border: 2px solid rgb(255, 255, 100);
     border-radius: 50%;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 .birbyParticle {
     width: 15px;
@@ -921,6 +957,10 @@ body {
     box-shadow: 0 0 50px rgb(100, 255, 100);
     border: 2px solid rgb(100, 255, 100);
     border-radius: 50%;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 .diamondParticle {
     width: 15px;
@@ -988,6 +1028,10 @@ body {
     box-shadow: 0 0 50px rgb(255, 0, 0);
     border: 2px solid rgb(255, 0, 0);
     border-radius: 50%;
+    -webkit-user-drag: none; 
+    -khtml-user-drag: none; 
+    -moz-user-drag: none; 
+    -o-user-drag: none; 
 }
 .dripParticle {
     width: 15px;
