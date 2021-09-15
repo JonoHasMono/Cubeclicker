@@ -1,4 +1,4 @@
-let versionNum = "0.4.8";
+let versionNum = "0.5.0";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -94,7 +94,7 @@ function startGame() {
     let upFourCostNum = 1250
     let upFourCost = document.createElement("div");
     upFourCost.classList.add("up4C");
-    upFourCost.innerHTML = "$" + upFourCostNum.toString();
+    upFourCost.innerHTML = "$" + numberCommas(upFourCostNum);
     bodyVar.appendChild(upFourCost);
     let upFourDesc = document.createElement("div");
     upFourDesc.classList.add("up4D");
@@ -103,7 +103,7 @@ function startGame() {
     let upFiveCostNum = 2000
     let upFiveCost = document.createElement("div");
     upFiveCost.classList.add("up5C");
-    upFiveCost.innerHTML = "$" + upFiveCostNum.toString();
+    upFiveCost.innerHTML = "$" + numberCommas(upFiveCostNum);
     bodyVar.appendChild(upFiveCost);
     let upFiveDesc = document.createElement("div");
     upFiveDesc.classList.add("up5D");
@@ -112,7 +112,7 @@ function startGame() {
     let upSixCostNum = 5000
     let upSixCost = document.createElement("div");
     upSixCost.classList.add("up6C");
-    upSixCost.innerHTML = "$" + upSixCostNum.toString();
+    upSixCost.innerHTML = "$" + numberCommas(upSixCostNum);
     bodyVar.appendChild(upSixCost);
     let upSixDesc = document.createElement("div");
     upSixDesc.classList.add("up6D");
@@ -121,7 +121,7 @@ function startGame() {
     let upSevenCostNum = 9000
     let upSevenCost = document.createElement("div");
     upSevenCost.classList.add("up7C");
-    upSevenCost.innerHTML = "$" + upSevenCostNum.toString();
+    upSevenCost.innerHTML = "$" + numberCommas(upSevenCostNum);
     bodyVar.appendChild(upSevenCost);
     let upSevenDesc = document.createElement("div");
     upSevenDesc.classList.add("up7D");
@@ -130,7 +130,7 @@ function startGame() {
     let upEightCostNum = 14000
     let upEightCost = document.createElement("div");
     upEightCost.classList.add("up8C");
-    upEightCost.innerHTML = "$" + upEightCostNum.toString();
+    upEightCost.innerHTML = "$" + numberCommas(upEightCostNum);
     bodyVar.appendChild(upEightCost);
     let upEightDesc = document.createElement("div");
     upEightDesc.classList.add("up8D");
@@ -139,7 +139,7 @@ function startGame() {
     let upNineCostNum = 50000
     let upNineCost = document.createElement("div");
     upNineCost.classList.add("up9C");
-    upNineCost.innerHTML = "$" + upNineCostNum.toString();
+    upNineCost.innerHTML = "$" + numberCommas(upNineCostNum);
     bodyVar.appendChild(upNineCost);
     let upNineDesc = document.createElement("div");
     upNineDesc.classList.add("up9D");
@@ -148,7 +148,7 @@ function startGame() {
     let up10CostNum = 80000
     let up10Cost = document.createElement("div");
     up10Cost.classList.add("up10C");
-    up10Cost.innerHTML = "$" + up10CostNum.toString();
+    up10Cost.innerHTML = "$" + numberCommas(up10CostNum);
     bodyVar.appendChild(up10Cost);
     let up10Desc = document.createElement("div");
     up10Desc.classList.add("up10D");
@@ -157,7 +157,7 @@ function startGame() {
     let up11CostNum = 200000
     let up11Cost = document.createElement("div");
     up11Cost.classList.add("up11C");
-    up11Cost.innerHTML = "$" + up11CostNum.toString();
+    up11Cost.innerHTML = "$" + numberCommas(up11CostNum);
     bodyVar.appendChild(up11Cost);
     let up11Desc = document.createElement("div");
     up11Desc.classList.add("up11D");
@@ -166,7 +166,7 @@ function startGame() {
     let up12CostNum = 500000
     let up12Cost = document.createElement("div");
     up12Cost.classList.add("up12C");
-    up12Cost.innerHTML = "$" + up12CostNum.toString();
+    up12Cost.innerHTML = "$" + numberCommas(up12CostNum);
     bodyVar.appendChild(up12Cost);
     let up12Desc = document.createElement("div");
     up12Desc.classList.add("up12D");
@@ -175,7 +175,7 @@ function startGame() {
     let up13CostNum = 1200000
     let up13Cost = document.createElement("div");
     up13Cost.classList.add("up13C");
-    up13Cost.innerHTML = "$" + up13CostNum.toString();
+    up13Cost.innerHTML = "$" + numberCommas(up13CostNum);
     bodyVar.appendChild(up13Cost);
     let up13Desc = document.createElement("div");
     up13Desc.classList.add("up13D");
@@ -396,12 +396,12 @@ function startGame() {
         if (score >= upOneCostNum) {
             score = score - upOneCostNum
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
-            upOneCostNum = upOneCostNum + (30 * (upOnePower ** 2));
+            upOneCostNum = upOneCostNum + (40 * (upOnePower ** 2));
             upOnePower = upOnePower + 1;
             jermaPower = jermaPower + 1;
             jermaSpeed = jermaSpeed - 0.1;
             cube.style.animation = "spin " + jermaSpeed + "s linear infinite";
-            upOneCost.innerHTML = "$" + upOneCostNum.toString();
+            upOneCost.innerHTML = "$" + numberCommas(upOneCostNum);
         }
     } else {
         upgradeOne.style.animation = "spin 5s linear infinite";
@@ -422,7 +422,7 @@ function startGame() {
             upTwoCostNum = upTwoCostNum + (200 * (upTwoPower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upTwoPower = upTwoPower + 1;
-            upTwoCost.innerHTML = "$" + upTwoCostNum.toString();
+            upTwoCost.innerHTML = "$" + numberCommas(upTwoCostNum);
         }
     } else {
         upgradeTwo.style.animation = "spin 5s linear infinite";
@@ -443,7 +443,7 @@ function startGame() {
             upThreeCostNum = upThreeCostNum + (300 * (upThreePower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upThreePower = upThreePower + 1;
-            upThreeCost.innerHTML = "$" + upThreeCostNum.toString();
+            upThreeCost.innerHTML = "$" + numberCommas(upThreeCostNum);
         }
     } else {
         upgradeThree.style.animation = "spin 5s linear infinite";
@@ -480,7 +480,7 @@ function startGame() {
             upFiveCostNum = upFiveCostNum + (1000 * (upFivePower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upFivePower = upFivePower + 1;
-            upFiveCost.innerHTML = "$" + upFiveCostNum.toString();
+            upFiveCost.innerHTML = "$" + numberCommas(upFiveCostNum);
         }
     } else {
         upgradeFive.style.animation = "spin 5s linear infinite";
@@ -501,7 +501,7 @@ function startGame() {
             upSixCostNum = upSixCostNum + (500 * (upSixPower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upSixPower = upSixPower + 1;
-            upSixCost.innerHTML = "$" + upSixCostNum.toString();
+            upSixCost.innerHTML = "$" + numberCommas(upSixCostNum);
         }
     } else {
         upgradeSix.style.animation = "spin 5s linear infinite";
@@ -522,7 +522,7 @@ function startGame() {
             upSevenCostNum = upSevenCostNum + (2500 * (upSevenPower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upSevenPower = upSevenPower + 1;
-            upSevenCost.innerHTML = "$" + upSevenCostNum.toString();
+            upSevenCost.innerHTML = "$" + numberCommas(upSevenCostNum);
         }
     } else {
         upgradeSeven.style.animation = "spin 5s linear infinite";
@@ -543,7 +543,7 @@ function startGame() {
             upEightCostNum = upEightCostNum + (6500 * (upEightPower ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
             upEightPower = upEightPower + 1;
-            upEightCost.innerHTML = "$" + upEightCostNum.toString();
+            upEightCost.innerHTML = "$" + numberCommas(upEightCostNum);
         }
     } else {
         upgradeEight.style.animation = "spin 5s linear infinite";
@@ -582,7 +582,7 @@ function startGame() {
             up10CostNum = up10CostNum + (6500 * (up10Power ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                up10Power = up10Power + 1;
-            up10Cost.innerHTML = "$" + up10CostNum.toString();
+               up10Cost.innerHTML = "$" + numberCommas(up10CostNum);
         }
     } else {
         upgrade10.style.animation = "spin 5s linear infinite";
@@ -614,7 +614,7 @@ function startGame() {
             up12CostNum = up12CostNum + (20000 * (up12Power ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                up12Power = up12Power + 1;
-            up12Cost.innerHTML = "$" + up12CostNum.toString();
+               up12Cost.innerHTML = "$" + numberCommas(up12CostNum);
         }
     } else {
         upgrade12.style.animation = "spin 5s linear infinite";
@@ -635,7 +635,7 @@ function startGame() {
             up13CostNum = up13CostNum + (85000 * (up13Power ** 2));
             scoreTop.innerHTML = "You have " + score + " Jerma bucks";
                up13Power = up13Power + 1;
-            up13Cost.innerHTML = "$" + up13CostNum.toString();
+            up13Cost.innerHTML = "$" + numberCommas(up13CostNum);
         }
     } else {
         upgrade13.style.animation = "spin 5s linear infinite";
@@ -765,7 +765,7 @@ function startGame() {
 
             if(upThreePower >= 2) {
                 score = score + (jermaPower * upFourPower);
-                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnScottishParticle();
                 function spawnScottishParticle() {
                     let scottishParticle = document.createElement("div");
@@ -798,7 +798,7 @@ function startGame() {
         setTimeout(() => {
             if(upSixPower >= 2) {
                 score = score + ((jermaPower * upFourPower) * 2);
-                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnOhedParticle();
                 function spawnOhedParticle() {
                     let ohedParticle = document.createElement("div");
@@ -833,7 +833,7 @@ function startGame() {
             if (creepyChance > 0.95) {
             if(upSevenPower >= 2) {
                 score = score + ((jermaPower * upFourPower) * 4);
-                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnCreepyParticle();
                 function spawnCreepyParticle() {
                     let creepyParticle = document.createElement("div");
@@ -866,7 +866,7 @@ function startGame() {
         setTimeout(() => {
             if(upEightPower >= 2) {
                 score = score + ((jermaPower * upFourPower) * 4);
-                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnGarfParticle();
                 function spawnGarfParticle() {
                     let garfParticle = document.createElement("div");
@@ -901,7 +901,7 @@ function startGame() {
             if (hmmChance > 0.90) {
             if(up10Power >= 2) {
                 score = score + ((jermaPower * upFourPower) * 25);
-                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnHmmParticle();
                 function spawnHmmParticle() {
                     let hmmParticle = document.createElement("div");
@@ -935,7 +935,7 @@ function startGame() {
         setTimeout(() => {
             if(up12Power >= 2) {
                 score = score + ((jermaPower * upFourPower) * 50);
-                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnBirbyParticle();
                 function spawnBirbyParticle() {
                     let birbyParticle = document.createElement("div");
@@ -968,7 +968,7 @@ function startGame() {
         setTimeout(() => {
             if(up13Power >= 2) {
                 score = score + ((jermaPower * upFourPower) * (Math.floor(Math.random() * 100) * 10));
-                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnDiamondParticle();
                 function spawnDiamondParticle() {
                     let diamondParticle = document.createElement("div");
