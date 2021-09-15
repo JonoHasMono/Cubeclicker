@@ -1,4 +1,4 @@
-let versionNum = "0.4.6";
+let versionNum = "0.4.8";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -32,6 +32,10 @@ let bigClick = 0;
 
 function startGame() {
     const bodyVar = document.createElement("div");
+
+    function numberCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
     document.body.appendChild(bodyVar);
 
@@ -206,15 +210,15 @@ function startGame() {
             if (bigClick == 10) {
                 bigClick = 0;
                 score = score + (jermaPower * upFivePower * upNinePower * (upFourPower * 10))
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             } else {
             bigClick += 1;
             score = score + (jermaPower * upFourPower * upNinePower)
-        scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             }
         } else {
         score = score + (jermaPower * upFourPower * upNinePower)
-        scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+        scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
         }
     }
 
@@ -714,10 +718,10 @@ function startGame() {
         jermaClicked();
           } else if (key == ' KeyP') {
             score = 420420420;
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
         } else if (key == ' KeyO') {
             score = 0;
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
           }
     }
 
@@ -725,7 +729,7 @@ function startGame() {
         setTimeout(() => {
             if(upTwoPower >= 2) {
                 score = score + (jermaPower * upFourPower * (up11Power * up11Power));
-                scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnJahParticle();
                 function spawnJahParticle() {
                     let jahParticle = document.createElement("div");
