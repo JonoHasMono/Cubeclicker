@@ -1,4 +1,4 @@
-let versionNum = "0.6.0";
+let versionNum = "0.6.1";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -14,6 +14,7 @@ let up11Open = false;
 let up12Open = false;
 let up13Open = false;
 let up14Open = false;
+let up15Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 21;
@@ -30,6 +31,7 @@ let up11Power = 1;
 let up12Power = 1;
 let up13Power = 1;
 let up14Power = 1;
+let up15Power = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -194,6 +196,15 @@ function startGame() {
     let up14Desc = document.createElement("div");
     up14Desc.classList.add("up14D");
     up14Desc.innerHTML = "The whole planet now makes Jerma bucks for you"
+    
+    let up15CostNum = 2500000
+    let up15Cost = document.createElement("div");
+    up15Cost.classList.add("up15C");
+    up15Cost.innerHTML = "$" + numberCommas(up15CostNum);
+    bodyVar.appendChild(up15Cost);
+    let up15Desc = document.createElement("div");
+    up15Desc.classList.add("up15D");
+    up15Desc.innerHTML = "Obamahedron rules The Obamaverse, allowing him to gather even more Jerma bucks for you"
     
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
