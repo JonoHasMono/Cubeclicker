@@ -1,4 +1,4 @@
-let versionNum = "0.5.4";
+let versionNum = "0.5.6";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -584,6 +584,12 @@ function startGame() {
         upNineCost.innerHTML = "Maxed Out";
         let glow = document.createElement("div")
                 glow.classList.add("glow");
+                bodyVar.appendChild(glow);
+                bodyVar.appendChild(glow);
+                bodyVar.appendChild(glow);
+                bodyVar.appendChild(glow);
+                bodyVar.appendChild(glow);
+                bodyVar.appendChild(glow);
                 bodyVar.appendChild(glow);
                 bodyVar.appendChild(glow);
                 bodyVar.appendChild(glow);

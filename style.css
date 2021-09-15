@@ -330,6 +330,7 @@ body {
     text-align: center;
     transform: translate(-45%, -35%);
     box-shadow: 0 0 50px rgb(255, 255, 0);
+    background-color: rgb(80,80,0);
     border: 2px solid rgb(255, 255, 0);
     border-radius: 50%;
     -webkit-user-drag: none; 
@@ -487,6 +488,7 @@ body {
     text-align: center;
     transform: translate(-45%, -35%);
     box-shadow: 0 0 50px rgb(0, 120, 255);
+    background-color: rgb(5,15,50);
     border: 2px solid rgb(0, 120, 255);
     border-radius: 50%;
     -webkit-user-drag: none; 
@@ -559,6 +561,7 @@ body {
     text-align: center;
     transform: translate(-45%, -35%);
     box-shadow: 0 0 50px rgb(0, 0, 255);
+    background-color: rgb(0, 0, 70);
     border: 2px solid rgb(0, 0, 255);
     border-radius: 50%;
     -webkit-user-drag: none; 
@@ -630,6 +633,7 @@ body {
     text-align: center;
     transform: translate(-45%, -35%);
     box-shadow: 0 0 50px rgb(150, 0, 255);
+    background-color: rgb(15,0,35);
     border: 2px solid rgb(150, 0, 255);
     border-radius: 50%;
     -webkit-user-drag: none; 
@@ -772,6 +776,7 @@ body {
     text-align: center;
     transform: translate(-45%, -35%);
     box-shadow: 0 0 50px rgb(255, 100, 100);
+    background-color: rgb(80,40,40);
     border: 2px solid rgb(255, 100, 100);
     border-radius: 50%;
     -webkit-user-drag: none; 
@@ -884,6 +889,7 @@ body {
     text-align: center;
     transform: translate(-45%, -35%);
     box-shadow: 0 0 50px rgb(255, 255, 100);
+    background-image: radial-gradient(#ffee00,#443a00,#000000);
     border: 2px solid rgb(255, 255, 100);
     border-radius: 50%;
     -webkit-user-drag: none; 
@@ -955,6 +961,7 @@ body {
     text-align: center;
     transform: translate(-45%, -35%);
     box-shadow: 0 0 50px rgb(100, 255, 100);
+    background-image: radial-gradient(#00f7ff,#002030,#000000);
     border: 2px solid rgb(100, 255, 100);
     border-radius: 50%;
     -webkit-user-drag: none; 
@@ -1025,8 +1032,9 @@ body {
     top: 50%;
     text-align: center;
     transform: translate(-45%, -35%);
-    box-shadow: 0 0 50px rgb(255, 0, 0);
-    border: 2px solid rgb(255, 0, 0);
+    box-shadow: 0 0 50px rgb(100, 255, 255);
+    background-color: rgb(0,0,0);
+    border: 2px solid rgb(100, 255, 255);
     border-radius: 50%;
     -webkit-user-drag: none; 
     -khtml-user-drag: none; 
@@ -1038,9 +1046,9 @@ body {
     height: 15px;
     position: absolute;
     text-align: center;
-    border: .5px solid rgb(255,0,0);
+    border: .5px solid rgb(100,255,255);
     background-color: black;
-    box-shadow: 0 0 3px rgb(255,0,0);
+    box-shadow: 0 0 3px rgb(100,255,255);
     transform: translate(-50%, -50%);
     animation: spin 1s linear infinite;
     user-select: none;
