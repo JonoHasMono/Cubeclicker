@@ -1,4 +1,4 @@
-let versionNum = "0.5.0";
+let versionNum = "0.5.3";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -190,7 +190,7 @@ function startGame() {
     bodyVar.appendChild(up14Cost);
     let up14Desc = document.createElement("div");
     up14Desc.classList.add("up14D");
-    up14Desc.innerHTML = "The almighty Driprism collects Jerma bucks with the power of its sigma male grindset"
+    up14Desc.innerHTML = "The whole planet now makes Jerma bucks for you"
     
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
@@ -419,7 +419,7 @@ function startGame() {
         if(upOnePower < 100) {
         if (score >= upOneCostNum) {
             score = score - upOneCostNum
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upOneCostNum = upOneCostNum + (40 * (upOnePower ** 2));
             upOnePower = upOnePower + 1;
             jermaPower = jermaPower + 1;
@@ -444,7 +444,7 @@ function startGame() {
             }
             score = score - upTwoCostNum
             upTwoCostNum = upTwoCostNum + (200 * (upTwoPower ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upTwoPower = upTwoPower + 1;
             upTwoCost.innerHTML = "$" + numberCommas(upTwoCostNum);
         }
@@ -465,7 +465,7 @@ function startGame() {
             }
             score = score - upThreeCostNum
             upThreeCostNum = upThreeCostNum + (300 * (upThreePower ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upThreePower = upThreePower + 1;
             upThreeCost.innerHTML = "$" + numberCommas(upThreeCostNum);
         }
@@ -488,7 +488,7 @@ function startGame() {
             cubeVis.style.top = "39%"
             score = score - upFourCostNum
             upFourCostNum = upFourCostNum + (250 * (upThreePower ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upFourPower = upFourPower + 1;
             upFourCost.innerHTML = "$" + upFourCostNum.toString();
             upgradeFour.style.animation = "spin 5s linear infinite";
@@ -502,7 +502,7 @@ function startGame() {
         if (score >= upFiveCostNum) {
             score = score - upFiveCostNum
             upFiveCostNum = upFiveCostNum + (1000 * (upFivePower ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upFivePower = upFivePower + 1;
             upFiveCost.innerHTML = "$" + numberCommas(upFiveCostNum);
         }
@@ -523,7 +523,7 @@ function startGame() {
             }
             score = score - upSixCostNum
             upSixCostNum = upSixCostNum + (500 * (upSixPower ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upSixPower = upSixPower + 1;
             upSixCost.innerHTML = "$" + numberCommas(upSixCostNum);
         }
@@ -544,7 +544,7 @@ function startGame() {
             }
             score = score - upSevenCostNum
             upSevenCostNum = upSevenCostNum + (2500 * (upSevenPower ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upSevenPower = upSevenPower + 1;
             upSevenCost.innerHTML = "$" + numberCommas(upSevenCostNum);
         }
@@ -565,7 +565,7 @@ function startGame() {
             }
             score = score - upEightCostNum
             upEightCostNum = upEightCostNum + (6500 * (upEightPower ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upEightPower = upEightPower + 1;
             upEightCost.innerHTML = "$" + numberCommas(upEightCostNum);
         }
@@ -578,7 +578,7 @@ function startGame() {
     function buyUpNine() {
         if(upNinePower == 1) {
             score = score - upNineCostNum
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upNinePower = 4;
         upgradeNine.style.animation = "spin 5s linear infinite";
         upNineCost.innerHTML = "Maxed Out";
@@ -604,7 +604,7 @@ function startGame() {
             }
             score = score - up10CostNum
             up10CostNum = up10CostNum + (6500 * (up10Power ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                up10Power = up10Power + 1;
                up10Cost.innerHTML = "$" + numberCommas(up10CostNum);
         }
@@ -617,7 +617,7 @@ function startGame() {
     function buyUp11() {
         if(up11Power == 1) {
             score = score - up11CostNum
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             up11Power = 2;
         upgrade11.style.animation = "spin 5s linear infinite";
         up11Cost.innerHTML = "Maxed Out";
@@ -636,7 +636,7 @@ function startGame() {
             }
             score = score - up12CostNum
             up12CostNum = up12CostNum + (20000 * (up12Power ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                up12Power = up12Power + 1;
                up12Cost.innerHTML = "$" + numberCommas(up12CostNum);
         }
@@ -657,7 +657,7 @@ function startGame() {
             }
             score = score - up13CostNum
             up13CostNum = up13CostNum + (85000 * (up13Power ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                up13Power = up13Power + 1;
             up13Cost.innerHTML = "$" + numberCommas(up13CostNum);
         }
@@ -678,7 +678,7 @@ function startGame() {
             }
             score = score - up14CostNum
             up14CostNum = up14CostNum + (120000 * (up14Power ** 2));
-            scoreTop.innerHTML = "You have " + score + " Jerma bucks";
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                up14Power = up14Power + 1;
             up14Cost.innerHTML = "$" + numberCommas(up14CostNum);
         }
@@ -1043,7 +1043,7 @@ function startGame() {
                 }
             }
             diamondClicker();
-        }, (2200 - (up13Power * 200)))
+        }, (2400 - (up13Power * 200)))
     }
 
     function dripClicker() {
