@@ -1,4 +1,4 @@
-let versionNum = "0.8.2";
+let versionNum = "0.8.4";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -547,7 +547,7 @@ function startGame() {
         if (score >= upOneCostNum) {
             score = score - upOneCostNum
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
-            upOneCostNum = upOneCostNum + (25 * (upOnePower ** 2));
+            upOneCostNum = upOneCostNum + (10 * (upOnePower ** 2));
             upOnePower = upOnePower + 1;
             jermaPower = jermaPower + 1;
             jermaSpeed = jermaSpeed - 0.1;
