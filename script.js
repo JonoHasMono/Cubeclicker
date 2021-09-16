@@ -248,7 +248,7 @@ function startGame() {
     bodyVar.appendChild(up18Cost);
     let up18Desc = document.createElement("div");
     up18Desc.classList.add("up18D");
-    up18Desc.innerHTML = "C o n s i d e r   t h e   f o l l o w i n g"
+    up18Desc.innerHTML = "C o n s i d e r" + "\xa0\xa0\xa0" + "t h e" + "\xa0\xa0\xa0" + "f o l l o w i n g"
 
     let upS1CostNum = 69420000
     let upS1Cost = document.createElement("div");
@@ -878,6 +878,28 @@ function startGame() {
     }
 }
 
+function buyUp18() {
+    if(up18Power == 1) {
+    if (score >= up18CostNum) {
+        if(up18Power == 1) {
+            let bill = document.createElement("img")
+            bill.classList.add("bill");
+            bill.setAttribute("src", "images/bill.jpg");
+            bodyVar.appendChild(bill);
+        }
+        score = score - up18CostNum
+        upFourPower = upFourPower * 2;
+        scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
+           up18Power = up18Power + 1;
+        up18Cost.innerHTML = "$" + numberCommas(up18CostNum);
+    upgrade18.style.animation = "spin 5s linear infinite";
+    up18Cost.innerHTML = "Maxed Out";
+}
+}
+}
+
+
+
     function buyUpS1() {
         if(upS1Power == 1) {
             score = score - upS1CostNum
@@ -964,6 +986,10 @@ function startGame() {
         if(up17Open == true) {
             up17Open = false;
             bodyVar.removeChild(up17Desc);
+        }
+        if(up18Open == true) {
+            up18Open = false;
+            bodyVar.removeChild(up18Desc);
         }
         if(upS1Open == true) {
             upS1Open = false;
@@ -1332,6 +1358,39 @@ function startGame() {
         }, (550 - (up16Power * 25)))
     }
 
+    function billClicker() {
+        setTimeout(() => {
+            if(up18Power >= 2) {
+                score = score + ((jermaPower * upFourPower) * 2500);
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
+                spawnBillParticle();
+                function spawnBillParticle() {
+                    let billParticle = document.createElement("div");
+                    let billParticleTop = 51;
+                    let billParticleSpeed = 0
+                    billParticle.classList.add("billParticle");
+                    billParticle.style.left = (49 + (Math.random() * 2)).toString() + "%"
+                    billParticle.style.top = billParticleTop + "%"
+                    bodyVar.appendChild(billParticle);
+                    moveParticle();
+                    function moveParticle() {
+                        setTimeout(() => {
+                            if (billParticleTop < 100) {
+                            billParticleTop = billParticleTop + billParticleSpeed;
+                            billParticleSpeed = billParticleSpeed + 0.05;
+                            billParticle.style.top = billParticleTop + "%";
+                            moveParticle()
+                            } else {
+                                bodyVar.removeChild(billParticle);
+                            }
+                        }, 10)
+                    }
+                }
+            }
+            billClicker();
+        },250)
+    }
+
     jahClicker();
     scottishClicker(); 
     ohedClicker();
@@ -1348,6 +1407,7 @@ function startGame() {
     setTimeout(() => {
         duckClicker();
     }, 100)
+    billClicker();
 }
 
 
