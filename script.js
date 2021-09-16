@@ -1,4 +1,4 @@
-let versionNum = "0.7.6";
+let versionNum = "0.7.7";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -85,7 +85,7 @@ function startGame() {
     winston.setAttribute("src", "images/Winston.jpg");
     winston.addEventListener("click", jermaClicked);
 
-    let upOneCostNum = 50
+    let upOneCostNum = 25
     let upOneCost = document.createElement("div");
     upOneCost.classList.add("up1C");
     upOneCost.innerHTML = "$" + upOneCostNum.toString();
@@ -94,7 +94,7 @@ function startGame() {
     upOneDesc.classList.add("up1D");
     upOneDesc.innerHTML = "Jerma spins faster, granting more Jerma bucks per click"
 
-    let upTwoCostNum = 250
+    let upTwoCostNum = 100
     let upTwoCost = document.createElement("div");
     upTwoCost.classList.add("up2C");
     upTwoCost.innerHTML = "$" + upTwoCostNum.toString();
@@ -103,7 +103,7 @@ function startGame() {
     upTwoDesc.classList.add("up2D");
     upTwoDesc.innerHTML = "Jerma's friend Jah appears, clicking Jerma for you"
     
-    let upThreeCostNum = 400
+    let upThreeCostNum = 500
     let upThreeCost = document.createElement("div");
     upThreeCost.classList.add("up3C");
     upThreeCost.innerHTML = "$" + upThreeCostNum.toString();
@@ -112,7 +112,7 @@ function startGame() {
     upThreeDesc.classList.add("up3D");
     upThreeDesc.innerHTML = "A very drunk scottish man appears, clicking Jerma in random intervals"
 
-    let upFourCostNum = 1250
+    let upFourCostNum = 1500
     let upFourCost = document.createElement("div");
     upFourCost.classList.add("up4C");
     upFourCost.innerHTML = "$" + numberCommas(upFourCostNum);
@@ -121,7 +121,7 @@ function startGame() {
     upFourDesc.classList.add("up4D");
     upFourDesc.innerHTML = "Jerma gets bigger, doubling all Jerma bucks collected"
 
-    let upFiveCostNum = 2000
+    let upFiveCostNum = 4000
     let upFiveCost = document.createElement("div");
     upFiveCost.classList.add("up5C");
     upFiveCost.innerHTML = "$" + numberCommas(upFiveCostNum);
@@ -130,7 +130,7 @@ function startGame() {
     upFiveDesc.classList.add("up5D");
     upFiveDesc.innerHTML = "Every 10th manual click is stronger, upgrading further increases it's strength"
 
-    let upSixCostNum = 5000
+    let upSixCostNum = 6666
     let upSixCost = document.createElement("div");
     upSixCost.classList.add("up6C");
     upSixCost.innerHTML = "$" + numberCommas(upSixCostNum);
@@ -139,7 +139,7 @@ function startGame() {
     upSixDesc.classList.add("up6D");
     upSixDesc.innerHTML = "An Obamahedron manifests itself into our reality, gathering Jerma bucks from other obamensions"
 
-    let upSevenCostNum = 9000
+    let upSevenCostNum = 15000
     let upSevenCost = document.createElement("div");
     upSevenCost.classList.add("up7C");
     upSevenCost.innerHTML = "$" + numberCommas(upSevenCostNum);
@@ -148,7 +148,7 @@ function startGame() {
     upSevenDesc.classList.add("up7D");
     upSevenDesc.innerHTML = "A horrifying creature appears, colleting Jerma bucks using [REDACTED]"
 
-    let upEightCostNum = 14000
+    let upEightCostNum = 28000
     let upEightCost = document.createElement("div");
     upEightCost.classList.add("up8C");
     upEightCost.innerHTML = "$" + numberCommas(upEightCostNum);
@@ -166,7 +166,7 @@ function startGame() {
     upNineDesc.classList.add("up9D");
     upNineDesc.innerHTML = "Jerma grows in power from overwhelming popularity, manual clicks become x4 stronger"
 
-    let up10CostNum = 80000
+    let up10CostNum = 150000
     let up10Cost = document.createElement("div");
     up10Cost.classList.add("up10C");
     up10Cost.innerHTML = "$" + numberCommas(up10CostNum);
@@ -175,7 +175,7 @@ function startGame() {
     up10Desc.classList.add("up10D");
     up10Desc.innerHTML = "Summons a curious god who contemplates whether or not it should give you Jerma bucks"
 
-    let up11CostNum = 200000
+    let up11CostNum = 500000
     let up11Cost = document.createElement("div");
     up11Cost.classList.add("up11C");
     up11Cost.innerHTML = "$" + numberCommas(up11CostNum);
@@ -184,7 +184,7 @@ function startGame() {
     up11Desc.classList.add("up11D");
     up11Desc.innerHTML = "Jah goes sicko mode, gaining extreme power and making even more Jerma bucks"
 
-    let up12CostNum = 500000
+    let up12CostNum = 1500000
     let up12Cost = document.createElement("div");
     up12Cost.classList.add("up12C");
     up12Cost.innerHTML = "$" + numberCommas(up12CostNum);
@@ -193,7 +193,7 @@ function startGame() {
     up12Desc.classList.add("up12D");
     up12Desc.innerHTML = "Birby joins your cause, sucking up Jerma bucks gathered from across the Milky Way Galaxy"
     
-    let up13CostNum = 1200000
+    let up13CostNum = 6000000
     let up13Cost = document.createElement("div");
     up13Cost.classList.add("up13C");
     up13Cost.innerHTML = "$" + numberCommas(up13CostNum);
@@ -202,7 +202,7 @@ function startGame() {
     up13Desc.classList.add("up13D");
     up13Desc.innerHTML = "A cool diamond appears, rewarding you with random amounts of Jerma bucks"
 
-    let up14CostNum = 2500000
+    let up14CostNum = 25000000
     let up14Cost = document.createElement("div");
     up14Cost.classList.add("up14C");
     up14Cost.innerHTML = "$" + numberCommas(up14CostNum);
@@ -211,7 +211,7 @@ function startGame() {
     up14Desc.classList.add("up14D");
     up14Desc.innerHTML = "The whole planet now makes Jerma bucks for you"
     
-    let up15CostNum = 12345678
+    let up15CostNum = 123456789
     let up15Cost = document.createElement("div");
     up15Cost.classList.add("up15C");
     up15Cost.innerHTML = "$" + numberCommas(up15CostNum);
@@ -220,7 +220,7 @@ function startGame() {
     up15Desc.classList.add("up15D");
     up15Desc.innerHTML = "Obamahedron rules The Obamaverse, allowing him to gather even more Jerma bucks for you"
 
-    let up16CostNum = 26000000
+    let up16CostNum = 1500000000
     let up16Cost = document.createElement("div");
     up16Cost.classList.add("up16C");
     up16Cost.innerHTML = "$" + numberCommas(up16CostNum);
@@ -229,7 +229,7 @@ function startGame() {
     up16Desc.classList.add("up16D");
     up16Desc.innerHTML = "A dope a** duck with flippers waddles before you, summoning Jerma bucks from seemingly no where"
 
-    let up17CostNum = 200000000
+    let up17CostNum = 20000000000
     let up17Cost = document.createElement("div");
     up17Cost.classList.add("up17C");
     up17Cost.innerHTML = "$" + numberCommas(up17CostNum);
@@ -238,7 +238,7 @@ function startGame() {
     up17Desc.classList.add("up17D");
     up17Desc.innerHTML = "Jerma's Universal presence allows you to earn triple Jerma bucks from all sources, and x5 from manual clicks"
 
-    let up18CostNum = 7777777777
+    let up18CostNum = 7777777777777
     let up18Cost = document.createElement("div");
     up18Cost.classList.add("up18C");
     up18Cost.innerHTML = "$" + numberCommas(up18CostNum);
@@ -246,7 +246,7 @@ function startGame() {
     up18Desc.classList.add("up18D");
     up18Desc.innerHTML = "C o n s i d e r" + "\xa0\xa0\xa0" + "t h e" + "\xa0\xa0\xa0" + "f o l l o w i n g"
 
-    let upS1CostNum = 69420000
+    let upS1CostNum = 69420000000
     let upS1Cost = document.createElement("div");
     upS1Cost.classList.add("upS1C");
     upS1Cost.innerHTML = "$" + numberCommas(upS1CostNum);
