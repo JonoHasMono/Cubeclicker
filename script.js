@@ -1,4 +1,4 @@
-let versionNum = "0.8.5";
+let versionNum = "0.8.6";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -1088,7 +1088,7 @@ function buyUp18() {
             }
         }
             scottishClicker();
-        }, (300))
+        }, (150))
     }
     function ohedClicker() {
         setTimeout(() => {
