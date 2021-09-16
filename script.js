@@ -1,4 +1,4 @@
-let versionNum = "0.6.9";
+let versionNum = "0.7.2";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -16,6 +16,7 @@ let up13Open = false;
 let up14Open = false;
 let up15Open = false;
 let up16Open = false;
+let up17Open = false;
 let upS1Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
@@ -35,6 +36,7 @@ let up13Power = 1;
 let up14Power = 1;
 let up15Power = 1;
 let up16Power = 1;
+let up17Power = 1;
 let upS1Power = 1;
 let bigClick = 0;
 
@@ -228,6 +230,15 @@ function startGame() {
     up16Desc.classList.add("up16D");
     up16Desc.innerHTML = "A dope a** duck with flippers waddles before you, summoning Jerma bucks from seemingly no where"
 
+    let up17CostNum = 200000000
+    let up17Cost = document.createElement("div");
+    up17Cost.classList.add("up17C");
+    up17Cost.innerHTML = "$" + numberCommas(up17CostNum);
+    bodyVar.appendChild(up17Cost);
+    let up17Desc = document.createElement("div");
+    up17Desc.classList.add("up17D");
+    up17Desc.innerHTML = "Jerma's Universal presence allows you to earn triple Jerma bucks from all sources, and x5 from manual clicks"
+
     let upS1CostNum = 69420000
     let upS1Cost = document.createElement("div");
     upS1Cost.classList.add("upS1C");
@@ -373,6 +384,12 @@ function startGame() {
             upgrade16.addEventListener("click", buyUp16)
             bodyVar.appendChild(upgrade16);
 
+            let upgrade17 = document.createElement("div");
+            upgrade17.classList.add("up17");
+            upgrade17.addEventListener("mouseover", openUp17)
+            upgrade17.addEventListener("click", buyUp17)
+            bodyVar.appendChild(upgrade17);
+
             let upgradeS1 = document.createElement("div");
             upgradeS1.classList.add("upS1");
             upgradeS1.addEventListener("mouseover", openUpS1)
@@ -488,6 +505,13 @@ function startGame() {
         if (up16Open == false) {
             up16Open = true;
             bodyVar.appendChild(up16Desc);
+        }
+    }
+
+    function openUp17() {
+        if (up17Open == false) {
+            up17Open = true;
+            bodyVar.appendChild(up17Desc);
         }
     }
 
@@ -808,11 +832,33 @@ function startGame() {
     }
     }
 
+    function buyUp17() {
+        if(up17Power == 1) {
+        if (score >= up17CostNum) {
+            if(up17Power == 1) {
+                let galaxy = document.createElement("img")
+                galaxy.classList.add("galaxy");
+                galaxy.setAttribute("src", "images/galaxy.jpg");
+                bodyVar.appendChild(galaxy);
+            }
+            score = score - up17CostNum
+            upFourPower = upFourPower * 3;
+            upNinePower = upNinePower * 5;
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
+               up17Power = up17Power + 1;
+            up17Cost.innerHTML = "$" + numberCommas(up17CostNum);
+            document.body.style.backgroundImage = "linear-gradient(to top,#020105, #052241)"
+        upgrade17.style.animation = "spin 5s linear infinite";
+        up17Cost.innerHTML = "Maxed Out";
+    }
+    }
+}
+
     function buyUpS1() {
         if(upS1Power == 1) {
             score = score - upS1CostNum
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
-            upFourPower = 8;
+            upFourPower = upFourPower * 25;
         upgradeS1.style.animation = "spin 5s linear infinite";
         upS1Cost.innerHTML = "Maxed Out";
         bodyVar.appendChild(harry);
@@ -890,6 +936,10 @@ function startGame() {
         if(up16Open == true) {
             up16Open = false;
             bodyVar.removeChild(up16Desc);
+        }
+        if(up17Open == true) {
+            up17Open = false;
+            bodyVar.removeChild(up17Desc);
         }
         if(upS1Open == true) {
             upS1Open = false;
