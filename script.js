@@ -1088,7 +1088,7 @@ function buyUp18() {
             }
         }
             scottishClicker();
-        }, (500))
+        }, (300))
     }
     function ohedClicker() {
         setTimeout(() => {
