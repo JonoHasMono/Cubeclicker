@@ -15,6 +15,7 @@ let up12Open = false;
 let up13Open = false;
 let up14Open = false;
 let up15Open = false;
+let up16Open = false;
 let upS1Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
@@ -33,6 +34,7 @@ let up12Power = 1;
 let up13Power = 1;
 let up14Power = 1;
 let up15Power = 1;
+let up16Power = 1;
 let upS1Power = 1;
 let bigClick = 0;
 
@@ -48,6 +50,7 @@ function startGame() {
     let cube = document.createElement("div");
     cube.classList.add("mainCube");
     cube.style.animation = "spin " + jermaSpeed + "s linear infinite";
+    cube.addEventListener("click", jermaClicked);
     bodyVar.appendChild(cube);
 
     let cubeVis = document.createElement("img");
@@ -76,9 +79,11 @@ function startGame() {
     let harry = document.createElement("img");
     harry.classList.add("harry");
     harry.setAttribute("src", "images/Harry.jpg");
+    harry.addEventListener("click", jermaClicked);
     let winston = document.createElement("img");
     winston.classList.add("winston");
     winston.setAttribute("src", "images/Winston.jpg");
+    winston.addEventListener("click", jermaClicked);
 
     let upOneCostNum = 50
     let upOneCost = document.createElement("div");
@@ -214,6 +219,15 @@ function startGame() {
     let up15Desc = document.createElement("div");
     up15Desc.classList.add("up15D");
     up15Desc.innerHTML = "Obamahedron rules The Obamaverse, allowing him to gather even more Jerma bucks for you"
+
+    let up16CostNum = 15000000
+    let up16Cost = document.createElement("div");
+    up16Cost.classList.add("up16C");
+    up16Cost.innerHTML = "$" + numberCommas(up16CostNum);
+    bodyVar.appendChild(up16Cost);
+    let up16Desc = document.createElement("div");
+    up16Desc.classList.add("up16D");
+    up16Desc.innerHTML = "A dope a** duck with flippers waddles before you, summoning Jerma bucks from seemingly no where"
 
     let upS1CostNum = 69420000
     let upS1Cost = document.createElement("div");
@@ -353,6 +367,12 @@ function startGame() {
             upgrade15.addEventListener("mouseover", openUp15)
             upgrade15.addEventListener("click", buyUp15)
             bodyVar.appendChild(upgrade15);
+
+            let upgrade16 = document.createElement("div");
+            upgrade16.classList.add("up16");
+            upgrade16.addEventListener("mouseover", openUp16)
+            upgrade16.addEventListener("click", buyUp16)
+            bodyVar.appendChild(upgrade16);
 
             let upgradeS1 = document.createElement("div");
             upgradeS1.classList.add("upS1");
@@ -762,12 +782,14 @@ function startGame() {
     }
 
     function buyUpS1() {
-        if(up15Power == 1) {
-            score = score - up15CostNum
+        if(upS1Power == 1) {
+            score = score - upS1CostNum
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
-            up15Power = 15;
-        upgrade15.style.animation = "spin 5s linear infinite";
-        up15Cost.innerHTML = "Maxed Out";
+            upFourPower = 8;
+        upgradeS1.style.animation = "spin 5s linear infinite";
+        upS1Cost.innerHTML = "Maxed Out";
+        bodyVar.appendChild(harry);
+        bodyVar.appendChild(winston);
     }
     }
 
