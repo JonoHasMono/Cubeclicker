@@ -1,4 +1,4 @@
-let versionNum = "0.8.1";
+let versionNum = "0.8.2";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -1093,7 +1093,7 @@ function buyUp18() {
     function ohedClicker() {
         setTimeout(() => {
             if(upSixPower >= 2) {
-                score = score + (((jermaPower + upSixPower) * upFourPower * up15Power) * 2);
+                score = score + (((jermaPower + (2 * upSixPower)) * upFourPower * up15Power) * 2);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnOhedParticle();
                 function spawnOhedParticle() {
@@ -1128,7 +1128,7 @@ function buyUp18() {
             let creepyChance = Math.random();
             if (creepyChance > 0.925) {
             if(upSevenPower >= 2) {
-                score = score + (((jermaPower + upSevenPower) * upFourPower) * 6);
+                score = score + (((jermaPower + (2 *upSevenPower)) * upFourPower) * 6);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnCreepyParticle();
                 function spawnCreepyParticle() {
@@ -1161,7 +1161,7 @@ function buyUp18() {
     function garfClicker() {
         setTimeout(() => {
             if(upEightPower >= 2) {
-                score = score + (((jermaPower + upEightPower) * upFourPower) * 4);
+                score = score + (((jermaPower + (2 * upEightPower)) * upFourPower) * 4);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnGarfParticle();
                 function spawnGarfParticle() {
@@ -1196,7 +1196,7 @@ function buyUp18() {
             let hmmChance = Math.random();
             if (hmmChance > 0.90) {
             if(up10Power >= 2) {
-                score = score + (((jermaPower + up10Power) * upFourPower) * 25);
+                score = score + (((jermaPower + (3 * up10Power)) * upFourPower) * 25);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnHmmParticle();
                 function spawnHmmParticle() {
@@ -1230,7 +1230,7 @@ function buyUp18() {
     function birbyClicker() {
         setTimeout(() => {
             if(up12Power >= 2) {
-                score = score + (((jermaPower + up12Power) * upFourPower) * 50);
+                score = score + (((jermaPower + (3 * up12Power)) * upFourPower) * 50);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnBirbyParticle();
                 function spawnBirbyParticle() {
@@ -1263,7 +1263,7 @@ function buyUp18() {
     function diamondClicker() {
         setTimeout(() => {
             if(up13Power >= 2) {
-                score = score + (((jermaPower + up13Power) * upFourPower) * (Math.floor(Math.random() * 100) * 10));
+                score = score + (((jermaPower + (4 * up13Power)) * upFourPower) * (Math.floor(Math.random() * 100) * 10));
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnDiamondParticle();
                 function spawnDiamondParticle() {
@@ -1296,7 +1296,7 @@ function buyUp18() {
     function dripClicker() {
         setTimeout(() => {
             if(up14Power >= 2) {
-                score = score + (((jermaPower + up14Power) * upFourPower) * 150);
+                score = score + (((jermaPower + (4 * up14Power)) * upFourPower) * 150);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnDripParticle();
                 function spawnDripParticle() {
@@ -1329,7 +1329,7 @@ function buyUp18() {
     function duckClicker() {
         setTimeout(() => {
             if(up16Power >= 2) {
-                score = score + (((jermaPower + up16Power) * upFourPower) * 350);
+                score = score + (((jermaPower + (5 * up16Power)) * upFourPower) * 350);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnDuckParticle();
                 function spawnDuckParticle() {
