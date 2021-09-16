@@ -1,4 +1,4 @@
-let versionNum = "0.8.4";
+let versionNum = "0.8.5";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -570,7 +570,7 @@ function startGame() {
                 bodyVar.appendChild(jah);
             }
             score = score - upTwoCostNum
-            upTwoCostNum = upTwoCostNum + (50 * (upTwoPower ** 2));
+            upTwoCostNum = upTwoCostNum + (20 * (upTwoPower ** 2));
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upTwoPower = upTwoPower + 1;
             upTwoCost.innerHTML = "$" + numberCommas(upTwoCostNum);
