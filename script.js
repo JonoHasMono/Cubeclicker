@@ -1,4 +1,4 @@
-let versionNum = "0.7.3";
+let versionNum = "0.7.4";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -884,7 +884,7 @@ function buyUp18() {
         if(up18Power == 1) {
             let bill = document.createElement("img")
             bill.classList.add("bill");
-            bill.setAttribute("src", "images/bill.jpg");
+            bill.setAttribute("src", "images/bill.gif");
             bodyVar.appendChild(bill);
         }
         score = score - up18CostNum
@@ -1012,7 +1012,7 @@ function buyUp18() {
     } else if (key == ' KeyR') {
         jermaClicked();
           } else if (key == ' KeyP') {
-            score = 420420420;
+            score = Infinity;
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
         } else if (key == ' KeyO') {
             score = 0;
