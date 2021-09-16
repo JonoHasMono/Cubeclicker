@@ -1,4 +1,4 @@
-let versionNum = "0.7.9";
+let versionNum = "0.8.0";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -582,7 +582,7 @@ function startGame() {
     }
 
     function buyUpThree() {
-        if(upThreePower < 20) {
+        if(upThreePower < 35) {
         if (score >= upThreeCostNum) {
             if(upThreePower == 1) {
                 let scottish = document.createElement("img")
@@ -591,7 +591,7 @@ function startGame() {
                 bodyVar.appendChild(scottish);
             }
             score = score - upThreeCostNum
-            upThreeCostNum = upThreeCostNum + (300 * (upThreePower ** 2));
+            upThreeCostNum = upThreeCostNum + (225 * (upThreePower ** 2));
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upThreePower = upThreePower + 1;
             upThreeCost.innerHTML = "$" + numberCommas(upThreeCostNum);
@@ -625,7 +625,7 @@ function startGame() {
     }
 
     function buyUpFive() {
-        if(upFivePower < 10) {
+        if(upFivePower < 20) {
         if (score >= upFiveCostNum) {
             score = score - upFiveCostNum
             upFiveCostNum = upFiveCostNum + (1000 * (upFivePower ** 2));
@@ -640,7 +640,7 @@ function startGame() {
     }
 
     function buyUpSix() {
-        if(upSixPower < 10) {
+        if(upSixPower < 40) {
         if (score >= upSixCostNum) {
             if(upSixPower == 1) {
                 let ohed = document.createElement("img")
@@ -649,7 +649,7 @@ function startGame() {
                 bodyVar.appendChild(ohed);
             }
             score = score - upSixCostNum
-            upSixCostNum = upSixCostNum + (500 * (upSixPower ** 2));
+            upSixCostNum = upSixCostNum + (111 * (upSixPower ** 2));
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upSixPower = upSixPower + 1;
             upSixCost.innerHTML = "$" + numberCommas(upSixCostNum);
@@ -661,7 +661,7 @@ function startGame() {
     }
 
     function buyUpSeven() {
-        if(upSevenPower < 10) {
+        if(upSevenPower < 30) {
         if (score >= upSevenCostNum) {
             if(upSevenPower == 1) {
                 let creepy = document.createElement("img")
@@ -670,7 +670,7 @@ function startGame() {
                 bodyVar.appendChild(creepy);
             }
             score = score - upSevenCostNum
-            upSevenCostNum = upSevenCostNum + (2500 * (upSevenPower ** 2));
+            upSevenCostNum = upSevenCostNum + (500 * (upSevenPower ** 2));
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upSevenPower = upSevenPower + 1;
             upSevenCost.innerHTML = "$" + numberCommas(upSevenCostNum);
@@ -682,7 +682,7 @@ function startGame() {
     }
 
     function buyUpEight() {
-        if(upEightPower < 10) {
+        if(upEightPower < 25) {
         if (score >= upEightCostNum) {
             if(upEightPower == 1) {
                 let garf = document.createElement("img")
@@ -691,7 +691,7 @@ function startGame() {
                 bodyVar.appendChild(garf);
             }
             score = score - upEightCostNum
-            upEightCostNum = upEightCostNum + (6500 * (upEightPower ** 2));
+            upEightCostNum = upEightCostNum + (1234 * (upEightPower ** 2));
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upEightPower = upEightPower + 1;
             upEightCost.innerHTML = "$" + numberCommas(upEightCostNum);
@@ -727,7 +727,7 @@ function startGame() {
     }
 
     function buyUp10() {
-        if(up10Power < 20) {
+        if(up10Power < 40) {
         if (score >= up10CostNum) {
             if(up10Power == 1) {
                 let hmm = document.createElement("img")
@@ -736,7 +736,7 @@ function startGame() {
                 bodyVar.appendChild(hmm);
             }
             score = score - up10CostNum
-            up10CostNum = up10CostNum + (6500 * (up10Power ** 2));
+            up10CostNum = up10CostNum + (4000 * (up10Power ** 2));
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                up10Power = up10Power + 1;
                up10Cost.innerHTML = "$" + numberCommas(up10CostNum);
@@ -758,7 +758,7 @@ function startGame() {
     }
 
     function buyUp12() {
-        if(up12Power < 20) {
+        if(up12Power < 35) {
         if (score >= up12CostNum) {
             if(up12Power == 1) {
                 let birby = document.createElement("img")
@@ -767,7 +767,7 @@ function startGame() {
                 bodyVar.appendChild(birby);
             }
             score = score - up12CostNum
-            up12CostNum = up12CostNum + (20000 * (up12Power ** 2));
+            up12CostNum = up12CostNum + (11111 * (up12Power ** 2));
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                up12Power = up12Power + 1;
                up12Cost.innerHTML = "$" + numberCommas(up12CostNum);
@@ -779,7 +779,7 @@ function startGame() {
     }
 
     function buyUp13() {
-        if(up13Power < 10) {
+        if(up13Power < 35) {
         if (score >= up13CostNum) {
             if(up13Power == 1) {
                 let diamond = document.createElement("img")
@@ -788,7 +788,7 @@ function startGame() {
                 bodyVar.appendChild(diamond);
             }
             score = score - up13CostNum
-            up13CostNum = up13CostNum + (85000 * (up13Power ** 2));
+            up13CostNum = up13CostNum + (35000 * (up13Power ** 2));
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                up13Power = up13Power + 1;
             up13Cost.innerHTML = "$" + numberCommas(up13CostNum);
@@ -800,7 +800,7 @@ function startGame() {
     }
 
     function buyUp14() {
-        if(up14Power < 10) {
+        if(up14Power < 25) {
         if (score >= up14CostNum) {
             if(up14Power == 1) {
                 let drip = document.createElement("img")
@@ -822,16 +822,18 @@ function startGame() {
 
     function buyUp15() {
         if(up15Power == 1) {
+            if (score >= up15CostNum) {
             score = score - up15CostNum
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             up15Power = 15;
         upgrade15.style.animation = "spin 5s linear infinite";
         up15Cost.innerHTML = "Maxed Out";
+            }
     }
     }
 
     function buyUp16() {
-        if(up16Power < 20) {
+        if(up16Power < 25) {
         if (score >= up16CostNum) {
             if(up16Power == 1) {
                 let duck = document.createElement("img")
@@ -840,7 +842,7 @@ function startGame() {
                 bodyVar.appendChild(duck);
             }
             score = score - up16CostNum
-            up16CostNum = up16CostNum + (350000 * (up16Power ** 2));
+            up16CostNum = up16CostNum + (50000000 * (up16Power ** 2));
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                up16Power = up16Power + 1;
             up16Cost.innerHTML = "$" + numberCommas(up16CostNum);
