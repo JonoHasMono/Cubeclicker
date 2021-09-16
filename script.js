@@ -75,9 +75,6 @@ function startGame() {
     scoreBottom.classList.add("scoreBottom");
     scoreBottom.innerHTML = "(Click the Jerma cube to get more)";
     bodyVar.appendChild(scoreBottom);
-    setTimeout(() => {
-        scoreBottom.style.animation = "scoreMove 6s ease infinite";
-    }, 150)
 
     let harry = document.createElement("img");
     harry.classList.add("harry");

@@ -143,6 +143,7 @@ body {
     -webkit-text-stroke: 0.5px rgb(0, 255, 100);
     text-shadow: 0 0 15px rgb(0, 255, 100);
     transform: translate(-50%, -50%);
+    animation: scoreMove 6s ease infinite;
 }
 
 @keyframes clickHimAnim {
