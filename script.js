@@ -1,4 +1,4 @@
-let versionNum = "0.7.2";
+let versionNum = "0.7.3";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -17,6 +17,7 @@ let up14Open = false;
 let up15Open = false;
 let up16Open = false;
 let up17Open = false;
+let up18Open = false;
 let upS1Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
@@ -37,6 +38,7 @@ let up14Power = 1;
 let up15Power = 1;
 let up16Power = 1;
 let up17Power = 1;
+let up18Power = 1;
 let upS1Power = 1;
 let bigClick = 0;
 
@@ -239,6 +241,15 @@ function startGame() {
     up17Desc.classList.add("up17D");
     up17Desc.innerHTML = "Jerma's Universal presence allows you to earn triple Jerma bucks from all sources, and x5 from manual clicks"
 
+    let up18CostNum = 7777777777
+    let up18Cost = document.createElement("div");
+    up18Cost.classList.add("up18C");
+    up18Cost.innerHTML = "$" + numberCommas(up18CostNum);
+    bodyVar.appendChild(up18Cost);
+    let up18Desc = document.createElement("div");
+    up18Desc.classList.add("up18D");
+    up18Desc.innerHTML = "C o n s i d e r   t h e   f o l l o w i n g"
+
     let upS1CostNum = 69420000
     let upS1Cost = document.createElement("div");
     upS1Cost.classList.add("upS1C");
@@ -390,6 +401,12 @@ function startGame() {
             upgrade17.addEventListener("click", buyUp17)
             bodyVar.appendChild(upgrade17);
 
+            let upgrade18 = document.createElement("div");
+            upgrade18.classList.add("up18");
+            upgrade18.addEventListener("mouseover", openUp18)
+            upgrade18.addEventListener("click", buyUp18)
+            bodyVar.appendChild(upgrade18);
+
             let upgradeS1 = document.createElement("div");
             upgradeS1.classList.add("upS1");
             upgradeS1.addEventListener("mouseover", openUpS1)
@@ -512,6 +529,13 @@ function startGame() {
         if (up17Open == false) {
             up17Open = true;
             bodyVar.appendChild(up17Desc);
+        }
+    }
+
+    function openUp18() {
+        if (up18Open == false) {
+            up18Open = true;
+            bodyVar.appendChild(up18Desc);
         }
     }
 
