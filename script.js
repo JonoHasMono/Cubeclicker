@@ -1,4 +1,4 @@
-let versionNum = "0.7.8";
+let versionNum = "0.7.9";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -547,7 +547,7 @@ function startGame() {
         if (score >= upOneCostNum) {
             score = score - upOneCostNum
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
-            upOneCostNum = upOneCostNum + (40 * (upOnePower ** 2));
+            upOneCostNum = upOneCostNum + (25 * (upOnePower ** 2));
             upOnePower = upOnePower + 1;
             jermaPower = jermaPower + 1;
             jermaSpeed = jermaSpeed - 0.1;
@@ -561,7 +561,7 @@ function startGame() {
     }
 
     function buyUpTwo() {
-        if(upTwoPower < 25) {
+        if(upTwoPower < 50) {
         if (score >= upTwoCostNum) {
             if(upTwoPower == 1) {
                 let jah = document.createElement("img")
@@ -570,7 +570,7 @@ function startGame() {
                 bodyVar.appendChild(jah);
             }
             score = score - upTwoCostNum
-            upTwoCostNum = upTwoCostNum + (200 * (upTwoPower ** 2));
+            upTwoCostNum = upTwoCostNum + (50 * (upTwoPower ** 2));
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             upTwoPower = upTwoPower + 1;
             upTwoCost.innerHTML = "$" + numberCommas(upTwoCostNum);
@@ -1022,7 +1022,7 @@ function buyUp18() {
     function jahClicker() {
         setTimeout(() => {
             if(upTwoPower >= 2) {
-                score = score + (jermaPower * upFourPower * (up11Power * up11Power));
+                score = score + ((jermaPower + upTwoPower) * upFourPower * (up11Power * up11Power));
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnJahParticle();
                 function spawnJahParticle() {
@@ -1049,7 +1049,7 @@ function buyUp18() {
                 }
             }
             jahClicker();
-        }, (2000 / (upTwoPower * up11Power)))
+        }, (1000 / (up11Power)))
     }
 
     function scottishClicker() {
