@@ -1,4 +1,4 @@
-let versionNum = "0.8.6";
+let versionNum = "0.8.7";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -282,7 +282,7 @@ function startGame() {
         if(upFivePower > 1) {
             if (bigClick == 10) {
                 bigClick = 0;
-                score = score + (jermaPower * upFivePower * upNinePower * (upFourPower * 10))
+                score = score + (jermaPower * upFivePower * upNinePower * upFourPower * 10)
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             } else {
             bigClick += 1;
