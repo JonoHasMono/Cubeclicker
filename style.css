@@ -1413,7 +1413,7 @@ body {
     text-align: center;
     border: 5px solid rgb(200, 100, 255);
     background-color: rgb(40, 25, 50);
-    box-shadow: 0 0 15px rgb(200, 1000, 255);
+    box-shadow: 0 0 15px rgb(200, 100, 255);
     transform: translate(-50%, -50%);
     animation: spin 10s linear infinite;
 }
