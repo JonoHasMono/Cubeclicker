@@ -1,4 +1,4 @@
-let versionNum = "0.6.7";
+let versionNum = "0.6.9";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -211,7 +211,7 @@ function startGame() {
     up14Desc.classList.add("up14D");
     up14Desc.innerHTML = "The whole planet now makes Jerma bucks for you"
     
-    let up15CostNum = 30000000
+    let up15CostNum = 12345678
     let up15Cost = document.createElement("div");
     up15Cost.classList.add("up15C");
     up15Cost.innerHTML = "$" + numberCommas(up15CostNum);
@@ -220,7 +220,7 @@ function startGame() {
     up15Desc.classList.add("up15D");
     up15Desc.innerHTML = "Obamahedron rules The Obamaverse, allowing him to gather even more Jerma bucks for you"
 
-    let up16CostNum = 15000000
+    let up16CostNum = 26000000
     let up16Cost = document.createElement("div");
     up16Cost.classList.add("up16C");
     up16Cost.innerHTML = "$" + numberCommas(up16CostNum);
@@ -1237,7 +1237,7 @@ function startGame() {
                     let duckParticleTop = 51;
                     let duckParticleSpeed = 0
                     duckParticle.classList.add("duckParticle");
-                    duckParticle.style.left = (39 + (Math.random() * 2)).toString() + "%"
+                    duckParticle.style.left = (49 + (Math.random() * 2)).toString() + "%"
                     duckParticle.style.top = duckParticleTop + "%"
                     bodyVar.appendChild(duckParticle);
                     moveParticle();
