@@ -56,7 +56,6 @@ function startGame() {
     let cubeVis = document.createElement("img");
     cubeVis.classList.add("cubeVis");
     cubeVis.setAttribute("src", "images/jerma.png");
-    cubeVis.addEventListener("click", jermaClicked);
     cube.appendChild(cubeVis);
 
     let version = document.createElement("div");

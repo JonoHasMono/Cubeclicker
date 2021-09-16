@@ -1393,9 +1393,9 @@ body {
     height: 15px;
     position: absolute;
     text-align: center;
-    border: .5px solid rgb(100,255,255);
+    border: .5px solid rgb(100,100,255);
     background-color: black;
-    box-shadow: 0 0 3px rgb(100,255,255);
+    box-shadow: 0 0 3px rgb(100,100,255);
     transform: translate(-50%, -50%);
     animation: spin 1s linear infinite;
     user-select: none;
