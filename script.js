@@ -1,4 +1,4 @@
-let versionNum = "0.8.0";
+let versionNum = "0.8.1";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -92,7 +92,7 @@ function startGame() {
     bodyVar.appendChild(upOneCost);
     let upOneDesc = document.createElement("div");
     upOneDesc.classList.add("up1D");
-    upOneDesc.innerHTML = "Jerma spins faster, granting more Jerma bucks per click"
+    upOneDesc.innerHTML = "Jerma spins faster, granting more Jerma bucks from all sources"
 
     let upTwoCostNum = 100
     let upTwoCost = document.createElement("div");
@@ -1060,7 +1060,7 @@ function buyUp18() {
             if (scottishChance > 0.5) {
 
             if(upThreePower >= 2) {
-                score = score + (jermaPower * upFourPower);
+                score = score + ((jermaPower + upThreePower) * upFourPower);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnScottishParticle();
                 function spawnScottishParticle() {
@@ -1088,12 +1088,12 @@ function buyUp18() {
             }
         }
             scottishClicker();
-        }, (500 / upThreePower))
+        }, (500))
     }
     function ohedClicker() {
         setTimeout(() => {
             if(upSixPower >= 2) {
-                score = score + ((jermaPower * upFourPower * up15Power) * 2);
+                score = score + (((jermaPower + upSixPower) * upFourPower * up15Power) * 2);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnOhedParticle();
                 function spawnOhedParticle() {
@@ -1120,7 +1120,7 @@ function buyUp18() {
                 }
             }
             ohedClicker();
-        }, (650 / upSixPower))
+        }, (650))
     }
 
     function creepyClicker() {
@@ -1128,7 +1128,7 @@ function buyUp18() {
             let creepyChance = Math.random();
             if (creepyChance > 0.925) {
             if(upSevenPower >= 2) {
-                score = score + ((jermaPower * upFourPower) * 6);
+                score = score + (((jermaPower + upSevenPower) * upFourPower) * 6);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnCreepyParticle();
                 function spawnCreepyParticle() {
@@ -1156,12 +1156,12 @@ function buyUp18() {
             }
         }
             creepyClicker();
-        }, (60 / upSevenPower))
+        }, 60)
     }
     function garfClicker() {
         setTimeout(() => {
             if(upEightPower >= 2) {
-                score = score + ((jermaPower * upFourPower) * 4);
+                score = score + (((jermaPower + upEightPower) * upFourPower) * 4);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnGarfParticle();
                 function spawnGarfParticle() {
@@ -1188,7 +1188,7 @@ function buyUp18() {
                 }
             }
             garfClicker();
-        }, (1000 / upEightPower))
+        }, 1000)
     }
 
     function hmmClicker() {
@@ -1196,7 +1196,7 @@ function buyUp18() {
             let hmmChance = Math.random();
             if (hmmChance > 0.90) {
             if(up10Power >= 2) {
-                score = score + ((jermaPower * upFourPower) * 25);
+                score = score + (((jermaPower + up10Power) * upFourPower) * 25);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnHmmParticle();
                 function spawnHmmParticle() {
@@ -1224,13 +1224,13 @@ function buyUp18() {
             }
         }
             hmmClicker();
-        }, (900 / up10Power))
+        }, 900)
     }
 
     function birbyClicker() {
         setTimeout(() => {
             if(up12Power >= 2) {
-                score = score + ((jermaPower * upFourPower) * 50);
+                score = score + (((jermaPower + up12Power) * upFourPower) * 50);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnBirbyParticle();
                 function spawnBirbyParticle() {
@@ -1257,13 +1257,13 @@ function buyUp18() {
                 }
             }
             birbyClicker();
-        }, (1500 / up12Power))
+        },1500)
     }
 
     function diamondClicker() {
         setTimeout(() => {
             if(up13Power >= 2) {
-                score = score + ((jermaPower * upFourPower) * (Math.floor(Math.random() * 100) * 10));
+                score = score + (((jermaPower + up13Power) * upFourPower) * (Math.floor(Math.random() * 100) * 10));
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnDiamondParticle();
                 function spawnDiamondParticle() {
@@ -1290,13 +1290,13 @@ function buyUp18() {
                 }
             }
             diamondClicker();
-        }, (2400 - (up13Power * 200)))
+        },2400)
     }
 
     function dripClicker() {
         setTimeout(() => {
             if(up14Power >= 2) {
-                score = score + ((jermaPower * upFourPower) * 150);
+                score = score + (((jermaPower + up14Power) * upFourPower) * 150);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnDripParticle();
                 function spawnDripParticle() {
@@ -1323,13 +1323,13 @@ function buyUp18() {
                 }
             }
             dripClicker();
-        }, (550 - (up14Power * 50)))
+        },550)
     }
 
     function duckClicker() {
         setTimeout(() => {
             if(up16Power >= 2) {
-                score = score + ((jermaPower * upFourPower) * 350);
+                score = score + (((jermaPower + up16Power) * upFourPower) * 350);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnDuckParticle();
                 function spawnDuckParticle() {
@@ -1356,13 +1356,13 @@ function buyUp18() {
                 }
             }
             duckClicker();
-        }, (550 - (up16Power * 25)))
+        },550)
     }
 
     function billClicker() {
         setTimeout(() => {
             if(up18Power >= 2) {
-                score = score + ((jermaPower * upFourPower) * 2500);
+                score = score + (((jermaPower + up18Power) * upFourPower) * 2500);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnBillParticle();
                 function spawnBillParticle() {
