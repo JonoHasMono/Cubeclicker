@@ -1,4 +1,4 @@
-let versionNum = "0.7.4";
+let versionNum = "0.7.6";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -245,7 +245,6 @@ function startGame() {
     let up18Cost = document.createElement("div");
     up18Cost.classList.add("up18C");
     up18Cost.innerHTML = "$" + numberCommas(up18CostNum);
-    bodyVar.appendChild(up18Cost);
     let up18Desc = document.createElement("div");
     up18Desc.classList.add("up18D");
     up18Desc.innerHTML = "C o n s i d e r" + "\xa0\xa0\xa0" + "t h e" + "\xa0\xa0\xa0" + "f o l l o w i n g"
@@ -405,7 +404,6 @@ function startGame() {
             upgrade18.classList.add("up18");
             upgrade18.addEventListener("mouseover", openUp18)
             upgrade18.addEventListener("click", buyUp18)
-            bodyVar.appendChild(upgrade18);
 
             let upgradeS1 = document.createElement("div");
             upgradeS1.classList.add("upS1");
@@ -864,6 +862,8 @@ function startGame() {
                 galaxy.classList.add("galaxy");
                 galaxy.setAttribute("src", "images/galaxy.jpg");
                 bodyVar.appendChild(galaxy);
+                bodyVar.appendChild(upgrade18);
+                bodyVar.appendChild(up18Cost);
             }
             score = score - up17CostNum
             upFourPower = upFourPower * 3;
@@ -902,13 +902,15 @@ function buyUp18() {
 
     function buyUpS1() {
         if(upS1Power == 1) {
+            if(score >= upS1CostNum) {
             score = score - upS1CostNum
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
-            upFourPower = upFourPower * 25;
+            upFourPower = upFourPower * 4;
         upgradeS1.style.animation = "spin 5s linear infinite";
         upS1Cost.innerHTML = "Maxed Out";
         bodyVar.appendChild(harry);
         bodyVar.appendChild(winston);
+            }
     }
     }
 
