@@ -1,4 +1,4 @@
-let versionNum = "0.6.4";
+let versionNum = "0.6.7";
 let score = 0
 let upOneOpen = false;
 let upTwoOpen = false;
@@ -485,6 +485,13 @@ function startGame() {
         }
     }
 
+    function openUp16() {
+        if (up16Open == false) {
+            up16Open = true;
+            bodyVar.appendChild(up16Desc);
+        }
+    }
+
     function openUpS1() {
         if (upS1Open == false) {
             upS1Open = true;
@@ -781,6 +788,27 @@ function startGame() {
     }
     }
 
+    function buyUp16() {
+        if(up16Power < 20) {
+        if (score >= up16CostNum) {
+            if(up16Power == 1) {
+                let duck = document.createElement("img")
+                duck.classList.add("duck");
+                duck.setAttribute("src", "images/duck.gif");
+                bodyVar.appendChild(duck);
+            }
+            score = score - up16CostNum
+            up16CostNum = up16CostNum + (350000 * (up16Power ** 2));
+            scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
+               up16Power = up16Power + 1;
+            up16Cost.innerHTML = "$" + numberCommas(up16CostNum);
+        }
+    } else {
+        upgrade16.style.animation = "spin 5s linear infinite";
+        up16Cost.innerHTML = "Maxed Out";
+    }
+    }
+
     function buyUpS1() {
         if(upS1Power == 1) {
             score = score - upS1CostNum
@@ -859,6 +887,10 @@ function startGame() {
         if(up15Open == true) {
             up15Open = false;
             bodyVar.removeChild(up15Desc);
+        }
+        if(up16Open == true) {
+            up16Open = false;
+            bodyVar.removeChild(up16Desc);
         }
         if(upS1Open == true) {
             upS1Open = false;
@@ -1194,6 +1226,39 @@ function startGame() {
         }, (550 - (up14Power * 50)))
     }
 
+    function duckClicker() {
+        setTimeout(() => {
+            if(up16Power >= 2) {
+                score = score + ((jermaPower * upFourPower) * 350);
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
+                spawnDuckParticle();
+                function spawnDuckParticle() {
+                    let duckParticle = document.createElement("div");
+                    let duckParticleTop = 51;
+                    let duckParticleSpeed = 0
+                    duckParticle.classList.add("duckParticle");
+                    duckParticle.style.left = (39 + (Math.random() * 2)).toString() + "%"
+                    duckParticle.style.top = duckParticleTop + "%"
+                    bodyVar.appendChild(duckParticle);
+                    moveParticle();
+                    function moveParticle() {
+                        setTimeout(() => {
+                            if (duckParticleTop < 100) {
+                            duckParticleTop = duckParticleTop + duckParticleSpeed;
+                            duckParticleSpeed = duckParticleSpeed + 0.05;
+                            duckParticle.style.top = duckParticleTop + "%";
+                            moveParticle()
+                            } else {
+                                bodyVar.removeChild(duckParticle);
+                            }
+                        }, 10)
+                    }
+                }
+            }
+            duckClicker();
+        }, (550 - (up16Power * 25)))
+    }
+
     jahClicker();
     scottishClicker(); 
     ohedClicker();
@@ -1203,6 +1268,13 @@ function startGame() {
     birbyClicker();
     diamondClicker();
     dripClicker();
+    duckClicker();
+    setTimeout(() => {
+        duckClicker();
+    }, 50)
+    setTimeout(() => {
+        duckClicker();
+    }, 100)
 }
 
 
