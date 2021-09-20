@@ -1,4 +1,4 @@
-let versionNum = "0.9.2";
+let versionNum = "0.9.3";
 let score = 0
 let dJBucks = 0;
 let dJPower = 1;
@@ -23,6 +23,7 @@ let up16Open = false;
 let up17Open = false;
 let up18Open = false;
 let upS1Open = false;
+let upD1Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 11;
@@ -44,6 +45,7 @@ let up16Power = 1;
 let up17Power = 1;
 let up18Power = 1;
 let upS1Power = 1;
+let upD1Power = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -54,6 +56,10 @@ function startGame() {
     }
 
     document.body.appendChild(bodyVar);
+
+    let lowerLimit = document.createElement("div");
+    lowerLimit.classList.add("lowerLimit");
+    bodyVar.appendChild(lowerLimit);
 
     let cube = document.createElement("div");
     cube.classList.add("mainCube");
@@ -281,6 +287,18 @@ function startGame() {
     let upS1Desc = document.createElement("div");
     upS1Desc.classList.add("upS1D");
     upS1Desc.innerHTML = "Balls"
+
+    let upD1CostNum = 5
+    let upD1Cost = document.createElement("div");
+    upD1Cost.classList.add("upD1C");
+    bodyVar.appendChild(upD1Cost);
+    upD1Cost.innerHTML = "$" + numberCommas(upD1CostNum);
+    let upD1Desc = document.createElement("div");
+    upD1Desc.classList.add("upD1D");
+    upD1Desc.innerHTML = "Manual clicks are worth double."
+    let upD1Desc2 = document.createElement("div");
+    upD1Desc2.classList.add("upD1D2");
+    upD1Desc2.innerHTML = "Manual clicks are worth double."
     
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
@@ -310,15 +328,15 @@ function startGame() {
         if(upFivePower > 1) {
             if (bigClick == 10) {
                 bigClick = 0;
-                score = score + (jermaPower + upFivePower * upNinePower * upFourPower * 4)
+                score = score + (jermaPower + upFivePower * upD1Power * upNinePower * upFourPower * 4)
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             } else {
             bigClick += 1;
-            score = score + (jermaPower * upFourPower * upNinePower)
+            score = score + (jermaPower * upD1Power * upFourPower * upNinePower)
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             }
         } else {
-        score = score + (jermaPower * upFourPower * upNinePower)
+        score = score + (jermaPower * upD1Power * upFourPower * upNinePower)
         scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
         }
         darkJermaClick();
@@ -455,6 +473,12 @@ function startGame() {
             upgradeS1.addEventListener("click", buyUpS1)
             bodyVar.appendChild(upgradeS1);
 
+            let upgradeD1 = document.createElement("div");
+            upgradeD1.classList.add("upD1");
+            upgradeD1.addEventListener("mouseover", openUpD1)
+            upgradeD1.addEventListener("click", buyUpD1)
+            bodyVar.appendChild(upgradeD1);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -588,6 +612,16 @@ function startGame() {
             bodyVar.appendChild(upS1Cost);
         }
     }
+
+    function openUpD1() {
+        if (upD1Open == false) {
+            upD1Open = true;
+            bodyVar.appendChild(upD1Desc);
+            bodyVar.appendChild(upD1Desc2);
+            bodyVar.appendChild(upD1Cost);
+        }
+    }
+
 
     function buyUpOne() {
         if(upOnePower < 100) {
@@ -961,6 +995,17 @@ function buyUp18() {
     }
 
 
+    function buyUpD1() {
+        if(upD1Power == 1) {
+            if(dJBucks >= upD1CostNum) {
+            dJBucks = dJBucks - upD1CostNum
+            dJBucksNum.innerHTML = "$" + numberCommas(dJBucks);
+            upD1Power = upD1Power * 2;
+        upD1Cost.innerHTML = "Maxed Out";
+            }
+    }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -1044,6 +1089,11 @@ function buyUp18() {
             bodyVar.removeChild(upS1Desc);
             bodyVar.removeChild(upS1Cost);
         }
+        if(upD1Open == true) {
+            upD1Open = false;
+            bodyVar.removeChild(upD1Desc);
+            bodyVar.removeChild(upD1Desc2);
+        }
     }
 
     document.addEventListener('keydown', logKey);
@@ -1061,9 +1111,13 @@ function buyUp18() {
         jermaClicked();
           } else if (key == ' KeyP') {
             score = Infinity;
+            dJBucks = 10000;
+            dJBucksNum.innerHTML = "$" + numberCommas(dJBucks);
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
         } else if (key == ' KeyO') {
             score = 0;
+            dJBucks = 0;
+            dJBucksNum.innerHTML = "$" + numberCommas(dJBucks);
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
           }
     }

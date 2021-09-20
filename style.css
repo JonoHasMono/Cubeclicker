@@ -3,13 +3,13 @@ body {
     height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    overflow: hidden;
     user-select: none;
     animation: bg 6 ease infinite;
     -webkit-user-drag: none; 
     -khtml-user-drag: none; 
     -moz-user-drag: none; 
     -o-user-drag: none; 
+    overflow-x: hidden;
 }
 
 @keyframes bg {
@@ -237,7 +237,7 @@ body {
 
 .upDel {
     width: 100%;
-    height: 100%;
+    height: 150%;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -1306,6 +1306,107 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.upD1 {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    position: absolute;
+    left: 5%;
+    top: 110%;
+    text-align: center;
+    border: 5px solid rgb(255, 0, 0);
+    background-color: rgb(50, 0, 0);
+    box-shadow: 0 0 15px rgb(255, 0, 0);
+    transform: translate(-50%, -50%);
+    animation: spin 10s linear infinite;
+    opacity: 1;
+}
+.upD1:hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 15px rgb(255, 0, 0), 0 0 25px rgb(255, 0, 0);
+    opacity: 1;
+    cursor: pointer;
+}
+.upD1D {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 102.5%;
+    font-size: 200%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 35px red, 0 0 10px red;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    animation: rainbow 0.5s linear infinite;
+}
+@keyframes rainbow {
+    0% {
+        text-shadow: 0 0 35px red, 0 0 10px red;
+    }
+    33% {
+        text-shadow: 0 0 35px limegreen, 0 0 10px limegreen;
+    }
+    66% {
+        text-shadow: 0 0 35px blue, 0 0 10px blue;
+    }
+    100% {
+        text-shadow: 0 0 35px red, 0 0 10px red;
+    }
+}
+.upD1D2 {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 102.5%;
+    font-size: 200%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 35px white, 0 0 10px white;
+    transform: translate(-50%, -50%);
+    opacity: 0.75;
+    animation: jitterDark 0.2s linear infinite;
+}
+.upD1C {
+    position: absolute;
+    width: 100%;
+    left: 7.5%;
+    top: 125%;
+    font-size: 150%;
+    color: red;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px red;
+    text-shadow: 0 0 5px red;
+    transform: translate(-50%, -50%);
+}
+@keyframes jitterDark {
+    0% {
+        top: 102.5%;
+        left: 49%;
+    }
+    25% {
+        top: 102%;
+        left: 50%;
+    }
+    50% {
+        top: 102.5%;
+        left: 51%;
+    }
+    75% {
+        top: 103%;
+        left: 50%;
+    }
+    100% {
+        top: 102.5%;
+        left: 49%;
+    }
+}
+
 .harry {
     position: absolute;
     text-align: center;
@@ -1633,4 +1734,13 @@ body {
     animation: spin 1s linear infinite;
     user-select: none;
     z-index: -3;
+}
+
+.lowerLimit {
+    position: absolute;
+    left: 50%;
+    top: 130%;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
 }
