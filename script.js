@@ -1,8 +1,9 @@
-let versionNum = "0.9.0";
+let versionNum = "0.9.2";
 let score = 0
 let dJBucks = 0;
-let dJPower = 0;
+let dJPower = 1;
 let dJBarWidth = 5;
+let dJBarLeft = 95;
 let upOneOpen = false;
 let upTwoOpen = false;
 let upThreeOpen = false;
@@ -77,11 +78,17 @@ function startGame() {
     let dJBar = document.createElement("div");
     dJBar.classList.add("dJBar");
     dJBar.style.width = dJBarWidth + "px";
+    dJBar.style.left = dJBarLeft + "px";
     bodyVar.appendChild(dJBar);
 
     let dJBarBorder = document.createElement("div");
     dJBarBorder.classList.add("dJBarBorder");
     bodyVar.appendChild(dJBarBorder);
+
+    let dJBucksNum = document.createElement("div");
+    dJBucksNum.classList.add("dJBucksNum");
+    dJBucksNum.innerHTML = "$" + dJBucks;
+    bodyVar.appendChild(dJBucksNum);
 
     let version = document.createElement("div");
     version.classList.add("version");
@@ -321,7 +328,17 @@ function startGame() {
         if(dJPower < 250) {
             dJPower += 1;
             dJBarWidth += 1;
+            dJBarLeft += 0.5;
             dJBar.style.width = dJBarWidth + "px";
+            dJBar.style.left = dJBarLeft + "px";
+        } else {
+            dJBucks += 1;
+            dJPower = 1;
+            dJBarWidth = 5;
+            dJBarLeft = 95;
+            dJBar.style.width = dJBarWidth + "px";
+            dJBar.style.left = dJBarLeft + "px";
+            dJBucksNum.innerHTML = "$" + numberCommas(dJBucks);
         }
     }
 
