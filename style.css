@@ -69,8 +69,22 @@ body {
     -o-user-drag: none; 
 }
 
+.dJBar {
+    width: 5px;
+    height: 15px;
+    position: absolute;
+    left: 6.5%;
+    top: 25%;
+    text-align: center;
+    background-color: red;
+    box-shadow: 0 0 5px red;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    z-index: 2;
+}
+
 .dJBarBorder {
-    width: 250px;
+    width: 255px;
     height: 20px;
     position: absolute;
     left: 15%;

@@ -2,6 +2,7 @@ let versionNum = "0.9.0";
 let score = 0
 let dJBucks = 0;
 let dJPower = 0;
+let dJBarWidth = 5;
 let upOneOpen = false;
 let upTwoOpen = false;
 let upThreeOpen = false;
@@ -75,6 +76,7 @@ function startGame() {
 
     let dJBar = document.createElement("div");
     dJBar.classList.add("dJBar");
+    dJBar.style.width = dJBarWidth + "px";
     bodyVar.appendChild(dJBar);
 
     let dJBarBorder = document.createElement("div");
@@ -309,7 +311,6 @@ function startGame() {
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             }
         } else {
-
         score = score + (jermaPower * upFourPower * upNinePower)
         scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
         }
@@ -317,7 +318,11 @@ function startGame() {
     }
 
     function darkJermaClick() {
-
+        if(dJPower < 250) {
+            dJPower += 1;
+            dJBarWidth += 1;
+            dJBar.style.width = dJBarWidth + "px";
+        }
     }
 
             let upgradeOne = document.createElement("div");
