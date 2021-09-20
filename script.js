@@ -1,5 +1,7 @@
-let versionNum = "0.8.9";
+let versionNum = "0.9.0";
 let score = 0
+let dJBucks = 0;
+let dJPower = 0;
 let upOneOpen = false;
 let upTwoOpen = false;
 let upThreeOpen = false;
@@ -61,6 +63,23 @@ function startGame() {
     cubeVis.classList.add("cubeVis");
     cubeVis.setAttribute("src", "images/jerma.png");
     cube.appendChild(cubeVis);
+
+    let dCube = document.createElement("div");
+    dCube.classList.add("dCube");
+    bodyVar.appendChild(dCube);
+
+    let dCubeVis = document.createElement("img");
+    dCubeVis.classList.add("dCubeVis");
+    dCubeVis.setAttribute("src", "images/darkjerma.jpeg");
+    dCube.appendChild(dCubeVis);
+
+    let dJBar = document.createElement("div");
+    dJBar.classList.add("dJBar");
+    bodyVar.appendChild(dJBar);
+
+    let dJBarBorder = document.createElement("div");
+    dJBarBorder.classList.add("dJBarBorder");
+    bodyVar.appendChild(dJBarBorder);
 
     let version = document.createElement("div");
     version.classList.add("version");
@@ -290,9 +309,15 @@ function startGame() {
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             }
         } else {
+
         score = score + (jermaPower * upFourPower * upNinePower)
         scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
         }
+        darkJermaClick();
+    }
+
+    function darkJermaClick() {
+
     }
 
             let upgradeOne = document.createElement("div");
