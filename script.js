@@ -1,4 +1,4 @@
-let versionNum = "0.9.5";
+let versionNum = "0.9.6";
 let score = 0
 let dJBucks = 0;
 let dJPower = 1;
@@ -357,10 +357,10 @@ function startGame() {
     }
 
     function darkJermaClick() {
-        if(dJPower < 250) {
+        if(dJPower < 125) {
             dJPower += 1;
-            dJBarWidth += 1;
-            dJBarLeft += 0.5;
+            dJBarWidth += 2;
+            dJBarLeft += 1;
             dJBar.style.width = dJBarWidth + "px";
             dJBar.style.left = dJBarLeft + "px";
         } else {
