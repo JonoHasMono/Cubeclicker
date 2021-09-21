@@ -1,4 +1,4 @@
-let versionNum = "0.9.4";
+let versionNum = "0.9.5";
 let score = 0
 let dJBucks = 0;
 let dJPower = 1;
@@ -24,6 +24,7 @@ let up17Open = false;
 let up18Open = false;
 let upS1Open = false;
 let upD1Open = false;
+let upD2Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 11;
@@ -46,6 +47,7 @@ let up17Power = 1;
 let up18Power = 1;
 let upS1Power = 1;
 let upD1Power = 1;
+let upD2Power = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -300,6 +302,18 @@ function startGame() {
     upD1Desc2.classList.add("upD1D2");
     upD1Desc2.innerHTML = "Manual clicks are worth double."
     
+    let upD2CostNum = 10
+    let upD2Cost = document.createElement("div");
+    upD2Cost.classList.add("upD2C");
+    bodyVar.appendChild(upD2Cost);
+    upD2Cost.innerHTML = "$" + numberCommas(upD2CostNum);
+    let upD2Desc = document.createElement("div");
+    upD2Desc.classList.add("upD2D");
+    upD2Desc.innerHTML = "Adds an autoclicker that manually clicks Jerma, gaining benefits from your manual upgrades"
+    let upD2Desc2 = document.createElement("div");
+    upD2Desc2.classList.add("upD2D2");
+    upD2Desc2.innerHTML = "Adds an autoclicker that manually clicks Jerma, gaining benefits from your manual upgrades"
+    
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
         let particleTop = 47;
@@ -479,6 +493,12 @@ function startGame() {
             upgradeD1.addEventListener("click", buyUpD1)
             bodyVar.appendChild(upgradeD1);
 
+            let upgradeD2 = document.createElement("div");
+            upgradeD2.classList.add("upD2");
+            upgradeD2.addEventListener("mouseover", openUpD2)
+            upgradeD2.addEventListener("click", buyUpD2)
+            bodyVar.appendChild(upgradeD2);
+
     function openUpOne() {
         if (upOneOpen == false) {
             upOneOpen = true;
@@ -619,6 +639,15 @@ function startGame() {
             bodyVar.appendChild(upD1Desc);
             bodyVar.appendChild(upD1Desc2);
             bodyVar.appendChild(upD1Cost);
+        }
+    }
+
+    function openUpD2() {
+        if (upD2Open == false) {
+            upD2Open = true;
+            bodyVar.appendChild(upD2Desc);
+            bodyVar.appendChild(upD2Desc2);
+            bodyVar.appendChild(upD2Cost);
         }
     }
 
@@ -1006,6 +1035,28 @@ function buyUp18() {
     }
     }
 
+    function buyUpD2() {
+        if(upD2Power < 2) {
+            if(dJBucks >= upD2CostNum) {
+            dJBucks = dJBucks - upD2CostNum;
+            upD2CostNum = upD2CostNum + 5;
+            upD2Cost.innerHTML = "$" + upD2CostNum;
+            dJBucksNum.innerHTML = "$" + numberCommas(dJBucks);
+            upD2Power = upD2Power + 1;
+            }
+        } else {
+            if(dJBucks >= upD2CostNum) {
+                dJBucks = dJBucks - upD2CostNum;
+                upD2CostNum = upD2CostNum + 5;
+                upD2Cost.innerHTML = "$" + upD2CostNum;
+                dJBucksNum.innerHTML = "$" + numberCommas(dJBucks);
+                upD2Power = upD2Power + 1;
+                upD2Cost.innerHTML = "Maxed Out";
+                }
+            }
+    
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -1093,6 +1144,11 @@ function buyUp18() {
             upD1Open = false;
             bodyVar.removeChild(upD1Desc);
             bodyVar.removeChild(upD1Desc2);
+        }
+        if(upD2Open == true) {
+            upD2Open = false;
+            bodyVar.removeChild(upD2Desc);
+            bodyVar.removeChild(upD2Desc2);
         }
     }
 
@@ -1493,6 +1549,17 @@ function buyUp18() {
         },250)
     }
 
+    function darkClicker() {
+        setTimeout(() => {
+            if(upD2Power >= 2) {
+                score = score + ((jermaPower + upD2Power) * upFourPower * upD2Power);
+                scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
+                jermaClicked();
+            }
+            darkClicker();
+        }, (1000 / (upD2Power)))
+    }
+
     jahClicker();
     scottishClicker(); 
     ohedClicker();
@@ -1510,6 +1577,7 @@ function buyUp18() {
         duckClicker();
     }, 100)
     billClicker();
+    darkClicker();
 }
 
 
