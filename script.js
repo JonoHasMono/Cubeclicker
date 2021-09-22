@@ -1,4 +1,4 @@
-let versionNum = "0.9.7";
+let versionNum = "0.9.8";
 let score = 0
 let dJBucks = 0;
 let dJPower = 1;
@@ -25,6 +25,7 @@ let up18Open = false;
 let upS1Open = false;
 let upD1Open = false;
 let upD2Open = false;
+let upD3Open = false;
 let jermaPower = 1;
 let upOnePower = 1;
 let jermaSpeed = 11;
@@ -48,6 +49,7 @@ let up18Power = 1;
 let upS1Power = 1;
 let upD1Power = 1;
 let upD2Power = 1;
+let upD3Power = 1;
 let bigClick = 0;
 
 function startGame() {
@@ -309,10 +311,22 @@ function startGame() {
     upD2Cost.innerHTML = "$" + numberCommas(upD2CostNum);
     let upD2Desc = document.createElement("div");
     upD2Desc.classList.add("upD2D");
-    upD2Desc.innerHTML = "Adds an autoclicker that manually clicks Jerma, gaining benefits from your manual upgrades"
+    upD2Desc.innerHTML = "Adds an autoclicker that manually clicks Jerma, gaining benefits from your manual upgrades."
     let upD2Desc2 = document.createElement("div");
     upD2Desc2.classList.add("upD2D2");
-    upD2Desc2.innerHTML = "Adds an autoclicker that manually clicks Jerma, gaining benefits from your manual upgrades"
+    upD2Desc2.innerHTML = "Adds an autoclicker that manually clicks Jerma, gaining benefits from your manual upgrades."
+
+    let upD3CostNum = 25
+    let upD3Cost = document.createElement("div");
+    upD3Cost.classList.add("upD3C");
+    bodyVar.appendChild(upD3Cost);
+    upD3Cost.innerHTML = "$" + numberCommas(upD3CostNum);
+    let upD3Desc = document.createElement("div");
+    upD3Desc.classList.add("upD3D");
+    upD3Desc.innerHTML = "Increases manual click power for each Dark Jerma buck that you own."
+    let upD3Desc2 = document.createElement("div");
+    upD3Desc2.classList.add("upD3D2");
+    upD3Desc2.innerHTML = "Increases manual click power for each Dark Jerma buck that you own."
     
     function spawnCubeParticle() {
         let cubeParticle = document.createElement("div");
@@ -338,19 +352,20 @@ function startGame() {
     }
 
     function jermaClicked() {
+        let upD3ClickPower = (dJBucks * 2);
         spawnCubeParticle();
         if(upFivePower > 1) {
             if (bigClick == 10) {
                 bigClick = 0;
-                score = score + (jermaPower * upD1Power * upNinePower * upFourPower * 2 * upFivePower);
+                score = score + upD3ClickPower + (jermaPower * upD1Power * upNinePower * upFourPower * 2 * upFivePower);
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             } else {
             bigClick += 1;
-            score = score + (jermaPower * upD1Power * upFourPower * upNinePower)
+            score = score + upD3ClickPower + (jermaPower * upD1Power * upFourPower * upNinePower)
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             }
         } else {
-        score = score + (jermaPower * upD1Power * upFourPower * upNinePower)
+        score = score + upD3ClickPower + (jermaPower * upD1Power * upFourPower * upNinePower)
         scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
         }
         darkJermaClick();
@@ -498,6 +513,12 @@ function startGame() {
             upgradeD2.addEventListener("mouseover", openUpD2)
             upgradeD2.addEventListener("click", buyUpD2)
             bodyVar.appendChild(upgradeD2);
+
+            let upgradeD3 = document.createElement("div");
+            upgradeD3.classList.add("upD3");
+            upgradeD3.addEventListener("mouseover", openUpD3)
+            upgradeD3.addEventListener("click", buyUpD3)
+            bodyVar.appendChild(upgradeD3);
 
     function openUpOne() {
         if (upOneOpen == false) {
@@ -648,6 +669,15 @@ function startGame() {
             bodyVar.appendChild(upD2Desc);
             bodyVar.appendChild(upD2Desc2);
             bodyVar.appendChild(upD2Cost);
+        }
+    }
+
+    function openUpD3() {
+        if (upD3Open == false) {
+            upD3Open = true;
+            bodyVar.appendChild(upD3Desc);
+            bodyVar.appendChild(upD3Desc2);
+            bodyVar.appendChild(upD3Cost);
         }
     }
 
@@ -1057,6 +1087,18 @@ function buyUp18() {
     
     }
 
+    function buyUpD3() {
+        if(upD3Power == 1) {
+            if(dJBucks >= upD3CostNum) {
+            dJBucks = dJBucks - upD3CostNum;
+            upD3CostNum = upD3CostNum + 5;
+            upD3Cost.innerHTML = "Maxed Out";
+            dJBucksNum.innerHTML = "$" + numberCommas(dJBucks);
+            upD3Power = upD3Power + 1;
+            }
+        }
+    }
+
     let upDel = document.createElement("div");
     upDel.classList.add("upDel");
     upDel.addEventListener("mouseover", delUpDesc);
@@ -1150,6 +1192,11 @@ function buyUp18() {
             bodyVar.removeChild(upD2Desc);
             bodyVar.removeChild(upD2Desc2);
         }
+        if(upD3Open == true) {
+            upD3Open = false;
+            bodyVar.removeChild(upD3Desc);
+            bodyVar.removeChild(upD3Desc2);
+        }
     }
 
     document.addEventListener('keydown', logKey);
@@ -1175,7 +1222,9 @@ function buyUp18() {
             dJBucks = 0;
             dJBucksNum.innerHTML = "$" + numberCommas(dJBucks);
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
-          }
+          } else if (key == ' KeyM') {
+            jermaClicked();
+              }
     }
 
     function jahClicker() {
