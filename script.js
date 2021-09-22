@@ -358,6 +358,9 @@ function startGame() {
             if (bigClick == 10) {
                 bigClick = 0;
                 score = score + upD3ClickPower + (jermaPower * upD1Power * upNinePower * upFourPower * 2 * upFivePower);
+                darkJermaClick();
+                darkJermaClick();
+                darkJermaClick();
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
             } else {
             bigClick += 1;
