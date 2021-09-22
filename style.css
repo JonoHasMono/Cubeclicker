@@ -1809,3 +1809,68 @@ body {
     text-shadow: 0 0 5px red;
     transform: translate(-50%, -50%);
 }
+
+.upD3 {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    position: absolute;
+    left: 25%;
+    top: 110%;
+    text-align: center;
+    border: 5px solid rgb(255, 0, 0);
+    background-color: rgb(50, 0, 0);
+    box-shadow: 0 0 15px rgb(255, 0, 0);
+    transform: translate(-50%, -50%);
+    animation: spin 10s linear infinite;
+    opacity: 1;
+}
+.upD3:hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 15px rgb(255, 0, 0), 0 0 25px rgb(255, 0, 0);
+    opacity: 1;
+    cursor: pointer;
+}
+.upD3D {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 102.5%;
+    font-size: 200%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 35px red, 0 0 10px red;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    animation: rainbow 0.5s linear infinite;
+}
+.upD3D2 {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 102.5%;
+    font-size: 200%;
+    color: white;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 35px white, 0 0 10px white;
+    transform: translate(-50%, -50%);
+    opacity: 0.75;
+    animation: jitterDark 0.2s linear infinite;
+}
+.upD3C {
+    position: absolute;
+    width: 100%;
+    left: 27.5%;
+    top: 125%;
+    font-size: 150%;
+    color: red;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-text-stroke: 1px red;
+    text-shadow: 0 0 5px red;
+    transform: translate(-50%, -50%);
+}
