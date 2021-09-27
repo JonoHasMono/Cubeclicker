@@ -1,4 +1,4 @@
-let versionNum = "0.9.8";
+let versionNum = "1.0.0";
 let score = 0
 let dJBucks = 0;
 let dJPower = 1;
@@ -49,7 +49,7 @@ let up18Power = 1;
 let upS1Power = 1;
 let upD1Power = 1;
 let upD2Power = 1;
-let upD3Power = 1;
+let upD3Power = 0;
 let bigClick = 0;
 
 function startGame() {
@@ -352,7 +352,7 @@ function startGame() {
     }
 
     function jermaClicked() {
-        let upD3ClickPower = (dJBucks * 2);
+        let upD3ClickPower = (dJBucks * 10 * upD3Power);
         spawnCubeParticle();
         if(upFivePower > 1) {
             if (bigClick == 10) {
@@ -894,7 +894,7 @@ function startGame() {
         if(up11Power == 1) {
             score = score - up11CostNum
             scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
-            up11Power = 2;
+            up11Power = 3;
         upgrade11.style.animation = "spin 5s linear infinite";
         up11Cost.innerHTML = "Maxed Out";
     }
@@ -1091,14 +1091,20 @@ function buyUp18() {
     }
 
     function buyUpD3() {
-        if(upD3Power == 1) {
+        if(upD3Power == 0) {
             if(dJBucks >= upD3CostNum) {
+            dJBucks = dJBucks - upD3CostNum;
+            upD3CostNum = upD3CostNum + 25;
+            upD3Cost.innerHTML = "$" + upD3CostNum;
+            dJBucksNum.innerHTML = "$" + numberCommas(dJBucks);
+            upD3Power = upD3Power + 1;
+            }
+        } else if (upD3Power == 1) {
             dJBucks = dJBucks - upD3CostNum;
             upD3CostNum = upD3CostNum + 5;
             upD3Cost.innerHTML = "Maxed Out";
             dJBucksNum.innerHTML = "$" + numberCommas(dJBucks);
-            upD3Power = upD3Power + 1;
-            }
+            upD3Power = upD3Power + 3;
         }
     }
 
@@ -1439,7 +1445,7 @@ function buyUp18() {
     function birbyClicker() {
         setTimeout(() => {
             if(up12Power >= 2) {
-                score = score + (((jermaPower + (5 * up12Power)) * upFourPower) * 50);
+                score = score + (((jermaPower + (5 * up12Power)) * upFourPower) * 80);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnBirbyParticle();
                 function spawnBirbyParticle() {
@@ -1472,7 +1478,7 @@ function buyUp18() {
     function diamondClicker() {
         setTimeout(() => {
             if(up13Power >= 2) {
-                score = score + (((jermaPower + (8 * up13Power)) * upFourPower) * (Math.floor(Math.random() * 100) * 10));
+                score = score + (((jermaPower + (8 * up13Power)) * upFourPower) * (Math.floor(Math.random() * 150) * 10));
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnDiamondParticle();
                 function spawnDiamondParticle() {
@@ -1505,7 +1511,7 @@ function buyUp18() {
     function dripClicker() {
         setTimeout(() => {
             if(up14Power >= 2) {
-                score = score + (((jermaPower + (10 * up14Power)) * upFourPower) * 150);
+                score = score + (((jermaPower + (10 * up14Power)) * upFourPower) * 500);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnDripParticle();
                 function spawnDripParticle() {
@@ -1538,7 +1544,7 @@ function buyUp18() {
     function duckClicker() {
         setTimeout(() => {
             if(up16Power >= 2) {
-                score = score + (((jermaPower + (25 * up16Power)) * upFourPower) * 350);
+                score = score + (((jermaPower + (25 * up16Power)) * upFourPower) * 8000);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnDuckParticle();
                 function spawnDuckParticle() {
@@ -1571,7 +1577,7 @@ function buyUp18() {
     function billClicker() {
         setTimeout(() => {
             if(up18Power >= 2) {
-                score = score + (((jermaPower + up18Power) * upFourPower) * 10000);
+                score = score + (((jermaPower + up18Power) * upFourPower) * 690000);
                 scoreTop.innerHTML = "You have " + numberCommas(score) + " Jerma bucks";
                 spawnBillParticle();
                 function spawnBillParticle() {
